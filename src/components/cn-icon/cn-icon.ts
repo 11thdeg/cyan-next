@@ -1,11 +1,11 @@
 /**
  * This is a wrapper lit component for the lazy loading of icons.
  */
-import {customElement, property} from 'lit/decorators.js';
-import {LitElement, css} from 'lit';
-import {until} from 'lit-html/directives/until.js';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import './styles.css';
+import {customElement, property} from 'lit/decorators.js'
+import {LitElement, css} from 'lit'
+import {until} from 'lit-html/directives/until.js'
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'
+import './styles.css'
 
 @customElement('cn-icon')
 export class CnIcon extends LitElement {
@@ -26,10 +26,10 @@ export class CnIcon extends LitElement {
     }`
 
   @property({type: String, reflect: true})
-  public noun: string = "";
+  public noun: string = ''
 
   @property({type: Boolean, reflect: true})
-  small?: boolean = false;
+    small?: boolean = false
 
   // private debug = true
   loadingIcon = `<svg 
@@ -54,7 +54,7 @@ export class CnIcon extends LitElement {
 </svg>`
 
   protected render() {
-    const content = fetch('./icons/'+this.noun + ".svg").then(r => 
+    const content = fetch('./icons/'+this.noun + '.svg').then(r => 
       r.status === 200 ? r.text().then(iconString => unsafeHTML(iconString)) : unsafeHTML(this.loadingIcon)
     )
     console.debug('cn-icon',this.noun, content)
@@ -66,13 +66,13 @@ export class CnIcon extends LitElement {
 
 // Make this available to react/preact/solid
 declare global {
-    interface HTMLElementTagNameMap {
-      "cn-icon": CnIcon;
-    }
-    /* eslint-disable @typescript-eslint/no-namespace */
-    namespace JSX {
-      interface IntrinsicElements {
-        "cn-icon": CnIcon;
-      }
+  interface HTMLElementTagNameMap {
+    'cn-icon': CnIcon;
+  }
+  /* eslint-disable @typescript-eslint/no-namespace */
+  namespace JSX {
+    interface IntrinsicElements {
+      'cn-icon': CnIcon;
     }
   }
+}
