@@ -1,0 +1,14 @@
+// *** Breakpoints ****************************************************
+
+// wd- above this
+$breakpoint-wide:   1365px
+// md- between this and the next
+$breakpoint-medium: 960px
+// sm- between this and the next
+$breakpoint-small:   620px
+// xs- below this
+
+// *** Media queries **************************************************
+@mixin media-query-md-and-up
+  @media screen and (min-width: $breakpoint-small + 1px)
+    @content
