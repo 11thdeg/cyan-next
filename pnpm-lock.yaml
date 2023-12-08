@@ -1,8 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
+  lit: ^3.1.0
+  lit-html: ^3.1.0
   typescript: ^5.2.2
   vite: ^5.0.0
+
+dependencies:
+  lit: 3.1.0
+  lit-html: 3.1.0
 
 devDependencies:
   typescript: 5.3.3
@@ -208,6 +214,16 @@ packages:
     dev: true
     optional: true
 
+  /@lit-labs/ssr-dom-shim/1.1.2:
+    resolution: {integrity: sha512-jnOD+/+dSrfTWYfSXBXlo5l5f0q1UuJo3tkbMDCYA2lKUYq79jaxqtGEvnRoh049nt1vdo1+45RinipU6FGY2g==}
+    dev: false
+
+  /@lit/reactive-element/2.0.2:
+    resolution: {integrity: sha512-SVOwLAWUQg3Ji1egtOt1UiFe4zdDpnWHyc5qctSceJ5XIu0Uc76YmGpIjZgx9YJ0XtdW0Jm507sDvjOu+HnB8w==}
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.1.2
+    dev: false
+
   /@rollup/rollup-android-arm-eabi/4.7.0:
     resolution: {integrity: sha512-rGku10pL1StFlFvXX5pEv88KdGW6DHUghsxyP/aRYb9eH+74jTGJ3U0S/rtlsQ4yYq1Hcc7AMkoJOb1xu29Fxw==}
     cpu: [arm]
@@ -312,6 +328,10 @@ packages:
     dev: true
     optional: true
 
+  /@types/trusted-types/2.0.7:
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+    dev: false
+
   /esbuild/0.19.8:
     resolution: {integrity: sha512-l7iffQpT2OrZfH2rXIp7/FkmaeZM0vxbxN9KfiCwGYuZqzMg/JdvX26R31Zxn/Pxvsrg3Y9N6XTcnknqDyyv4w==}
     engines: {node: '>=12'}
@@ -349,6 +369,28 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /lit-element/4.0.2:
+    resolution: {integrity: sha512-/W6WQZUa5VEXwC7H9tbtDMdSs9aWil3Ou8hU6z2cOKWbsm/tXPAcsoaHVEtrDo0zcOIE5GF6QgU55tlGL2Nihg==}
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.1.2
+      '@lit/reactive-element': 2.0.2
+      lit-html: 3.1.0
+    dev: false
+
+  /lit-html/3.1.0:
+    resolution: {integrity: sha512-FwAjq3iNsaO6SOZXEIpeROlJLUlrbyMkn4iuv4f4u1H40Jw8wkeR/OUXZUHUoiYabGk8Y4Y0F/rgq+R4MrOLmA==}
+    dependencies:
+      '@types/trusted-types': 2.0.7
+    dev: false
+
+  /lit/3.1.0:
+    resolution: {integrity: sha512-rzo/hmUqX8zmOdamDAeydfjsGXbbdtAFqMhmocnh2j9aDYqbu0fjXygjCa0T99Od9VQ/2itwaGrjZz/ZELVl7w==}
+    dependencies:
+      '@lit/reactive-element': 2.0.2
+      lit-element: 4.0.2
+      lit-html: 3.1.0
+    dev: false
 
   /nanoid/3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
