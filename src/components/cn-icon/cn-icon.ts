@@ -11,7 +11,7 @@ import './styles.css'
 export class CnIcon extends LitElement {
   public static styles = css`
     :host {
-      color: var(--cn-color-key, #D2008F);
+      color: var(--cn-color-key, currentColor);
       height: var(--cn-icon-size, 128px);
       width: var(--cn-icon-size, 128px);
       display: block;
