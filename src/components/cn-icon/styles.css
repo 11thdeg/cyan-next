@@ -1,3 +1,7 @@
 :root {
-    --cn-icon-size-small: calc(var(--cn-page-grid-size, 0.5em) * 4)
+  --cn-icon-size-xsmall: 1em;                   /* 16px */
+  --cn-icon-size-small: calc(24 / 16 * 1em);    /* 36px */
+  --cn-icon-size: calc(36 / 16 * 1em);          /* 32px */
+  --cn-icon-size-large: calc(72 / 16 * 1em);    /* 72px */
+  --cn-icon-size-xlarge: calc(128 / 16 * 1em);  /* 128px */
 }

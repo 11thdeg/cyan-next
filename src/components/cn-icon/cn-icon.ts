@@ -16,9 +16,21 @@ export class CnIcon extends LitElement {
       width: var(--cn-icon-size, 128px);
       display: block;
     }
+    :host([xsmall]) {
+      height: var(--cn-icon-size-xsmall);
+      width: var(--cn-icon-size-xsmall);
+    }
     :host([small]) {
-      height: var(--cn-icon-size-small, --cn-icon-size);
-      width: var(--cn-icon-size-small, --cn-icon-size);
+      height: var(--cn-icon-size-small);
+      width: var(--cn-icon-size-small);
+    }
+    :host([large]) {
+      height: var(--cn-icon-size-large);
+      width: var(--cn-icon-size-large);
+    }
+    :host([xlarge]) {
+      height: var(--cn-icon-size-xlarge);
+      width: var(--cn-icon-size-xlarge);
     }
     svg {
       height: 100%;
@@ -29,7 +41,16 @@ export class CnIcon extends LitElement {
   public noun: string = ''
 
   @property({type: Boolean, reflect: true})
+    xsmall?: boolean = false
+
+  @property({type: Boolean, reflect: true})
     small?: boolean = false
+
+  @property({type: Boolean, reflect: true})
+    large?: boolean = false
+  
+  @property({type: Boolean, reflect: true})
+    xlarge?: boolean = false
 
   // private debug = true
   loadingIcon = `<svg 
