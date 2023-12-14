@@ -1,0 +1,5 @@
+/* host context interop */
+a:has(cn-navigation-icon) {
+  text-decoration: none;
+  color: var(--chroma-key-30);
+}
