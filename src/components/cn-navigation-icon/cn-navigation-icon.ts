@@ -59,17 +59,9 @@ export class CnNavigationIcon extends LitElement {
       text-align: center;
       max-width: 100%;
       overflow: hidden;
-      padding-top: var(--cn-navigation-icon-label-padding-top, 0.25rem);
+      padding-top: var(--cn-navigation-icon-label-padding-top, 0.5rem);
       text-overflow: ellipsis;
-      text-decoration: none;
-    
-      /* font-size: var(--cn-font-size-small, 0.75rem);
-      line-height: var(--cn-navigation-icon-label-height, 1em);
-      display: block;
-      text-align: center;
-      max-width: 100%;
-      overflow: hidden; */
-      
+      text-decoration: none;      
     }
   `
   @property({type: String, reflect: true})
