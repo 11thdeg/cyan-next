@@ -2,7 +2,7 @@
   /* Chromatic scale for key color
    * https://gka.github.io/palettes/#/11|s|002337,05e7fb,e7fbfb|ffffe0,ff005e,006c09|1|1
    */
-  --chroma-key-99: hsl(202, 100%, 11%);
+  /*--chroma-key-99: hsl(202, 100%, 11%);
   --chroma-key-95: hsl(196, 95%, 15%);
   --chroma-key-90: hsl(195, 81%, 21%);
   --chroma-key-80: hsl(193, 69%, 27%); 
@@ -12,5 +12,32 @@
   --chroma-key-40: hsl(189, 49%, 60%); 
   --chroma-key-30: hsl(188, 58%, 70%);
   --chroma-key-20: hsl(187, 71%, 81%);
-  --chroma-key-10: hsl(180, 71%, 95%);
+  --chroma-key-10: hsl(180, 71%, 95%);*/
+
+  /*
+   * WGAC + MUI 3 inspired colors
+   */
+   --chroma-key-99: hsl(202, 100%, 11%);
+   --chroma-key-95: hsl(202, 52%, 19%);
+   --chroma-key-90: hsl(202, 41%, 27%);
+   --chroma-key-80: hsl(202, 33%, 35%);
+   --chroma-key-70: hsl(202, 27%, 43%);
+   --chroma-key-60: hsl(202, 23%, 51%);
+   --chroma-key-50: hsl(202, 20%, 59%);
+   --chroma-key-40: hsl(202, 18%, 67%);
+   --chroma-key-30: hsl(202, 16%, 75%);
+   --chroma-key-20: hsl(202, 15%, 83%);
+   --chroma-key-10: hsl(202, 15%, 93%);
+
+  /*--chroma-key-10-hsl: 202, 100%, 11%;
+  --chroma-key-20-hsl: 202, 52%, 19%;
+  --chroma-key-30-hsl: 202, 41%, 27%;
+  --chroma-key-40-hsl: 202, 33%, 35%;
+  --chroma-key-50-hsl: 202, 27%, 43%;
+  --chroma-key-60-hsl: 202, 23%, 51%;
+  --chroma-key-70-hsl: 202, 20%, 59%;
+  --chroma-key-80-hsl: 202, 18%, 67%;
+  --chroma-key-90-hsl: 202, 16%, 75%;
+  --chroma-key-95-hsl: 202, 15%, 83%;
+  --chroma-key-99-hsl: 202, 15%, 93%; */
 }
