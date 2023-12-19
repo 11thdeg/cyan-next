@@ -1,0 +1,58 @@
+/*
+ * Headline 2
+ * Font: Lato
+ * Weight: Light
+ * Size: 63px
+ * Letter spacing: -0.5px
+ * Line height: 72px
+ *
+ * Downscaled
+ * size: 36px
+ * letter-spacing: 0.25
+ * line-height: 48px
+ *
+ * Card variant
+ * size: 50px
+ * letter-spacing: 0
+ * line-height: 72px
+ */
+:root
+  --cn-font-size-heading-2: calc(1rem / 16 * 63) 
+  /* 63px */
+  --cn-font-weight-heading-2: 300
+  --cn-line-height-heading-2: calc(--cn-grid-size * 6)
+  /* 72px */
+  --cn-letter-spacing-heading-2: calc(1rem / 16 * -0.5)
+  /* -0.5px */
+
+.downscaled
+  --cn-font-size-heading-2: 36px
+  --cn-letter-spacing-heading-2: 0.25
+  --cn-line-height-heading-2: 48px
+
+.card
+  --cn-font-size-heading-2: 50px
+  --cn-letter-spacing-heading-2: 0
+  --cn-line-height-heading-2: 72px
+
+@media screen and (max-width: 600px)
+  :root
+    --cn-font-size-heading-2: 36px
+    --cn-line-height-heading-2: 48px
+    --cn-letter-spacing-heading-2: 0.25
+  .card
+    --cn-font-size-heading-2: 36px
+    --cn-line-height-heading-2: 48px
+    --cn-letter-spacing-heading-2: 0.25
+
+@mixin TypeHeadline2()
+  font-family: var(--cn-font-family-headings)
+  font-weight: var(--cn-font-weight-heading-2)
+  font-size: var(--cn-font-size-heading-2)
+  line-height: var(--cn-line-height-heading-2)
+  letter-spacing: var(--cn-letter-spacing-heading-2)
+  margin-bottom: 24px
+  color: var(--cn-color-heading-1)
+
+.TypeHeadline2, main h2
+  @include TypeHeadline2

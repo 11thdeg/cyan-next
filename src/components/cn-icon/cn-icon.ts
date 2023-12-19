@@ -51,15 +51,12 @@ export class CnIcon extends LitElement {
     xlarge?: boolean = false
 
   protected render() {
-  /*const content = fetch('./icons/'+this.noun + '.svg').then(r => 
-      r.status === 200 ? r.text().then(iconString => unsafeHTML(iconString)) : unsafeHTML(this.loadingIcon)
-    )
-    console.debug('cn-icon',this.noun, content)
-
-    // return unsafeHTML(`${until(this.content, this.loadingIcon)}`)
-    return until(content, this.loadingIcon)*/
-    return html`<svg viewBox="0 0 128 128">
-      <use href="./icons/${this.noun}.svg#icon"></use>
+    const iconUrl = `./icons/${this.noun}.svg#icon`
+    return html`<svg
+      viewBox="0 0 128 128"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg">
+      <use href=${iconUrl}></use>
     </svg>`
   }
 }
