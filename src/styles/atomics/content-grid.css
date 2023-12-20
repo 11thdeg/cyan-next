@@ -23,6 +23,7 @@
 
 .content-grid > .breakout {
   grid-column: breakout;
+  padding: 0 var(--cn-gap);
 }
 
 .content-grid > .full-width {

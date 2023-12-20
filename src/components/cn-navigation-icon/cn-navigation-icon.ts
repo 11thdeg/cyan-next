@@ -54,7 +54,7 @@ export class CnNavigationIcon extends LitElement {
     :host .navigation-icon-label {
       height: var(--cn-navigation-icon-label-height, 1rem);
       font-size: var(--cn-font-size-small, 0.75rem);
-      line-height: var(--cn-navigation-icon-label-height, 1em);
+      line-height: var(--cn-navigation-icon-label-height, 1rem);
       display: block;
       text-align: center;
       max-width: 100%;
