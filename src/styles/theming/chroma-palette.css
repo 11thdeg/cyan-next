@@ -40,4 +40,29 @@
   --chroma-key-90-hsl: 202, 16%, 75%;
   --chroma-key-95-hsl: 202, 15%, 83%;
   --chroma-key-99-hsl: 202, 15%, 93%; */
+
+  /* primary palette, in material 3 style notation */
+  --chroma-primary-99: hsl(185deg, 100%, 14%);
+  --chroma-primary-95: hsl(170deg, 100%, 20%);
+  --chroma-primary-90: hsl(159, 74%, 27%);
+  --chroma-primary-80: hsl(147, 56%, 36%);
+  --chroma-primary-70: hsl(134, 44%, 44%);
+  --chroma-primary-60: hsl(116, 41%, 52%);
+  --chroma-primary-50: hsl(100deg, 54%, 56%);
+  --chroma-primary-40: hsl(88deg, 68%, 58%);
+  --chroma-primary-30: hsl(76deg, 84%, 61%);
+  --chroma-primary-20: hsl(65deg, 100%, 63%);
+  --chroma-primary-10: hsl(65deg, 100%, 83%);
+
+  --chroma-primary-99-hsl: 185deg, 100%, 14%;
+  --chroma-primary-95-hsl: 170deg, 100%, 20%;
+  --chroma-primary-90-hsl: 159, 74%, 27%;
+  --chroma-primary-80-hsl: 147, 56%, 36%;
+  --chroma-primary-70-hsl: 134, 44%, 44%;
+  --chroma-primary-60-hsl: 116, 41%, 52%;
+  --chroma-primary-50-hsl: 100deg, 54%, 56%;
+  --chroma-primary-40-hsl: 88deg, 68%, 58%;
+  --chroma-primary-30-hsl: 76deg, 84%, 61%;
+  --chroma-primary-20-hsl: 65deg, 100%, 63%;
+  --chroma-primary-10-hsl: 65deg, 100%, 83%;
 }

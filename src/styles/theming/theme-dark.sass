@@ -11,9 +11,18 @@
   --cn-background-button: var(--chroma-key-80)
   --cn-background-button-hover: var(--chroma-key-60)
   --cn-background-button-active: var(--chroma-key-70)
+  --cn-background-button-disabled: var(--chroma-key-90)
   
   /* App Bar */
   --cn-color-on-app-bar: var(--chroma-key-30)
+
+  .text
+    --cn-background-button: none
+    
+  .call-to-action
+    --cn-background-button: linear-gradient(-22deg, var(--chroma-primary-95), var(--chroma-primary-70))
+    --cn-background-button-hover: linear-gradient(22deg, var(--chroma-primary-95), var(--chroma-primary-70))
+    --cn-background-button-active: var(--chroma-primary-80)
 
   .elevation-1
     --cn-background-button: var(--chroma-key-70)
