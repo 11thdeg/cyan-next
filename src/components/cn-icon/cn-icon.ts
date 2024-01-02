@@ -55,7 +55,9 @@ export class CnIcon extends LitElement {
     return html`<svg
       viewBox="0 0 128 128"
       version="1.1"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg"
+      aria-labelledby="ariaNoun">
+      <title id="ariaNoun">${this.noun}</title>
       <use href=${iconUrl}></use>
     </svg>`
   }
