@@ -1,14 +1,17 @@
 {
   "name": "@11thdeg/cyan-next",
   "private": false,
-  "version": "1.0.0-alpha.7",
-  "type": "module",
+  "version": "1.0.0-alpha.8",
+  "description": "A lightweight web component library for Pelilauta, Cinis etc. projects",
   "main": "./dist/cyan.umd.cjs",
-  "module": "./dist/cyan.js",
+  "module": "./dist/cyan.mjs",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
-      "import": "./dist/cyan.js",
+      "import": "./dist/cyan.mjs",
       "require": "./dist/cyan.umd.cjs"
     }
   },
@@ -29,7 +32,6 @@
     "vite-plugin-dts": "^3.6.4"
   },
   "dependencies": {
-    "lit": "^3.1.0",
-    "lit-html": "^3.1.0"
+    "lit": "^3.1.0"
   }
 }
