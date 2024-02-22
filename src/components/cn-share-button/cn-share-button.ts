@@ -87,19 +87,50 @@ export class CnShareButton extends LitElement {
       ? html`<img src="${this.src}" alt="${this.ariaLabel}" />`
       : html`${this.defaultIcon}`
 
-    return this.label ? html`${this.label}` : html`${icon}`
+    const labelString = this.label ? this.label : 'Share'
+
+    return html`${labelString} ${icon}`
   }
 
   static styles = css`
     :host {
       display: inline-block;
-      height: 1em;
-      width: 1em;
+      color: var(--cn-color-button);
+      background: var(--cn-background-button);
+      
+      // Font and text
+      font-family: var(--cn-font-family-ui);
+      font-weight: var(--cn-font-weight-ui);
+      font-size: var(--cn-font-size-ui);
+      line-height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
+      /* 38px */
+      letter-spacing: var(--cn-letter-spacing-ui);
+      
+      border-radius: calc(19 / 16 * 1rem);
+      border: none;
+      height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
+      margin: 5px 0;
+      padding: 0 16px 0 16px;
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+
+      // Accessibility, disable selection
+      user-select: none;
+    }
+    :host(:hover) {
+      background: var(--cn-background-button-hover);
+      color: var(--cn-color-button-hover);
+    }
+    :host(:active) {
+      background: var(--cn-background-button-active);
+      color: var(--cn-color-button-active);
     }
     :host svg,
     :host img {
-      width: 100%;
-      height: 100%;
+      height: var(--cn-icon-size-small);
+      width: var(--cn-icon-size-small);
+      vertical-align: middle;
+      margin-bottom: 0.15em;
     }
     :host img {
       object-fit: contain;
