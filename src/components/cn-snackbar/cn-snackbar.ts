@@ -1,6 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { logDebug } from '../../utils/logHelpers'
+// import { logDebug } from '../../utils/logHelpers'
 
 /**
  * The message to show in the Snackbar, with an optional action. The event listener
@@ -33,28 +33,75 @@ export type SnackbarMessage = {
 @customElement('cn-snackbar')
 export class CnSnackbar extends LitElement {
   @property({ type: Array })
-  snackStack: Array<SnackbarMessage> = [
-    { message: 'Welcome to Cyan Next!' },
-  ]
+  snackStack: Array<SnackbarMessage> = []
 
   @property({ type: Boolean, reflect: true })
-  visible = true
+  visible = false
 
+  /**
+   * Pushes a new message to the stack, and shows the snackbar if it's not visible.
+   *
+   * @param message {SnackbarMessage} - The message to show
+   */
   pushToStack(message: SnackbarMessage) {
-    logDebug('CnSnackbar.pushToStack', message.message, message.action?.label, this.snackStack.length)
+    // DEBUG
+    // logDebug('CnSnackbar.pushToStack', message.message, message.action?.label, this.snackStack.length)
+
     this.snackStack.push(message)
-    this.visible = true
-    if (!message.action) window.setTimeout(() => {
-      this.popFromStack()
-    }, 5000)
+
+    // if this is the first message, show the snackbar and set a timeout to hide it
+    if (this.snackStack.length === 1) {
+      this.visible = true
+      if (!message.action)
+        window.setTimeout(() => {
+          this.popFromStack()
+        }, 5000)
+    }
   }
 
+  /**
+   * Pops the current message from the stack. If there are more messages in the stack,
+   * it will shift to the next message via `shiftFromStack`.
+   */
   popFromStack() {
-    logDebug('CnSnackbar.popFromStack', this.snackStack.length)
-    this.snackStack.shift()
+    // DEBUG
+    // logDebug('CnSnackbar.popFromStack', this.snackStack.length)
+
+    // Hide the snackbar before removing the message from the stack
+    this.visible = false
+
+    // Wait for 0.3s for the opacity transition to complete
+    if (this.snackStack.length > 0)
+      window.setTimeout(() => {
+        if (this.snackStack.length > 1) this.shiftFromStack()
+        else this.snackStack.shift()
+      }, 300)
+  }
+
+  /**
+   * Shifts to the next message in the stack and shows the snackbar.
+   */
+  shiftFromStack() {
+    // DEBUG
+    // logDebug('CnSnackbar.shiftFromStack', this.snackStack.length)
+
+    // Sanity: if there are no more messages, ignore and return
     if (this.snackStack.length === 0) {
-      this.visible = false
+      // logDebug('CnSnackbar.shiftFromStack: No more messages to show, ignoring.')
+      return
     }
+
+    this.snackStack.shift()
+    this.visible = true
+
+    // if there is no action, set a timeout to hide the snackbar
+    //
+    // The snackbar will be hidden by the action button click event
+    // if there is an action in the message
+    if (!this.snackStack[0]?.action)
+      window.setTimeout(() => {
+        this.popFromStack()
+      }, 5000)
   }
 
   /**
@@ -62,8 +109,9 @@ export class CnSnackbar extends LitElement {
    * it will execute the action callback.
    */
   handleActionClick() {
-    logDebug('CnSnackbar.handleActionClick')
-    if (!this.snackStack[0].action) throw new Error('CnSnackbar: No action to handle, ignoring.')
+    // logDebug('CnSnackbar.handleActionClick')
+    if (!this.snackStack[0].action)
+      throw new Error('CnSnackbar: No action to handle, ignoring.')
     this.snackStack[0].action.callback()
     this.popFromStack()
   }
@@ -72,7 +120,7 @@ export class CnSnackbar extends LitElement {
     if (event instanceof CustomEvent) {
       const detail = event.detail
       if (typeof detail === 'object' && detail !== null) {
-        console.log('cn-snackbar-add event received', detail)
+        // logDebug('cn-snackbar-add event received', detail, this)
         this.pushToStack(detail)
       } else {
         console.error(
@@ -86,7 +134,9 @@ export class CnSnackbar extends LitElement {
 
   connectedCallback(): void {
     super.connectedCallback()
-    this.addEventListener('cn-snackbar-add', this.handleAdd)
+    window.addEventListener('cn-snackbar-add', (event: Event) =>
+      this.handleAdd(event),
+    )
   }
 
   render() {
@@ -106,16 +156,49 @@ export class CnSnackbar extends LitElement {
       position: fixed;
       bottom: var( --cn-grid-size, 8px);
       left: var( --cn-grid-size, 8px);
-      padding: var( --cn-grid-size, 8px) var(--cn-border-radius, 16px);
       background-color: var(--color-contrast, #333); 
       color: var(--color-on-contrast, #fff);
       border-radius: var(--cn-border-radius, 4px) 0 var(--cn-border-radius, 4px) 0;
       opacity: 0;
       transition: opacity 0.3s;
       z-index: var(--cn-snackbar-z-index, 1000);
+      // disable selection
+      user-select: none;
     }
     :host([visible]) {
       opacity: 1;
+    }
+    :host .message {
+      // Font and text
+      font-family: var(--cn-font-family-ui);
+      font-weight: var(--cn-font-weight-ui);
+      font-size: var(--cn-font-size-ui);
+      line-height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
+      /* 38px */
+      letter-spacing: var(--cn-letter-spacing-ui);
+      margin: 5px var(--cn-gap, 1rem) 5px var(--cn-gap, 1rem);
+    }
+    :host button {
+      display: inline-block;
+      color: var(--cn-color-button);
+      background: var(--cn-background-button);
+
+      // Font and text
+      font-family: var(--cn-font-family-ui);
+      font-weight: var(--cn-font-weight-ui);
+      font-size: var(--cn-font-size-ui);
+      line-height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
+      /* 38px */
+      letter-spacing: var(--cn-letter-spacing-ui);
+
+      border-radius: calc(19 / 16 * 1rem);
+      border: none;
+      height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
+      margin: 5px 0em;
+      margin-right: var(--cn-grid-size, 1rem);
+      padding: 0 16px;
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
     }
     `
 }
