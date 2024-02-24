@@ -1,7 +1,19 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { logDebug } from '../../utils/logHelpers'
 
-type SnackbarMessage = {
+/**
+ * The message to show in the Snackbar, with an optional action. The event listener
+ * listens to the `cn-snackbar-add` event to show a new message, and expects the event
+ * detail to be an object with the following properties:
+ *
+ * @property {string} message - The message to show
+ * @property {object} action - An optional action to perform when the user clicks the action button,
+ *  if not provided, the action button will be hidden
+ * @property {string} action.label - The label of the action button
+ * @property {function} action.callback - The callback to execute when the action button is clicked
+ */
+export type SnackbarMessage = {
   message: string
   action?: {
     label: string
@@ -27,8 +39,31 @@ export class CnSnackbar extends LitElement {
   visible = false
 
   pushToStack(message: SnackbarMessage) {
+    logDebug('CnSnackbar.pushToStack', message.message, message.action?.label, this.snackStack.length)
     this.snackStack.push(message)
     this.visible = true
+    if (!message.action) window.setTimeout(() => {
+      this.popFromStack()
+    }, 5000)
+  }
+
+  popFromStack() {
+    logDebug('CnSnackbar.popFromStack', this.snackStack.length)
+    this.snackStack.shift()
+    if (this.snackStack.length === 0) {
+      this.visible = false
+    }
+  }
+
+  /**
+   * Handles the action button click event and hides the snack. If there is an action,
+   * it will execute the action callback.
+   */
+  handleActionClick() {
+    logDebug('CnSnackbar.handleActionClick')
+    if (!this.snackStack[0].action) throw new Error('CnSnackbar: No action to handle, ignoring.')
+    this.snackStack[0].action.callback()
+    this.popFromStack()
   }
 
   handleAdd(event: Event) {
@@ -54,7 +89,7 @@ export class CnSnackbar extends LitElement {
 
   render() {
     const actionDiv = this.snackStack[0]?.action
-      ? html`<button @click=${this.snackStack[0].action.callback}>${this.snackStack[0].action.label}</button>`
+      ? html`<button @click=${this.handleActionClick}>${this.snackStack[0].action.label}</button>`
       : ''
 
     return html`
