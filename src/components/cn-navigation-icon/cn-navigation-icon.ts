@@ -1,8 +1,8 @@
+import { LitElement, css, html } from 'lit'
 /**
  * This is a wrapper lit component for the lazy loading of icons.
  */
-import {customElement, property} from 'lit/decorators.js'
-import {LitElement, css, html} from 'lit'
+import { customElement, property } from 'lit/decorators.js'
 import './styles.css'
 
 @customElement('cn-navigation-icon')
@@ -64,20 +64,24 @@ export class CnNavigationIcon extends LitElement {
       text-decoration: none;      
     }
   `
-  @property({type: String, reflect: true})
-  public noun: string = ''
+  @property({ type: String, reflect: true })
+  public noun = ''
 
-  @property({type: String, reflect: true})
-  public label: string = ''
+  @property({ type: String, reflect: true })
+  public label = ''
 
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   public checked = false
 
   public render() {
     const hasLabel = this.label !== ''
 
     return html`<cn-icon noun="${this.noun}" ?small=${hasLabel}></cn-icon> 
-    ${this.label ? html`
-      <div class="navigation-icon-label">${this.label}</div>` : '' }`
+    ${
+      this.label
+        ? html`
+      <div class="navigation-icon-label">${this.label}</div>`
+        : ''
+    }`
   }
 }

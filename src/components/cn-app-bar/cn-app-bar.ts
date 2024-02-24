@@ -1,7 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-
 @customElement('cn-app-bar')
 export class CnAppBar extends LitElement {
   public static styles = css`
@@ -30,10 +29,10 @@ export class CnAppBar extends LitElement {
       white-space: nowrap;
     }`
 
-  @property({type: String, reflect: true})
-  public title: string = ''
+  @property({ type: String, reflect: true })
+  public title = ''
 
-  render () {
+  render() {
     return html`<header>
       ${this.title ? html`<h2>${this.title}</h2>` : ''}
       <div><slot name="actions"></slot></div>

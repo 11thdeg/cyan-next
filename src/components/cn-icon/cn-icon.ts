@@ -1,8 +1,8 @@
+import { LitElement, css, html } from 'lit'
 /**
  * This is a wrapper lit component for the lazy loading of icons.
  */
-import {customElement, property} from 'lit/decorators.js'
-import {LitElement, css, html} from 'lit'
+import { customElement, property } from 'lit/decorators.js'
 import './styles.css'
 
 @customElement('cn-icon')
@@ -35,20 +35,20 @@ export class CnIcon extends LitElement {
       width: 100%;
     }`
 
-  @property({type: String, reflect: true})
-  public noun: string = ''
+  @property({ type: String, reflect: true })
+  public noun = ''
 
-  @property({type: Boolean, reflect: true})
-    xsmall?: boolean = false
+  @property({ type: Boolean, reflect: true })
+  xsmall?: boolean = false
 
-  @property({type: Boolean, reflect: true})
-    small?: boolean = false
+  @property({ type: Boolean, reflect: true })
+  small?: boolean = false
 
-  @property({type: Boolean, reflect: true})
-    large?: boolean = false
-  
-  @property({type: Boolean, reflect: true})
-    xlarge?: boolean = false
+  @property({ type: Boolean, reflect: true })
+  large?: boolean = false
+
+  @property({ type: Boolean, reflect: true })
+  xlarge?: boolean = false
 
   protected render() {
     const iconUrl = `./icons/${this.noun}.svg#icon`
@@ -66,12 +66,12 @@ export class CnIcon extends LitElement {
 // Make this available to react/preact/solid
 declare global {
   interface HTMLElementTagNameMap {
-    'cn-icon': CnIcon;
+    'cn-icon': CnIcon
   }
   /* eslint-disable @typescript-eslint/no-namespace */
   namespace JSX {
     interface IntrinsicElements {
-      'cn-icon': CnIcon;
+      'cn-icon': CnIcon
     }
   }
 }

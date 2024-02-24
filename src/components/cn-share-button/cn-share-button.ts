@@ -11,13 +11,13 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement('cn-share-button')
 export class CnShareButton extends LitElement {
   @property({ type: String, reflect: true })
-    src = ''
+  src = ''
 
   @property({ type: String, reflect: true })
-    label = ''
+  label = ''
 
   @property({ type: String, reflect: true })
-    ariaLabel = ''
+  ariaLabel = ''
 
   private defaultIcon = html`<svg 
   version="1.1"
