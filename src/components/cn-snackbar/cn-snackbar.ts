@@ -33,10 +33,12 @@ export type SnackbarMessage = {
 @customElement('cn-snackbar')
 export class CnSnackbar extends LitElement {
   @property({ type: Array })
-  snackStack: Array<SnackbarMessage> = []
+  snackStack: Array<SnackbarMessage> = [
+    { message: 'Welcome to Cyan Next!' },
+  ]
 
   @property({ type: Boolean, reflect: true })
-  visible = false
+  visible = true
 
   pushToStack(message: SnackbarMessage) {
     logDebug('CnSnackbar.pushToStack', message.message, message.action?.label, this.snackStack.length)
@@ -100,11 +102,17 @@ export class CnSnackbar extends LitElement {
 
   static styles = css`
     :host {
+      display: flex;
       position: fixed;
-      bottom: 0;
-      left: 0;  
+      bottom: var( --cn-grid-size, 8px);
+      left: var( --cn-grid-size, 8px);
+      padding: var( --cn-grid-size, 8px) var(--cn-border-radius, 16px);
+      background-color: var(--color-contrast, #333); 
+      color: var(--color-on-contrast, #fff);
+      border-radius: var(--cn-border-radius, 4px) 0 var(--cn-border-radius, 4px) 0;
       opacity: 0;
       transition: opacity 0.3s;
+      z-index: var(--cn-snackbar-z-index, 1000);
     }
     :host([visible]) {
       opacity: 1;
