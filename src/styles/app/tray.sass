@@ -1,0 +1,22 @@
+// At this point the tray only supports "medium" and "large" size screens. 
+
+/*
+ * For the medium and large screens, the tray is visible on the right side of the screen,
+ * when the document body contains a cn-app-menu-button with aria-expanded="true".
+ */
+.cn-app-tray
+  transform: translateX(-380px)
+  width: 300px
+  background-color: color-mix(in hsl, var(--color-primary), var(--color-on-primary) 11%)
+  position: fixed
+  top: 0
+  left: 80px
+  height: 100dvh
+  opacity: 0
+  transition: transform 0.3s ease-in-out
+  padding: var(--cn-gap)
+body:has(cn-app-menu-button[ariaexpanded="true"])
+  .cn-app-tray
+    transform: translateX(0)
+    opacity: 1
+    transition: transform 0.3s ease-in-out

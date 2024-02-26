@@ -12,7 +12,7 @@ export class CnAppMenuButton extends LitElement {
   @property({ type: String, reflect: true })
   ariaControls = '#cn-tray'
 
-  toggleOpen () {
+  toggleOpen() {
     this.ariaExpanded = this.ariaExpanded === 'true' ? 'false' : 'true'
     this.dispatchEvent(new CustomEvent('change', { detail: this.ariaExpanded }))
   }
