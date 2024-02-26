@@ -27,7 +27,9 @@
    --chroma-key-40: hsl(202, 18%, 67%);
    --chroma-key-30: hsl(202, 16%, 75%);
    --chroma-key-20: hsl(202, 15%, 83%);
-   --chroma-key-10: hsl(202, 15%, 93%);
+   --chroma-key-10-hsl: 202, 15%, 93%;
+   --chroma-key-10: hsl(var(--chroma-key-10-hsl));
+
 
   /*--chroma-key-10-hsl: 202, 100%, 11%;
   --chroma-key-20-hsl: 202, 52%, 19%;
