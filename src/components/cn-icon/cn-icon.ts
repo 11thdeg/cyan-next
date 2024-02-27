@@ -12,7 +12,7 @@ export class CnIcon extends LitElement {
       color: var(--cn-color-key, currentColor);
       height: var(--cn-icon-size, 128px);
       width: var(--cn-icon-size, 128px);
-      display: block;
+      display: inline-block;
     }
     :host([xsmall]) {
       height: var(--cn-icon-size-xsmall);
