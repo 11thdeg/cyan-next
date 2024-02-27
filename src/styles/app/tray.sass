@@ -1,4 +1,23 @@
 // At this point the tray only supports "medium" and "large" size screens. 
+@import '../core/layout-breakpoints.sass'
+
+.cn-app-tray:empty
+  display: none !important // Hide the tray when it's empty
+
+.cn-app-tray
+  ul
+    li
+      margin: 0 calc(-1 * var(--cn-gap))
+      transition: background 0.3s ease-in-out
+    li:hover
+      background: hsla(var(--chroma-key-10-hsl), 0.11)
+    li:active
+      background: hsla(var(--chroma-key-10-hsl), 0.22)
+    a
+      padding: var(--cn-gap)
+      color: var(--color-on-primary)
+      text-decoration: none
+      display: block
 
 /*
  * For the medium and large screens, the tray is visible on the right side of the screen,
@@ -20,3 +39,8 @@ body:has(cn-app-menu-button[ariaexpanded="true"])
     transform: translateX(0)
     opacity: 1
     transition: transform 0.3s ease-in-out
+
+@include media-query-md-and-up
+  .cn-app-tray
+    transform: translateX(0)
+    opacity: 1

@@ -51,7 +51,7 @@ export class CnIcon extends LitElement {
   xlarge?: boolean = false
 
   protected render() {
-    const iconUrl = `./icons/${this.noun}.svg#icon`
+    const iconUrl = `/icons/${this.noun}.svg#icon`
     return html`<svg
       viewBox="0 0 128 128"
       version="1.1"
