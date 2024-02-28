@@ -1,0 +1,52 @@
+/*
+ * Headline 1
+ *
+ * Font: Lato
+ * Weight: Light
+ * Size: 101px
+ * Letter spacing: -1.5px
+ * Line height: 120px
+ *
+ * Small
+ * size: 50px
+ * letter-spacing: 0
+ * line-height: 72px
+ */
+@import '../core/layout-breakpoints.sass'
+
+// Small screen uses small values as default, medium and large screen uses small values only when the .small class is present
+:root,
+.small
+    --cn-font-size-heading-1: calc(1rem / 16 * 50)
+    /* 50px */
+    --cn-letter-spacing-heading-1: 0
+    --cn-line-height-heading-1: calc(--cn-grid-size * 4)
+    /* 72px */
+
+@include media-query-md-and-up
+  :root
+    --cn-font-size-heading-1: calc(1rem / 16 * 101) 
+    /* 101px */
+    --cn-font-weight-heading-1: 300
+    --cn-line-height-heading-1: calc(--cn-grid-size * 7)
+    /* 120px */
+    --cn-letter-spacing-heading-1: calc(1rem / 16 * -1.5)
+    /* -1.5px */
+
+@mixin TypeHeading1
+  font-family: var(--cn-font-family-headings)
+  font-weight: var(--cn-font-weight-heading-1)
+  font-size: var(--cn-font-size-heading-1)
+  line-height: var(--cn-line-height-heading-1)
+  letter-spacing: var(--cn-letter-spacing-heading-1)
+  margin-bottom: calc(var(--cn-grid-size) * 2)
+  color: var(--cn-color-heading-1)
+
+.head-1, main h1
+  @include TypeHeading1
+  &.subtitle
+    margin-top: 0
+    font-style: italic
+    color: var(--cn-color-subtitle)
+  &:has(+ .subtitle)
+    margin-bottom: 0
