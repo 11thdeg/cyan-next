@@ -1,0 +1,70 @@
+@import '../typography/ui.sass'
+
+// TODO: move to input.sass
+input
+  @include TypeUI()
+  border: 0
+  display: block
+  width: 100%
+  position: relative
+  transition: all 0.3s ease
+  color: var(--cn-color-on-field)
+  background: var(--cn-color-field)
+  border-bottom: 1px solid var(--cn-color-border)
+  border-radius: var(--cn-border-radius-field)
+  
+  // These belong to preflight
+  margin: 0
+  padding: 0
+
+  &:hover
+    color: var(--cn-color-on-field-hover)
+    background: var(--cn-color-field-hover)
+    border-bottom: 1px solid var(--cn-color-border-hover)
+
+  &:focus
+    outline: none
+    color: var(--cn-color-on-field-active)
+    background: var(--cn-color-field-active)
+    border-bottom: 1px solid var(--cn-color-border-active)
+    &::placeholder
+      opacity: 0
+
+  &:disabled
+    opacity: 0.5
+    background: var(--cn-color-disabled)
+    border-bottom: 1px solid var(--cn-color-border-disabled)
+
+input[type=text]
+  padding: 0 calc(var(--cn-grid-size)) 
+  height: calc(var(--cn-grid-size) * 5 - 1px)
+
+
+// .cyan
+//   input[type=text]
+
+
+//     &:invalid,
+//     &.invalid
+//       background: var(--chroma-alert-field-tint, red)
+//       border-bottom: 1px solid var(--chroma-alert, blue)
+//       box-shadow: none
+//       &::placeholder
+//         color: var(--chroma-alert, blue)
+//       &:focus
+//         background: var(--cn-background-field-active, red)
+//         border-bottom: 1px solid var(--cn-border-color-field-active, blue)
+
+//     &::placeholder
+//       @include TypeUI
+//       color: var(--cn-color-placeholder, #999)
+//       opacity: 1
+//       margin: 0
+//       font-style: italic
+
+//   label:has(input[type=text])
+//     @include TypeCaption
+//     display: block
+//     width: 100%
+//     color: var(--cn-border-color)
+      
