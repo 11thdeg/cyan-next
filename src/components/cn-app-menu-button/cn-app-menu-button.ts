@@ -35,7 +35,7 @@ export class CnAppMenuButton extends LitElement {
       position: relative;
       height: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-      margin-top: var(--cn-navigation-icon-padding-top, calc(1rem / 16 * 10));
+      // margin-top: var(--cn-navigation-icon-padding-top, calc(1rem / 16 * 10));
       border-radius: 50%;
     }
     :host button {
