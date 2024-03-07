@@ -12,3 +12,7 @@ $breakpoint-small:   620px
 @mixin media-query-md-and-up
   @media screen and (min-width: $breakpoint-small + 1px)
     @content
+
+@mixin media-query-desktop
+  @media screen and (min-width: $breakpoint-medium + 1px)
+    @content
