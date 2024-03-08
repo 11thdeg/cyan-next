@@ -58,6 +58,15 @@ export class CnIcon extends LitElement {
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="ariaNoun">
       <title id="ariaNoun">${this.noun}</title>
+      <style type="text/css">
+	.st1{fill:url(#SVGID_1_);}
+</style>
+      <defs>
+        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="120.58" y1="23.7324" x2="69.4427" y2="108.0212" gradientTransform="matrix(1 0 0 -1 0 128)">
+		      <stop  offset="3.900706e-02" style="stop-color:#004147"/>
+		      <stop  offset="1" style="stop-color:#EFFF42;stop-opacity:0"/>
+	      </linearGradient>
+      </defs>
       <use href=${iconUrl}></use>
     </svg>`
   }
