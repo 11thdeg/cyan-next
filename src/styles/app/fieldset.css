@@ -1,0 +1,29 @@
+fieldset {
+  background: var(--cn-color-fieldset);
+  border: none;
+  border-radius: var(--cn-border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cn-grid-size);
+}
+
+fieldset label {
+  display: block;
+  transition: background 0.27s ease-in-out;
+  border-radius: var(--cn-border-radius);
+}
+
+fieldset label:hover {
+  background: var(--cn-color-fieldset);
+}
+
+/*
+label
+    line-height: 24px
+    display: block
+    border-radius: 6px
+    padding: 0 2px
+    
+
+  label:hover
+    background: var(--chroma-tint-complement)*/

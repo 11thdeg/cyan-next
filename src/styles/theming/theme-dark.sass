@@ -1,6 +1,7 @@
 @mixin theme-dark
   --color-primary: var(--chroma-key-99)
   --color-on-primary: var(--chroma-key-20)
+  --color-on-primary-low: var(--chroma-key-40)
 
   --color-contrast: var(--chroma-key-30)
   --color-on-contrast: var(--chroma-key-99)
@@ -23,6 +24,9 @@
   --cn-elevation-2: color-mix(in hsl, var(--color-primary), var(--color-on-primary) 11%)
   --cn-elevation-3: color-mix(in hsl, var(--color-primary), var(--color-on-primary) 16.5%)
   --cn-elevation-4: color-mix(in hsl, var(--color-primary), var(--color-on-primary) 22%)
+
+  --cn-color-fieldset: hsla(var(--chroma-primary-10-hsl), 0.11)
+
 
   /* Titles and headings */
   --cn-color-heading-1: var(--color-on-primary)

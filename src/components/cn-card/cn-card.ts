@@ -8,7 +8,7 @@ export class CnCard extends LitElement {
   elevation = 1
 
   @property({ type: String, reflect: true })
-  cover = ''
+  cover = undefined
 
   @property({ type: String, reflect: true }) noun = ''
 
@@ -18,8 +18,24 @@ export class CnCard extends LitElement {
 
   @property({ type: String, reflect: true }) link = ''
   
-  get coverImageURL () {
-    return this.cover || ''
+  get coverSlot () {
+    if (!this.cover) return undefined
+
+    const coverUrl:string = this.cover || ''
+
+    if (!this.link) return html`<div class="cardContent" aria-hidden="true">
+        <img src=${coverUrl} alt="" />
+        <div class="tint"></div>
+      </div>`
+
+    const linkUrl:string = this.link || ''
+
+    return html`<div class="cardContent" aria-hidden="true">
+      <a href=${linkUrl} class="cardContent">
+        <img src=${coverUrl} alt="" />
+        <div class="tint"></div>
+      </a>
+    </div>`
   }
 
   get titleSlot () {
@@ -34,33 +50,79 @@ export class CnCard extends LitElement {
 
   render () {
     return html`
+      ${this.coverSlot}
       <div class="cardHeader">   
-        ${this.noun ? html`<cyan-icon noun=${this.noun} class="cardNoun" ?large=${!!this.cover} ?dark=${!!this.cover}></cyan-icon>` : ''}
+        ${this.noun ? html`<cn-icon noun=${this.noun} class="cardNoun" ?large=${!!this.cover} ?dark=${!!this.cover}></cn-icon>` : ''}
         ${this.titleSlot}
       </div>
-      <div class="cardHeader">
-        ${this.cover ? html`<img src="${this.coverImageURL}" alt="" class="cover" />` : ''}
-        <div class="avatar"><slot name="avatar"></slot></div>
-        <div class="title"><slot name="title"></slot></div>
-      </div>
-      <div class="cardContent">
+      <p class="cardDescription">
         ${ this.description }
-      </div>`
+     </p>
+     <nav class="cardActions"><slot name="actions"></slot></nav>`
   }
 
   static styles = css`
     :host {
       box-sizing: border-box;
       display: block;
-      padding: var(--cn-grid-size) var(--cn-gap);
+      // padding: var(--cn-grid-size) var(--cn-gap);
       border-radius: var(--cn-border-radius-large);
       position: relative;
       container-type: inline-size;
       flex-grow: 1;
       transition: background 0.27 ease-in-out;
+      font-family: var(--cn-font-family-text);
+  font-size: var(--cn-font-size-text);
+  font-weight: var(--cn-font-weight-text);
+  line-height: var(--cn-line-height-text);
+  letter-spacing: var(--cn-letter-spacing-text);
+    color: var(--color-on-primary-low);
+      padding: var(--cn-grid-size) var(--cn-gap);
+    }
+    :host([cover]) .cardNoun {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      margin: 0;
+      padding: 0;
+      z-index: 2;
+    }
+    :host .cardContent {
+      padding: 0;
+      margin: calc(-1 * var(--cn-grid-size)) calc(-1 * var(--cn-gap));
+      margin-bottom: 0;
+      border-radius: var(--cn-border-radius-card, 16px);
+      max-height: 100cqw;
+      overflow: hidden;
+      position: relative;
+    }
+    :host .cardContent img {
+      width: calc(100cqw + var(--cn-gap) * 2);
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 16px;
+      position: relative;
+      display: block;
+    }
+    :host div.tint {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: min(95cqw, 40%);
+      width: calc(100cqw + var(--cn-gap) * 2);
+      background: darkorchid;
+      z-index: 1;
+      background: linear-gradient(
+        0deg,
+        hsla(var(--chroma-primary-95-hsl), 1), 
+        hsla(var(--chroma-primary-10-hsl), 0.0)
+      );
+      background-blend-mode: multiply;
+      pointer-events: none;
+      border-radius: 0 0 var(--cn-border-radius-card, 16px) var(--cn-border-radius-card, 16px);
     }
      :host h4 {
-      margin: 12px 16px;
+      margin: 0;
       padding: 0;
       font-family: var(--cn-font-family-headings);
       font-weight: var(--cn-font-weight-headline-card);
@@ -104,8 +166,8 @@ export class CnCard extends LitElement {
       align-items: center;
       justify-content: left;
       gap: var(--cn-grid-size);
-      position: relative;
-    }`
+    }
+    `
 }
 
 /*export * from './theme.sass'
