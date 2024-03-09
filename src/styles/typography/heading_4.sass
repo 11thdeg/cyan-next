@@ -27,7 +27,7 @@
   --cn-letter-spacing-heading-4: 0.15px
   --cn-line-height-heading-4: 24px
 
-.card
+.card, cn-card
   --cn-font-size-heading-4: 25px
   --cn-letter-spacing-heading-4: 0
   --cn-line-height-heading-4: 48px
@@ -43,6 +43,7 @@
     --cn-line-height-heading-4: 24px
 
 @mixin TypeHeading4()
+  margin: 0
   font-family: var(--cn-font-family-headings)
   font-weight: var(--cn-font-weight-heading-4)
   font-size: var(--cn-font-size-heading-4)
@@ -53,3 +54,6 @@
 
 .head-4, h4
   @include TypeHeading4
+
+cn-card h4
+  margin: 0
