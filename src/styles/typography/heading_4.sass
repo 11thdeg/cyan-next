@@ -49,11 +49,14 @@
   font-size: var(--cn-font-size-heading-4)
   line-height: var(--cn-line-height-heading-4)
   letter-spacing: var(--cn-letter-spacing-heading-4)
-  margin-bottom: 24px
+  margin-bottom: calc(3*var(--cn-grid-size))
   color: var(--cn-color-heading-4)
 
 .head-4, h4
   @include TypeHeading4
+
+  &:not(:first-child)
+    margin-top: calc(3*var(--cn-grid-size))
 
 cn-card h4
   margin: 0

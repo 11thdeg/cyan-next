@@ -1,0 +1,8 @@
+@import '../core/layout-breakpoints.sass'
+
+/* on a desktop, and large screens, we need to make room for rail and tray (if visible) */
+@include media-query-desktop
+  main
+    margin-left: var(--cn-rail-width)
+  body:has(.cn-tray:not(:empty)) main
+    margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width))

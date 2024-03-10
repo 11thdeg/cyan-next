@@ -2,7 +2,7 @@
 @import '../core/layout-breakpoints.sass'
 @import '../typography/heading_4.sass'
 
-.cn-app-tray
+.cn-tray
   ul
     li
       margin: 0 calc(-1 * var(--cn-gap))
@@ -30,7 +30,7 @@
  * For the medium and large screens, the tray is visible on the right side of the screen,
  * when the document body contains a cn-app-menu-button with aria-expanded="true".
  */
-.cn-app-tray
+.cn-tray
   transform: translateX(-380px)
   width: 300px
   background-color: var(--cn-elevation-1)
@@ -48,7 +48,7 @@ body:has(cn-app-menu-button[ariaexpanded="true"])
     transition: transform 0.3s ease-in-out
 
 @include media-query-md-and-up
-  .cn-app-tray
+  .cn-tray
     transform: translateX(0)
     opacity: 1
     &:empty
