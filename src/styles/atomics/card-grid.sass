@@ -1,0 +1,20 @@
+@import '../core/layout-breakpoints.sass'
+
+:root
+  --cn-card-width: calc(var(--cn-grid-size) * 8)
+
+.card-grid
+  display: flex
+  flex-direction: column
+  gap: var(--cn-gap)
+  width: 100%
+
+@include media-query-pad-and-up
+  .card-grid
+    display: grid
+    grid-template-columns: 1fr 1fr
+
+@include media-query-desktop
+  .card-grid
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr

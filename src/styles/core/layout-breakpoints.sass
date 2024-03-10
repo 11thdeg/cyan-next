@@ -13,6 +13,10 @@ $breakpoint-small:   620px
   @media screen and (min-width: $breakpoint-small + 1px)
     @content
 
+@mixin media-query-pad-and-up
+  @media screen and (min-width: $breakpoint-small + 1px)
+    @content
+
 @mixin media-query-desktop
   @media screen and (min-width: $breakpoint-medium + 1px)
     @content
