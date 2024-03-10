@@ -28,16 +28,17 @@ export class CnLightmodeButton extends LitElement {
   `
 
   @property({ type: String, reflect: true })
-  public mode = window.matchMedia("(prefers-color-scheme: dark)") ? 'dark' : 'light'
+  public mode = window.matchMedia('(prefers-color-scheme: dark)')
+    ? 'dark'
+    : 'light'
 
-  onToggle () {
+  onToggle() {
     this.mode = this.mode === 'dark' ? 'light' : 'dark'
     this.dispatchEvent(new Event(this.mode, { bubbles: true }))
     if (this.mode === 'dark') {
       document.body.classList.add('dark')
       document.body.classList.remove('light')
-    }
-    else {
+    } else {
       document.body.classList.add('light')
       document.body.classList.remove('dark')
     }

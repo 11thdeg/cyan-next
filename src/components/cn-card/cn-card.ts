@@ -1,6 +1,6 @@
-import './styles.sass'
-import { html, css, LitElement } from 'lit'
+import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import './styles.sass'
 
 @customElement('cn-card')
 export class CnCard extends LitElement {
@@ -17,18 +17,19 @@ export class CnCard extends LitElement {
   @property({ type: String, reflect: true }) description = ''
 
   @property({ type: String, reflect: true }) link = ''
-  
-  get coverSlot () {
+
+  get coverSlot() {
     if (!this.cover) return undefined
 
-    const coverUrl:string = this.cover || ''
+    const coverUrl: string = this.cover || ''
 
-    if (!this.link) return html`<div class="cardContent" aria-hidden="true">
+    if (!this.link)
+      return html`<div class="cardContent" aria-hidden="true">
         <img src=${coverUrl} alt="" />
         <div class="tint"></div>
       </div>`
 
-    const linkUrl:string = this.link || ''
+    const linkUrl: string = this.link || ''
 
     return html`<div class="cardContent" aria-hidden="true">
       <a href=${linkUrl} class="cardContent">
@@ -38,25 +39,30 @@ export class CnCard extends LitElement {
     </div>`
   }
 
-  get titleSlot () {
+  get titleSlot() {
     if (!this.title) return html``
 
     if (!this.link) return html`<h4>${this.title}</h4>`
 
-    const linkUrl:string = this.link || ''
+    const linkUrl: string = this.link || ''
 
     return html`<h4><a href=${linkUrl}>${this.title}</a></h4>`
   }
 
-  render () {
+  render() {
     return html`
       ${this.coverSlot}
       <div class="cardHeader">   
-        ${this.noun ? html`<cn-icon noun=${this.noun} class="cardNoun" ?large=${!!this.cover} ?dark=${!!this.cover}></cn-icon>` : ''}
+        ${
+          this.noun
+            ? html`<cn-icon noun=${this.noun} class="cardNoun" ?large=${!!this
+                .cover} ?dark=${!!this.cover}></cn-icon>`
+            : ''
+        }
         ${this.titleSlot}
       </div>
       <p class="cardDescription">
-        ${ this.description }
+        ${this.description}
      </p>
      <nav class="cardActions"><slot name="actions"></slot></nav>`
   }
