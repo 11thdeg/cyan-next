@@ -1,19 +1,22 @@
 @import '../core/layout-breakpoints.sass'
 
 :root
-  --cn-card-width: calc(var(--cn-grid-size) * 8)
+  --cn-card-width: calc(36 * var(--cn-grid-size))
 
 .card-grid
   display: flex
   flex-direction: column
   gap: var(--cn-gap)
-
-@include media-query-pad-and-up
-  .card-grid
-    display: grid
-    grid-template-columns: 1fr 1fr
+  margin: var(--cn-gap) 0
 
 @include media-query-desktop
   .card-grid
     display: grid
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: var(--cn-card-width) var(--cn-card-width)
+    justify-content: center
+
+@include media-query-wide
+  .card-grid
+    display: grid
+    grid-template-columns: var(--cn-card-width) var(--cn-card-width) var(--cn-card-width)
+    justify-content: center
