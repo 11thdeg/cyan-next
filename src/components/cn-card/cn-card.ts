@@ -16,20 +16,20 @@ export class CnCard extends LitElement {
 
   @property({ type: String, reflect: true }) description = ''
 
-  @property({ type: String, reflect: true }) link = ''
+  @property({ type: String, reflect: true }) href = ''
 
   get coverSlot() {
     if (!this.cover) return undefined
 
     const coverUrl: string = this.cover || ''
 
-    if (!this.link)
+    if (!this.href)
       return html`<div class="cardContent" aria-hidden="true">
         <img src=${coverUrl} alt="" />
         <div class="tint"></div>
       </div>`
 
-    const linkUrl: string = this.link || ''
+    const linkUrl: string = this.href || ''
 
     return html`<div class="cardContent" aria-hidden="true">
       <a href=${linkUrl} class="cardContent">
@@ -42,9 +42,9 @@ export class CnCard extends LitElement {
   get titleSlot() {
     if (!this.title) return html``
 
-    if (!this.link) return html`<h4>${this.title}</h4>`
+    if (!this.href) return html`<h4>${this.title}</h4>`
 
-    const linkUrl: string = this.link || ''
+    const linkUrl: string = this.href || ''
 
     return html`<h4><a href=${linkUrl}>${this.title}</a></h4>`
   }
