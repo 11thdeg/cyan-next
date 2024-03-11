@@ -111,28 +111,21 @@ export class CnCard extends LitElement {
       display: block;
     }
     :host .cardContent a {
-      width: calc(100cqw + var(--cn-gap) * 2);
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      border-radius: 16px;
-      position: relative;
-      display: block;
-      overflow: hidden;
+      display: contents;
     }
     :host div.tint {
       position: absolute;
       bottom: 0;
       left: 0;
-      height: min(95cqw, 40%);
+      height: min(95cqw, 44%);
       width: calc(100cqw + var(--cn-gap) * 2);
-      background: darkorchid;
       z-index: 1;
       background: linear-gradient(
         0deg,
-        hsla(var(--chroma-primary-95-hsl), 1), 
-        hsla(var(--chroma-primary-10-hsl), 0.0)
+        hsla(var(--chroma-primary-95-hsl), 0.7), 
+        hsla(var(--chroma-primary-30-hsl), 0.0)
       );
-      background-blend-mode: multiply;
+      background-blend-mode: hard-light;
       pointer-events: none;
       border-radius: 0 0 var(--cn-border-radius-card, 16px) var(--cn-border-radius-card, 16px);
     }
