@@ -110,6 +110,15 @@ export class CnCard extends LitElement {
       position: relative;
       display: block;
     }
+    :host .cardContent a {
+      width: calc(100cqw + var(--cn-gap) * 2);
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 16px;
+      position: relative;
+      display: block;
+      overflow: hidden;
+    }
     :host div.tint {
       position: absolute;
       bottom: 0;
@@ -144,7 +153,8 @@ export class CnCard extends LitElement {
       text-overflow: ellipsis;
     }
     :host h4 a {
-      color: var(--cn-color-headings-link, yellow);
+      // color: var(--cn-color-headings-link, yellow);
+      color: var(--cn-color-heading-card, cyan);
       text-decoration: none;
     }
     :host h4 a:hover {
