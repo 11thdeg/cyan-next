@@ -11,5 +11,7 @@ export default defineConfig({
       fileName: 'cyan',
     },
   },
-  plugins: [dts()],
+  plugins: [dts({
+    copyDtsFiles: true,
+  })],
 })
