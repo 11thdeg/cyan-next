@@ -1,6 +1,6 @@
-import { CnCard } from './components/CnCard'
-import { CnIcon } from './components/CnIcon'
-import { CnNavigationIcon } from './components/CnNavigationIcon'
+import { CnCard } from './components/cn-card/cn-card'
+import { CnIcon } from './components/cn-icon/cn-icon'
+import { CnNavigationIcon } from './components/cn-navigation-icon/cn-navigation-icon'
 
 declare module 'solid-js' {
   namespace JSX {
