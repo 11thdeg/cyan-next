@@ -62,7 +62,7 @@ export class CnCard extends LitElement {
         ${this.titleSlot}
       </div>
       <p class="cardDescription">
-        ${this.description}
+        <slot></slot>
      </p>
      <nav class="cardActions"><slot name="actions"></slot></nav>`
   }
@@ -112,6 +112,11 @@ export class CnCard extends LitElement {
     }
     :host .cardContent a {
       display: contents;
+    }
+    :host .cardNoun {
+      align-self: flex-start;
+      flex-shrink: 0;
+      margin-top: var(--cn-grid-size);
     }
     :host div.tint {
       position: absolute;

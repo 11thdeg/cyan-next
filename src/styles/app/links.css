@@ -1,0 +1,6 @@
+a {
+  color: var(--cn-color-link)
+}
+a:hover {
+  color: var(--cn-color-link-hover)
+}
