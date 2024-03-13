@@ -1,0 +1,4 @@
+footer {
+  padding: var(--cn-gap);
+  min-height: calc(var(--cn-gap) * 20);
+}
