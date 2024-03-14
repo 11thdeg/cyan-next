@@ -1,3 +1,9 @@
 .border {
   border: 1px solid var(--cn-color-border, #e5e5e5);
 }
+.border-b {
+  border-bottom: 1px solid var(--cn-color-border, #e5e5e5);
+}
+.border-t {
+  border-top: 1px solid var(--cn-color-border, #e5e5e5);
+}
