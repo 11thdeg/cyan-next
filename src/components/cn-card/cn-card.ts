@@ -164,15 +164,19 @@ export class CnCard extends LitElement {
     }
     :host([elevation="1"]) {
       background: var(--cn-elevation-1);
+      box-shadow: var(--cn-shadow-elevation-1)
     }
     :host([elevation="2"]) {
       background: var(--cn-elevation-2);
+      box-shadow: var(--cn-shadow-elevation-2)
     }
     :host([elevation="3"]) {
       background: var(--cn-elevation-3);
+      box-shadow: var(--cn-shadow-elevation-3)
     }
     :host([elevation="4"]) {
-      background: var(--cn-elevation-3);
+      background: var(--cn-elevation-4);
+      box-shadow: var(--cn-shadow-elevation-4)
     }
     :host .cardHeader {
       display: flex;
