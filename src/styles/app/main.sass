@@ -1,9 +1,19 @@
 @import '../core/layout-breakpoints.sass'
 
-/* on a desktop, and large screens, we need to make room for rail and tray (if visible) */
-@include media-query-desktop
+main
+  container: main-app-content
+  container-type: inline-size
+  padding: 0 var(--cn-gap)
+
+/* on a small screen, we need to make room for the rail */
+@include media-query-pad-and-up
   main
     margin-left: var(--cn-rail-width)
-    padding-right: var(--cn-gap)
+   
+/* on a desktop, and large screens, we need to make room for rail and tray */
+@include media-query-desktop
+  main
+    container-type: inline-size
+    margin-left: var(--cn-rail-width)
   body:has(.cn-tray:not(:empty)) main
     margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width))

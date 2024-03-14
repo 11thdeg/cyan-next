@@ -16,7 +16,7 @@
     minmax(var(--cn-gap), 1fr) [full-width-end];
 }
 
-.content-grid > :not(.breakout, .full-width),
+.content-grid > :not(.breakout, .full-width, .card-grid, .content-columns),
 .full-width > :not(.breakout, .full-width) {
   grid-column: content;
 }
@@ -33,4 +33,7 @@
 .content-grid > .card-grid {
   grid-column: full-width;
   padding: var(--cn-gap);
+}
+.content-grid > .content-columns {
+  grid-column: full-width;
 }

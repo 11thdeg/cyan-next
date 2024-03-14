@@ -1,0 +1,90 @@
+/* Now With CSS container queries! */
+
+.content-columns {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: var(--cn-gap);
+  margin: 0;
+  gap: var(--cn-gap);
+  justify-content: center;
+  align-items: flex-start;
+}
+.content-columns > * {
+  width: 100%;
+}
+@container main-app-content (width > 760px) {
+  .content-columns {
+    flex-direction: row;
+  }
+  .content-columns > :not(.full-width):not(.large-width):not(.small-width) {
+    width: calc(55 * var(--cn-grid-size));
+    flex-grow: 0;
+  }
+  .content-columns > .small-width {
+    width: calc(34 * var(--cn-grid-size));
+    flex-grow: 0;
+  }
+  .content-columns > .large-width {
+    width: calc(88 * var(--cn-grid-size));
+    flex-grow: 0;
+  }
+  .content-columns > .full-width {
+    width: 100%;
+    flex-grow: 1;
+  }
+}
+  
+
+
+/* @import '../core/layout-breakpoints.sass'
+// breakpoints
+// $x-large: 1488px
+// $large:   1268px
+// $medium:  840px
+// $small:   601px
+
+.content-columns
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  padding: var(--cn-gap)
+  margin: 0
+  gap: var(--cn-gap)
+  justify-content: center
+  align-items: flex-start
+
+@include media-query-pad-and-up
+  .content-columns
+    width: calc(var(--cn-grid-size) * 95) // 95 * 8px = 760px
+    margin: 0 auto
+    flex-direction: row
+
+    .content-columns > not(.full-widht),
+    .content-columns > not(.large-widht),
+    .content-columns > not(.small-widht),
+      width: calc(55 * var(--cn-grid-size)) // 55 * 8px = 440px
+
+    .content-columns > .small-width
+      width: calc(34 * var(--cn-grid-size)) // 34 * 8px = 272px
+
+    .content-columns > .large-width
+      width: calc(88 * var(--cn-grid-size)) // 88 * 8px = 700px
+
+    .content-columns > .full-width
+       width: 100%
+
+@include media-query-desktop
+  .content-columns
+    width: auto
+    max-width: calc(var(--cn-grid-size) * 149) // 95 * 8px = 760px
+
+
+// @media screen and (min-width: $large)
+//  .bookLayout
+//    max-width: calc(16px * 3 + 700px + 440px)
+
+// @media screen and (min-width: $x-large)
+//  .bookLayout
+//    max-width: calc(16px * 4 + 700px + 440px + 272px)
+*/
