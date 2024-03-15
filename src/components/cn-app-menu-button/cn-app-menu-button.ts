@@ -35,20 +35,23 @@ export class CnAppMenuButton extends LitElement {
       position: relative;
       height: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-      // margin-top: var(--cn-navigation-icon-padding-top, calc(1rem / 16 * 10));
       border-radius: 50%;
     }
     :host button {
       height: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-      background: hsla(var(--chroma-key-10-hsl), 11%);
+      background: var(--cn-color-nav-button);
       border: none;
       margin: 0;
       padding: 0;
       border-radius: 50%;
+      transition: all 0.3s ease-in-out;
     }
     :host button:hover {
-      background: hsla(var(--chroma-key-10-hsl), 17%);
+      background: var(--cn-color-nav-button-hover);
+    }
+    :host button:active {
+      background: var(--cn-color-nav-button-active);
     }
     :host .state-box {
       display: block;
@@ -56,19 +59,7 @@ export class CnAppMenuButton extends LitElement {
       padding: 0px;
       height: 42px;
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-      background-color: var(--cyan-color-nav-menu-button-background);
-      border-radius: 50%;
       position: relative;
-      transition: background-color 0.2s ease-in-out; 
-    }
-    :host .state-box:hover {
-      background-color: var(--cyan-color-nav-menu-button-background-hover);
-    }
-    :host .state-box:active {
-      background-color: var(--cyan-color-nav-menu-button-background-active);
-    }
-    :host([open]) .state-box {
-      background: var(--cyan-background-nav-menu-button-open);
     }
     :host .state-indicator {
       display: block;
@@ -82,7 +73,7 @@ export class CnAppMenuButton extends LitElement {
       content: "";
       display: block;
       position: absolute;
-      background-color: currentColor;
+      background-color: var(--color-on-primary);
       width: 24px;
       height: 4px;
       border-radius: 2px;
@@ -95,7 +86,7 @@ export class CnAppMenuButton extends LitElement {
       bottom: 5px;
     }
     :host([ariaExpanded='true']) {
-      background: var(--chroma-key-80)
+      background: var(--cn-color-nav-button-active)
     }
     :host([ariaExpanded='true']) .state-indicator::before  {
       transform: translate3d(0, 5px, 0) rotate(45deg);
