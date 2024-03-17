@@ -67,4 +67,8 @@
   --chroma-primary-30-hsl: 76deg, 84%, 61%;
   --chroma-primary-20-hsl: 65deg, 100%, 63%;
   --chroma-primary-10-hsl: 65deg, 100%, 83%;
+
+
+  --chroma-secondary-10: hsl(188, 53%, 65%);
+  --chroma-secondary-10-hsl: 188, 53%, 65%;
 }

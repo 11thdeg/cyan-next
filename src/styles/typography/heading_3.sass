@@ -1,0 +1,51 @@
+/*
+ * Headline 3
+ * Font: Lato
+ * Weight: normal
+ * Size: 50px
+ * Letter spacing: 0px
+ * Line height: 72px
+ *
+ * Downscaled (headline 5)
+ * size: 25px
+ * letter-spacing: 0
+ * line-height: 48px
+ *
+ * Card variant
+ * size: 36px
+ * letter-spacing: 0.25
+ * line-height: 48px
+ */
+
+:root
+  --cn-font-size-heading-3: calc(1rem / 16 * 50)  
+  --cn-letter-spacing-heading-3: 0
+  --cn-line-height-heading-3: calc(var(--cn-grid-size) * 4) 
+
+.downscaled
+  --cn-font-size-heading-3: calc(1rem / 16 * 25)  
+  --cn-letter-spacing-heading-3: 0
+  --cn-line-height-heading-3: calc(var(--cn-grid-size) * 3) 
+
+.card, cn-card
+  --cn-font-size-heading-3: calc(1rem / 16 * 36)  
+  --cn-letter-spacing-heading-3: 0.25
+  --cn-line-height-heading-3: calc(var(--cn-grid-size) * 3) 
+
+@mixin TypeHeading3
+  font-family: var(--cn-font-family-headings)
+  font-weight: var(--cn-font-weight-heading-3)
+  font-size: var(--cn-font-size-heading-3)
+  line-height: var(--cn-line-height-heading-3)
+  letter-spacing: var(--cn-letter-spacing-heading-3)
+  margin-bottom: calc(var(--cn-grid-size) * 2)
+  color: var(--cn-color-heading-3)
+
+.head-3, main h3
+    @include TypeHeading3
+    &.subtitle
+        margin-top: 0
+        font-style: italic
+        color: var(--cn-color-subtitle)
+    &:has(+ .subtitle)
+        margin-bottom: 0
