@@ -180,8 +180,8 @@ export class CnSnackbar extends LitElement {
     }
     :host button {
       display: inline-block;
-      color: var(--cn-color-button);
-      background: var(--cn-background-button);
+      color: var(---cn-color-on-button);
+      background: var(--cn-color-button);
 
       // Font and text
       font-family: var(--cn-font-family-ui);
