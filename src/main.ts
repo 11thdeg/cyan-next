@@ -9,4 +9,7 @@ export * from './components/cn-snackbar/cn-snackbar.ts'
 export * from './components/cn-app-menu-button/cn-app-menu-button.ts'
 export * from './components/cn-lightmode-button/cn-lightmode-button.ts'
 
+import './scripts/data-auto-expand'
+
 logDebug('Cyan Next loaded!')
+

@@ -1,21 +1,30 @@
 // At this point the tray only supports "medium" and "large" size screens. 
 @import '../core/layout-breakpoints.sass'
 @import '../typography/heading_4.sass'
+@import '../typography/ui.sass'
 
 .cn-tray
   ul
     li
+      @include TypeUI()
       margin: 0 calc(-1 * var(--cn-gap))
       transition: background 0.3s ease-in-out
     li:hover
       background: hsla(var(--chroma-key-10-hsl), 0.11)
+      a,
+      cn-icon
+        color: var(--chroma-primary-10)  
     li:active
       background: hsla(var(--chroma-key-10-hsl), 0.22)
     a
       padding: var(--cn-gap)
-      color: var(--color-on-primary)
+      color: var(--color-on-primary-high)
       text-decoration: none
       display: block
+    cn-icon
+      color: var(--color-on-primary-high)
+      vertical-align: middle
+      margin-right: var(--cn-grid)
   h2, h3
     @include TypeHeading4
     margin: 0

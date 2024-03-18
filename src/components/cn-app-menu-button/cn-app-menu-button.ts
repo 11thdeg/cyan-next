@@ -88,12 +88,14 @@ export class CnAppMenuButton extends LitElement {
     :host([ariaExpanded='true']) {
       background: var(--cn-color-nav-button-active)
     }
-    :host([ariaExpanded='true']) .state-indicator::before  {
-      transform: translate3d(0, 5px, 0) rotate(45deg);
-    }
-    :host([ariaExpanded='true']) .state-indicator::after {
-      transform: translate3d(0, -5px, 0) rotate(-45deg);
-    }
+    @media (max-width: 960px ) {
+      :host([ariaExpanded='true']) .state-indicator::before  {
+        transform: translate3d(0, 5px, 0) rotate(45deg);
+      }
+      :host([ariaExpanded='true']) .state-indicator::after {
+        transform: translate3d(0, -5px, 0) rotate(-45deg);
+      }
+    } 
     :host button:focus {
       outline: none;
     }

@@ -1,0 +1,33 @@
+textarea {
+  display: block;
+  width: 100%;
+  border: 0;
+  position: relative;
+  transition: all 0.3s ease;
+  color: var(--cn-color-on-field);
+  background: var(--cn-color-field);
+  border-bottom: 1px solid var(--cn-color-border);
+  border-radius: var(--cn-border-radius-field);
+  
+  /* These belong to preflight */
+  margin: 0;
+  padding: var(--cn-grid);
+}
+textarea::placeholder {
+  color: var(--cn-color-on-field-placeholder);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+textarea:focus {
+  outline: none;
+  color: var(--cn-color-on-field-active);
+  background: var(--cn-color-field-active);
+  border-bottom: 1px solid var(--cn-color-border-active);
+}
+textarea:focus::placeholder {
+  opacity: 0;
+  display: none;
+}
+label:has(textarea) {
+  padding-left: var(--cn-grid);
+}
