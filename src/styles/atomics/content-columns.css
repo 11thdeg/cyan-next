@@ -17,16 +17,17 @@
   .content-columns {
     flex-direction: row;
   }
-  .content-columns > :not(.full-width):not(.large-width):not(.small-width) {
-    width: calc(55 * var(--cn-grid-size));
+  .content-columns > :not(.full-width):not(.large-width):not(.small-width):not(.column-large) {
+    width: calc(55 * var(--cn-grid));
     flex-grow: 0;
   }
   .content-columns > .small-width {
-    width: calc(34 * var(--cn-grid-size));
+    width: calc(34 * var(--cn-grid));
     flex-grow: 0;
   }
-  .content-columns > .large-width {
-    width: calc(88 * var(--cn-grid-size));
+  .content-columns > .large-width,
+  .content-columns > .column-large{
+    width: calc(88 * var(--cn-grid));
     flex-grow: 0;
   }
   .content-columns > .full-width {
@@ -56,20 +57,20 @@
 
 @include media-query-pad-and-up
   .content-columns
-    width: calc(var(--cn-grid-size) * 95) // 95 * 8px = 760px
+    width: calc(var(--cn-grid) * 95) // 95 * 8px = 760px
     margin: 0 auto
     flex-direction: row
 
     .content-columns > not(.full-widht),
     .content-columns > not(.large-widht),
     .content-columns > not(.small-widht),
-      width: calc(55 * var(--cn-grid-size)) // 55 * 8px = 440px
+      width: calc(55 * var(--cn-grid)) // 55 * 8px = 440px
 
     .content-columns > .small-width
-      width: calc(34 * var(--cn-grid-size)) // 34 * 8px = 272px
+      width: calc(34 * var(--cn-grid)) // 34 * 8px = 272px
 
     .content-columns > .large-width
-      width: calc(88 * var(--cn-grid-size)) // 88 * 8px = 700px
+      width: calc(88 * var(--cn-grid)) // 88 * 8px = 700px
 
     .content-columns > .full-width
        width: 100%
@@ -77,7 +78,7 @@
 @include media-query-desktop
   .content-columns
     width: auto
-    max-width: calc(var(--cn-grid-size) * 149) // 95 * 8px = 760px
+    max-width: calc(var(--cn-grid) * 149) // 95 * 8px = 760px
 
 
 // @media screen and (min-width: $large)

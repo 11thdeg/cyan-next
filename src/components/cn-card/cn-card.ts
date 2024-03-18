@@ -71,7 +71,7 @@ export class CnCard extends LitElement {
     :host {
       box-sizing: border-box;
       display: block;
-      // padding: var(--cn-grid-size) var(--cn-gap);
+      // padding: var(--cn-grid) var(--cn-gap);
       border-radius: var(--cn-border-radius-large);
       position: relative;
       container-type: inline-size;
@@ -83,7 +83,7 @@ export class CnCard extends LitElement {
   line-height: var(--cn-line-height-text);
   letter-spacing: var(--cn-letter-spacing-text);
     color: var(--color-on-primary-low);
-      padding: var(--cn-grid-size) var(--cn-gap);
+      padding: var(--cn-grid) var(--cn-gap);
     }
     :host([cover]) .cardNoun {
       position: absolute;
@@ -95,7 +95,7 @@ export class CnCard extends LitElement {
     }
     :host .cardContent {
       padding: 0;
-      margin: calc(-1 * var(--cn-grid-size)) calc(-1 * var(--cn-gap));
+      margin: calc(-1 * var(--cn-grid)) calc(-1 * var(--cn-gap));
       margin-bottom: 0;
       border-radius: var(--cn-border-radius-card, 16px);
       max-height: 100cqw;
@@ -116,7 +116,7 @@ export class CnCard extends LitElement {
     :host .cardNoun {
       align-self: flex-start;
       flex-shrink: 0;
-      margin-top: var(--cn-grid-size);
+      margin-top: var(--cn-grid);
     }
     :host div.tint {
       position: absolute;
@@ -159,7 +159,7 @@ export class CnCard extends LitElement {
       text-decoration: underline;
     }
     :host([elevation="0"]) {
-      padding: calc(var(--cn-grid-size) - 1px) calc(var(--cn-gap) - 1px);
+      padding: calc(var(--cn-grid) - 1px) calc(var(--cn-gap) - 1px);
       border: 1px solid var(--cn-color-border);
     }
     :host([elevation="1"]) {
@@ -183,7 +183,7 @@ export class CnCard extends LitElement {
       flex-direction: row;
       align-items: center;
       justify-content: left;
-      gap: var(--cn-grid-size);
+      gap: var(--cn-grid);
     }
     `
 }

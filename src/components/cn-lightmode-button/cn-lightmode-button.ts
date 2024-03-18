@@ -7,12 +7,12 @@ export class CnLightmodeButton extends LitElement {
     :host {
       display: block;
       position: relative;
-      height: calc(6 * var(--cn-grid-size));
-      height: calc(6 * var(--cn-grid-size));
+      height: calc(6 * var(--cn-grid));
+      height: calc(6 * var(--cn-grid));
       border-radius: 50%;
       background: var(--cn-elevation-1);
       margin: 0;
-      padding-top: calc(var(--cn-grid-size) / 2);
+      padding-top: calc(var(--cn-grid) / 2);
       transition: background 0.3s ease-in-out
     }
     :host(:hover) {

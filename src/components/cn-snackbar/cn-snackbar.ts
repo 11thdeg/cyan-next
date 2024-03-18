@@ -154,8 +154,8 @@ export class CnSnackbar extends LitElement {
     :host {
       display: flex;
       position: fixed;
-      bottom: var( --cn-grid-size, 8px);
-      left: var( --cn-grid-size, 8px);
+      bottom: var( --cn-grid, 8px);
+      left: var( --cn-grid, 8px);
       background-color: var(--color-contrast, #333); 
       color: var(--color-on-contrast, #fff);
       border-radius: var(--cn-border-radius, 4px) 0 var(--cn-border-radius, 4px) 0;
@@ -195,7 +195,7 @@ export class CnSnackbar extends LitElement {
       border: none;
       height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
       margin: 5px 0em;
-      margin-right: var(--cn-grid-size, 1rem);
+      margin-right: var(--cn-grid, 1rem);
       padding: 0 16px;
       transition: all 0.3s ease-in-out;
       text-decoration: none;

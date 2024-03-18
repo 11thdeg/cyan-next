@@ -4,7 +4,7 @@ fieldset {
   border-radius: var(--cn-border-radius);
   display: flex;
   flex-direction: column;
-  gap: var(--cn-grid-size);
+  gap: var(--cn-grid);
 }
 
 fieldset label {

@@ -19,8 +19,8 @@
   h2, h3
     @include TypeHeading4
     margin: 0
-    line-height: calc(var(--cn-grid-size) * 7)
-    height: calc(var(--cn-grid-size) * 7)
+    line-height: calc(var(--cn-grid) * 7)
+    height: calc(var(--cn-grid) * 7)
     white-space: nowrap
     overflow: hidden
     text-overflow: ellipsis
@@ -40,7 +40,7 @@
   height: 100dvh
   opacity: 0
   transition: transform 0.3s ease-in-out
-  padding: var(--cn-grid-size) var(--cn-gap)
+  padding: var(--cn-grid) var(--cn-gap)
 body:has(cn-app-menu-button[ariaexpanded="true"])
   .cn-app-tray
     transform: translateX(0)
