@@ -3,6 +3,43 @@
 @import '../typography/heading_4.sass'
 @import '../typography/ui.sass'
 
+/* For phone and pad screens, the tray is only visible if the cn-tray-button has [ariaExpanded=true] */
+.cn-tray
+  width: min(calc(var(--cn-tray-width) + var(--cn-rail-width)), 95dvw)
+  transform: translateX(-100%)
+  position: fixed
+  top: 0
+  left: 0
+  height: 100dvh
+  transition: transform 0.3s ease-in-out
+  padding: var(--cn-grid) var(--cn-gap)
+  padding-left: calc(var(--cn-gap) + var(--cn-rail-width))
+  z-index: var(--cn-z-index-tray, 1000)
+  transition: all 0.3s ease-in-out
+  
+body:has(cn-tray-button[ariaexpanded="true"]) .cn-tray
+  transform: translateX(0)
+  box-shadow: var(--cn-shadow-elevation-1)
+  background: var(--cn-elevation-1)
+
+/* For larger screens, tray is hidden when cn-tray-button has [ariaExpanded=true] */
+@include media-query-desktop
+  .cn-tray
+    transform: translateX(0)
+    opacity: 1
+    // border-right: 1px solid var(--cn-color-border)
+    box-shadow: var(--cn-shadow-elevation-1)
+    // background: none
+    &:empty
+      display: none
+
+  body:has(cn-tray-button[ariaexpanded="true"]) .cn-tray
+    opacity: 0
+
+cn-tray-button
+  z-index: var(--cn-z-index-tray-button, 3000)
+
+
 .cn-tray
   ul
     li
@@ -35,32 +72,24 @@
     text-overflow: ellipsis
     font-weight: var(--cn-font-weight-heading-2)
 
-/*
- * For the medium and large screens, the tray is visible on the right side of the screen,
- * when the document body contains a cn-app-menu-button with aria-expanded="true".
- */
-.cn-tray
-  transform: translateX(-380px)
-  width: 300px
-  background-color: var(--cn-elevation-1)
-  position: fixed
-  top: 0
-  left: 80px
-  height: 100dvh
-  opacity: 0
-  transition: transform 0.3s ease-in-out
-  padding: var(--cn-grid) var(--cn-gap)
-body:has(cn-app-menu-button[ariaexpanded="true"])
-  .cn-app-tray
-    transform: translateX(0)
-    opacity: 1
-    transition: transform 0.3s ease-in-out
-
-@include media-query-desktop
-  .cn-tray
-    transform: translateX(0)
-    opacity: 1
-    &:empty
-      display: none
-  /* cn-app-menu-button
-    display: none */
+// /*
+//  * For the medium and large screens, the tray is visible on the right side of the screen,
+//  * when the document body contains a cn-app-menu-button with aria-expanded="true".
+//  *
+//  .cn-tray
+  
+//   
+//   background-color: var(--cn-elevation-1)
+//   
+//   top: 0
+//   left: 80px
+//   height: 100dvh
+//   opacity: 0
+//   
+//   padding: var(--cn-grid) var(--cn-gap)
+//  body:has(cn-app-menu-button[ariaexpanded="true"])
+//   .cn-app-tray
+//     transform: translateX(0)
+//     opacity: 1
+//     transition: transform 0.3s ease-in-out
+//   */

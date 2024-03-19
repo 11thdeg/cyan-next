@@ -26,5 +26,8 @@ header.cn-app-bar
 @include media-query-desktop
   header.cn-app-bar
     margin-left: var(--cn-rail-width)
+    transition: margin-left 0.3s ease-in-out
   body:has(.cn-tray:not(:empty)) header.cn-app-bar
     margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width))
+  body:has(cn-tray-button[ariaexpanded="true"]) header.cn-app-bar
+    margin-left: var(--cn-rail-width) !important

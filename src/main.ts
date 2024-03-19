@@ -6,7 +6,7 @@ export * from './components/cn-navigation-icon'
 export * from './components/cn-app-bar'
 export * from './components/cn-share-button/cn-share-button.ts'
 export * from './components/cn-snackbar/cn-snackbar.ts'
-export * from './components/cn-app-menu-button/cn-app-menu-button.ts'
+export * from './components/cn-tray-button/cn-tray-button.ts'
 export * from './components/cn-lightmode-button/cn-lightmode-button.ts'
 export * from './components/cn-avatar-button/cn-avatar-button.ts'
 

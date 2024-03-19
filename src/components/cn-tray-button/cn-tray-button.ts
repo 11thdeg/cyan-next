@@ -1,8 +1,8 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-@customElement('cn-app-menu-button')
-export class CnAppMenuButton extends LitElement {
+@customElement('cn-tray-button')
+export class CnTrayButton extends LitElement {
   @property({ type: String, reflect: true })
   ariaExpanded = 'false'
 
