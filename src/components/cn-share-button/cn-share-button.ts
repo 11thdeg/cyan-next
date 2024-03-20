@@ -90,7 +90,9 @@ export class CnShareButton extends LitElement {
   }
 
   render() {
-    const icon = this.noun ? html`<cn-icon noun=${this.noun}></cn-icon>` : this.defaultIcon
+    const icon = this.noun
+      ? html`<cn-icon noun=${this.noun}></cn-icon>`
+      : this.defaultIcon
 
     const labelString = this.label ? this.label : 'Share'
 
