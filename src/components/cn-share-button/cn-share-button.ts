@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { logDebug } from '../../utils/logHelpers'
 
 /**
  * An example of SVG Icons wrapped in a LitElement.
@@ -14,10 +15,16 @@ export class CnShareButton extends LitElement {
   src = ''
 
   @property({ type: String, reflect: true })
+  title = ''
+
+  @property({ type: String, reflect: true })
   label = ''
 
   @property({ type: String, reflect: true })
   ariaLabel = ''
+
+  @property({ type: String, reflect: true })
+  noun = ''
 
   private defaultIcon = html`<svg 
   version="1.1"
@@ -59,16 +66,16 @@ export class CnShareButton extends LitElement {
     // Check if the Web Share API is supported by the browser, if so, use it
     if (typeof navigator.share !== 'undefined') {
       await navigator.share({
-        title: document.title,
-        url: window.location.href,
+        title: this.title || document.title,
+        url: this.src || window.location.href,
       })
       this.dispatchEvent(new Event('share'))
-      console.log('Shared successfully')
+      logDebug('Shared:', this.src || window.location.href)
       return
     }
 
     // Otherwise, fallback to the Clipboard API
-    const text = window.location.href
+    const text = this.src || window.location.href
     await navigator.clipboard.writeText(text)
     console.log('Copied to clipboard:', text)
     this.dispatchEvent(new Event('copy'))
@@ -83,45 +90,42 @@ export class CnShareButton extends LitElement {
   }
 
   render() {
-    const icon = this.src
-      ? html`<img src="${this.src}" alt="${this.ariaLabel}" />`
-      : html`${this.defaultIcon}`
+    const icon = this.noun ? html`<cn-icon noun=${this.noun}></cn-icon>` : this.defaultIcon
 
     const labelString = this.label ? this.label : 'Share'
 
-    return html`${labelString} ${icon}`
+    return html`
+      <button>
+        ${labelString} ${icon}
+      </button>`
   }
 
   static styles = css`
     :host {
-      display: inline-block;
+      display: contents;
+    }
+    :host button {
       color: var(---cn-color-on-button);
       background: var(--cn-color-button);
-      
-      // Font and text
       font-family: var(--cn-font-family-ui);
       font-weight: var(--cn-font-weight-ui);
       font-size: var(--cn-font-size-ui);
+      letter-spacing: var(--cn-letter-spacing-ui);
       line-height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
       /* 38px */
-      letter-spacing: var(--cn-letter-spacing-ui);
-      
       border-radius: calc(19 / 16 * 1rem);
       border: none;
       height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
-      margin: 5px 0;
-      padding: 0 16px 0 16px;
+      padding: var(--cn-padding-button, 0 16px);
       transition: all 0.3s ease-in-out;
       text-decoration: none;
-
-      // Accessibility, disable selection
       user-select: none;
     }
-    :host(:hover) {
+    :host(:hover) button {
       background: var(--cn-color-button-hover);
       color: var(---cn-color-on-button-hover);
     }
-    :host(:active) {
+    :host(:active) button {
       background: var(--cn-color-button-active);
       color: var(---cn-color-on-button-active);
     }
