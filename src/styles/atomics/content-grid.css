@@ -1,3 +1,13 @@
+:root {
+  --content-grid-gap: var(--content-grid-gap);
+}
+@media (width < 768px) {
+  :root {
+    --content-grid-gap: var(--cn-grid);
+  }
+}
+
+
 .content-grid {
   --_breakout-size: calc(
     (var(--cn-breakout-max-width) - var(--cn-content-max-width)) / 2
@@ -5,15 +15,15 @@
 
   display: grid;
   grid-template-columns:
-    [full-width-start] minmax(var(--cn-gap), 1fr)
+    [full-width-start] minmax(var(--content-grid-gap), 1fr)
     [breakout-start] minmax(0, var(--_breakout-size))
     [content-start] min(
-      100% - (var(--cn-gap) * 2),
+      100% - (var(--content-grid-gap) * 2),
       var(--cn-content-max-width)
     )
     [content-end]
     minmax(0, var(--_breakout-size)) [breakout-end]
-    minmax(var(--cn-gap), 1fr) [full-width-end];
+    minmax(var(--content-grid-gap), 1fr) [full-width-end];
 }
 
 .content-grid > :not(.breakout, .full-width, .card-grid, .content-columns),
@@ -23,7 +33,7 @@
 
 .content-grid > .breakout {
   grid-column: breakout;
-  padding: 0 var(--cn-gap);
+  padding: 0 var(--content-grid-gap);
 }
 .content-grid > .full-width {
   grid-column: full-width;
@@ -32,7 +42,7 @@
 }
 .content-grid > .card-grid {
   grid-column: full-width;
-  padding: var(--cn-gap);
+  padding: var(--content-grid-gap);
 }
 .content-grid > .content-columns {
   grid-column: full-width;

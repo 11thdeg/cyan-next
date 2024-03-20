@@ -98,7 +98,7 @@ export class CnShareButton extends LitElement {
 
     return html`
       <button>
-        ${labelString} ${icon}
+        <span class="label">${labelString}</span> ${icon}
       </button>`
   }
 
@@ -137,6 +137,23 @@ export class CnShareButton extends LitElement {
       width: var(--cn-icon-size-small);
       vertical-align: middle;
       margin-bottom: 0.15em;
+    }
+    @media (max-width: 620px) {
+      :host .label {
+        display: none;
+      }
+      :host button {
+        position: relative;  
+        margin: 0;
+        padding: 0;
+        padding: var(--cn-grid);
+        width: var(--cn-line-height-button, calc(38 / 16 * 1rem));
+      }
+      :host svg {
+        position: absolute;
+        top: var(--cn-grid);
+        left: calc(var(--cn-grid) * 0.75);
+      }
     }
     :host img {
       object-fit: contain;
