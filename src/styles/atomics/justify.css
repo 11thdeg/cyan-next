@@ -9,6 +9,7 @@
 }*/
 .justify-self-center{
   justify-self: center;
+  flex-grow: 0;
 }
 /*.justify-self-stretch{
   justify-self: stretch;

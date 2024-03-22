@@ -16,12 +16,9 @@
  * letter-spacing: 0.25
  * line-height: 48px
  */
+@import '../core/layout-breakpoints.sass'
 
-:root
-  --cn-font-size-heading-3: calc(1rem / 16 * 50)  
-  --cn-letter-spacing-heading-3: 0
-  --cn-line-height-heading-3: calc(var(--cn-grid) * 4) 
-
+:root,
 .downscaled
   --cn-font-size-heading-3: calc(1rem / 16 * 25)  
   --cn-letter-spacing-heading-3: 0
@@ -31,6 +28,12 @@
   --cn-font-size-heading-3: calc(1rem / 16 * 36)  
   --cn-letter-spacing-heading-3: 0.25
   --cn-line-height-heading-3: calc(var(--cn-grid) * 3) 
+
+@include media-query-md-and-up
+  :root
+    --cn-font-size-heading-3: calc(1rem / 16 * 50)  
+    --cn-letter-spacing-heading-3: 0
+    --cn-line-height-heading-3: calc(var(--cn-grid) * 4) 
 
 @mixin TypeHeading3
   font-family: var(--cn-font-family-headings)

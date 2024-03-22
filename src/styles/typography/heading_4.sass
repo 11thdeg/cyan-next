@@ -16,31 +16,25 @@
  * letter-spacing: 0
  * line-height: 48px
  */
-:root
-  --cn-font-size-heading-4: 36px
-  --cn-font-weight-heading-4: 400
-  --cn-line-height-heading-4: 48px
-  --cn-letter-spacing-heading-4: 0.25px
 
+:root,
+.small
 .downscaled
-  --cn-font-size-heading-4: 21px
-  --cn-letter-spacing-heading-4: 0.15px
-  --cn-line-height-heading-4: 24px
+    --cn-font-size-heading-4: 21px
+    --cn-letter-spacing-heading-4: 0.15px
+    --cn-line-height-heading-4: 24px
 
 .card, cn-card
   --cn-font-size-heading-4: 25px
   --cn-letter-spacing-heading-4: 0
   --cn-line-height-heading-4: 48px
 
-@media screen and (max-width: 600px)
+@include media-query-md-and-up
   :root
-    --cn-font-size-heading-4: 21px
-    --cn-letter-spacing-heading-4: 0.15px
-    --cn-line-height-heading-4: 24px
-  .card
-    --cn-font-size-heading-4: 21px
-    --cn-letter-spacing-heading-4: 0.15px
-    --cn-line-height-heading-4: 24px
+    --cn-font-size-heading-4: 36px
+    --cn-font-weight-heading-4: 400
+    --cn-line-height-heading-4: 48px
+    --cn-letter-spacing-heading-4: 0.25px
 
 @mixin TypeHeading4()
   margin: 0
