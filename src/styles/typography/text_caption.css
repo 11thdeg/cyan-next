@@ -1,0 +1,20 @@
+:root {
+  --cn-font-size-caption: calc(var(--cn-grid) * 1.5);
+  --cn-font-weight-caption: normal;
+  --cn-line-height-caption: calc(var(--cn-grid) * 2);
+  --cn-letter-spacing-caption: calc(1rem / 16 * 0.4);
+}
+
+caption,
+figcaption,
+figcaption > *,
+.text-caption {
+  color: var(--cn-color-text);
+  font-family: var(--cn-text-font-family);
+  font-size: var(--cn-font-size-caption);
+  font-weight: var(--cn-font-weight-caption);
+  letter-spacing: var(--cn-letter-spacing-caption);
+  line-height: var(--cn-line-height-caption);
+  margin: 0;
+  padding: 0;
+}
