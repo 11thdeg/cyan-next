@@ -9,6 +9,8 @@ export * from './components/cn-snackbar/cn-snackbar.ts'
 export * from './components/cn-tray-button/cn-tray-button.ts'
 export * from './components/cn-lightmode-button/cn-lightmode-button.ts'
 export * from './components/cn-avatar-button/cn-avatar-button.ts'
+export * from './components/cn-avatar/cn-avatar.ts'
+export * from './components/cn-bubble/cn-bubble.ts'
 
 import './scripts/data-auto-expand'
 
