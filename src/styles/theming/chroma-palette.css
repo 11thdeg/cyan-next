@@ -17,17 +17,17 @@
   /*
    * WGAC + MUI 3 inspired colors
    */
-   --chroma-key-99: hsl(202, 100%, 11%);
-   --chroma-key-95: hsl(202, 52%, 19%);
-   --chroma-key-90: hsl(202, 41%, 27%);
-   --chroma-key-80: hsl(202, 33%, 35%);
-   --chroma-key-70: hsl(202, 27%, 43%);
+   --chroma-key-99: hsl(197, 100%, 11%);
+   --chroma-key-95: hsl(198, 52%, 19%);
+   --chroma-key-90: hsl(199, 41%, 27%);
+   --chroma-key-80: hsl(200, 33%, 35%);
+   --chroma-key-70: hsl(201, 27%, 43%);
    --chroma-key-60: hsl(202, 23%, 51%);
    --chroma-key-50: hsl(202, 20%, 59%);
    --chroma-key-40: hsl(202, 18%, 67%);
-   --chroma-key-30: hsl(202, 16%, 75%);
-   --chroma-key-20: hsl(202, 15%, 83%);
-   --chroma-key-10-hsl: 202, 15%, 93%;
+   --chroma-key-30: hsl(203, 16%, 75%);
+   --chroma-key-20: hsl(204, 15%, 83%);
+   --chroma-key-10-hsl: 204, 15%, 93%;
    --chroma-key-10: hsl(var(--chroma-key-10-hsl));
 
 
@@ -71,4 +71,19 @@
 
   --chroma-secondary-10: hsl(188, 53%, 65%);
   --chroma-secondary-10-hsl: 188, 53%, 65%;
+
+
+
+  /* Surface palette, in material 3 style notation */
+  --chroma-surface-99: color-mix(in hsl, var(--chroma-surface-90), black 30%);
+  --chroma-surface-95: color-mix(in hsl, var(--chroma-surface-90), black 10%);
+  --chroma-surface-90: hsl(197deg, 100%, 11%);
+  --chroma-surface-10: hsl(204deg, 78%, 97%);
+  --chroma-surface-20: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 14%);
+  --chroma-surface-30: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 28%);
+  --chroma-surface-40: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 32%);
+  --chroma-surface-50: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 46%);
+  --chroma-surface-60: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 60%);
+  --chroma-surface-70: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 74%);
+  --chroma-surface-80: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 88%);
 }
