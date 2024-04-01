@@ -2,8 +2,8 @@
   /* Key / Surface colors */
   --chroma-K-S: hsl(204deg, 78%, 97%);
   --chroma-K-S-hsl: 204, 78%, 97%;
-  --chroma-S-K: hsl(197deg, 100%, 11%);
-  --chroma-S-K-hsl: 197, 100%, 11%;
+  --chroma-S-K: hsl(204deg, 100%, 11%);
+  --chroma-S-K-hsl: 204, 100%, 11%;
 
   /* Standard palette */
   --chroma-C: hsl(170deg, 100%, 20%);
@@ -91,8 +91,8 @@
   /* Surface palette, in material 3 style notation */
   --chroma-surface-99: color-mix(in hsl, var(--chroma-surface-90), black 30%);
   --chroma-surface-95: color-mix(in hsl, var(--chroma-surface-90), black 10%);
-  --chroma-surface-90: hsl(197deg, 100%, 11%);
-  --chroma-surface-10: hsl(204deg, 78%, 97%);
+  --chroma-surface-90: var(--chroma-S-K);
+  --chroma-surface-10: var(--chroma-K-S);
   --chroma-surface-20: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 14%);
   --chroma-surface-30: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 28%);
   --chroma-surface-40: color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-90) 32%);
