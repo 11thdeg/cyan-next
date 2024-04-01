@@ -1,4 +1,18 @@
 :root {
+  /* Key / Surface colors */
+  --chroma-K-S: hsl(204deg, 78%, 97%);
+  --chroma-K-S-hsl: 204, 78%, 97%;
+  --chroma-S-K: hsl(197deg, 100%, 11%);
+  --chroma-S-K-hsl: 197, 100%, 11%;
+
+  /* Standard palette */
+  --chroma-C: hsl(147, 56%, 36%);
+  --chroma-C-hsl: 159, 74%, 27%;
+  --chroma-N: hsl(65deg, 100%, 63%);
+  --chroma-N-hsl: 65, 100%, 63%;
+  --chroma-A: hsl(318, 83%, 40%);
+  --chroma-A-hsl: 318, 83%, 40%;
+
   /* Chromatic scale for key color
    * https://gka.github.io/palettes/#/11|s|002337,05e7fb,e7fbfb|ffffe0,ff005e,006c09|1|1
    */
