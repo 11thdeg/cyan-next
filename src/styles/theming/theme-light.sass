@@ -1,18 +1,26 @@
 @mixin theme-light
-  --color-primary: white
-  --color-on-primary: var(--chroma-key-90)
-  --cn-color-key: var(--color-on-primary)
+  /* Surface colors */
+  --color-primary: var(--chroma-K-S)
+  --color-on-primary: var(--chroma-S-K)
 
-  /* Root element theming presets */
-  background: var(--color-primary)
-  color: var(--color-on-primary)
+  /* Text colors */
+  --color-text: hsla(var(--chroma-S-K-hsl), 0.82)
+  --color-text-low-emphasis: hsla(var(--chroma-S-K-hsl), 0.68)
+  --color-text-disabled: hsla(var(--chroma-S-K-hsl), 0.38)
+
+  --color-link: var(--chroma-surface-60)
+  --color-link-hover: var(--chroma-surface-50)
+  --color-link-active: var(--chroma-surface-70)
+
+  --color-heading-1: var(--chroma-S-K)
+  --color-heading-2: var(--chroma-surface-70)
+
+
+  /* Separators */
+  --color-border: var(--chroma-surface-40)
 
   /* Titles and headings */
-  --cn-color-heading-1: var(--color-on-primary)
-  --cn-color-heading-2: var(--color-on-primary)
-  --cn-color-heading-3: var(--chroma-key-80)
-  --cn-color-heading-4: var(--chroma-key-80)
-  --cn-color-subtitle: color-mix(in hsl, var(--color-primary), var(--color-on-primary) 73%) 
+  --color-subtitle: var(--color-text-low-emphasis)
 
   --cn-color-heading-card: color-mix(in hsl, var(--color-on-primary), var(--chroma-key-40) 50%) 
 

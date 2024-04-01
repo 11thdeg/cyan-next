@@ -1,6 +1,9 @@
 a {
-  color: var(--cn-color-link)
+  color: var(--color-link)
 }
 a:hover {
-  color: var(--cn-color-link-hover)
+  color: var(--color-link-hover)
+}
+a:active {
+  color: var(--color-link-active)
 }

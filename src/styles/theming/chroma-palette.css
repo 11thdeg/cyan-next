@@ -6,8 +6,8 @@
   --chroma-S-K-hsl: 197, 100%, 11%;
 
   /* Standard palette */
-  --chroma-C: hsl(147, 56%, 36%);
-  --chroma-C-hsl: 159, 74%, 27%;
+  --chroma-C: hsl(170deg, 100%, 20%);
+  --chroma-C-hsl: 170, 100%, 20%;
   --chroma-N: hsl(65deg, 100%, 63%);
   --chroma-N-hsl: 65, 100%, 63%;
   --chroma-A: hsl(318, 83%, 40%);
