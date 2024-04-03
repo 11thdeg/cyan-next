@@ -1,0 +1,23 @@
+.toolbar {
+  padding: var(--cn-grid);
+  margin-top: var(--cn-grid);
+  margin-bottom: var(--cn-grid);
+}
+.toolbar:last-child {
+  margin-bottom: 0;
+}
+.toolbar:first-child {
+  margin-top: 0;
+}
+.toolbar > * {
+  display: inline-block;
+}
+.flex.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.toolbar h4,
+.toolbar p {
+  margin: 0; 
+}
