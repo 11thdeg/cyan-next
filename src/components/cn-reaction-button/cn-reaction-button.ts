@@ -60,23 +60,27 @@ export class CyanReactionButton extends LitElement {
   }
 
   render() {
-    return html`<button>
+    return html`<div><button>
       <cn-icon small noun="${this.noun}"></cn-icon>
     </button>
     ${
-      this.count > -1 ? html`<span class="count">${this.count}</span>` : html``
-    }`
+      this.count > -1 ? html`<div class="count">${this.count}</div>` : html``
+    }</div>`
   }
 
   static styles = css`
     :host {
+      display: contents;
+    }
+    :host div{
+      flex-shrink: 0;
       display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
       height: calc(var(--cn-line) * 2);
-      width: auto;
       position: relative;
       color: var(--cn-color-reaction-button);
       line-height: calc(var(--cn-line) * 2);
-      overflow: hidden;
       flex-shrink: 0;
     }
     :host button {
