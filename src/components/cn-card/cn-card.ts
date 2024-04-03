@@ -78,11 +78,11 @@ export class CnCard extends LitElement {
       flex-grow: 1;
       transition: background 0.27 ease-in-out;
       font-family: var(--cn-font-family-text);
-  font-size: var(--cn-font-size-text);
-  font-weight: var(--cn-font-weight-text);
-  line-height: var(--cn-line-height-text);
-  letter-spacing: var(--cn-letter-spacing-text);
-    color: var(--color-on-primary-low);
+      font-size: var(--cn-font-size-text);
+      font-weight: var(--cn-font-weight-text);
+      line-height: var(--cn-line-height-text);
+      letter-spacing: var(--cn-letter-spacing-text);
+      color: var(--color-text-low-emphasis);
       padding: var(--cn-grid) var(--cn-gap);
     }
     :host([cover]) .cardNoun {
@@ -142,7 +142,7 @@ export class CnCard extends LitElement {
       font-size: var(--cn-font-size-headline-card);
       line-height: var(--cn-line-height-headline-card);
       letter-spacing: var(--cn-letter-spacing-headline-card);
-      color: var(--cn-color-heading-card, cyan);
+      color: var(--color-heading-2, cyan);
 
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -152,7 +152,7 @@ export class CnCard extends LitElement {
     }
     :host h4 a {
       // color: var(--cn-color-headings-link, yellow);
-      color: var(--cn-color-heading-card, cyan);
+      color: var(--color-heading-2, cyan);
       text-decoration: none;
     }
     :host h4 a:hover {
@@ -160,7 +160,7 @@ export class CnCard extends LitElement {
     }
     :host([elevation="0"]) {
       padding: calc(var(--cn-grid) - 1px) calc(var(--cn-gap) - 1px);
-      border: 1px solid var(--cn-color-border);
+      border: 1px solid var(--color-border);
     }
     :host([elevation="1"]) {
       background: var(--cn-elevation-1);

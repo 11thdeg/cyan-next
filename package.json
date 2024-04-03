@@ -1,7 +1,7 @@
 {
   "name": "@11thdeg/cyan-next",
   "private": false,
-  "version": "1.0.0-alpha.52",
+  "version": "1.0.0-alpha.53",
   "description": "A lightweight web component library for Pelilauta, Cinis etc. projects",
   "main": "./dist/cyan.umd.cjs",
   "module": "./dist/cyan.mjs",
@@ -25,14 +25,14 @@
     "check": "biome check --apply src"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
+    "@biomejs/biome": "1.6.3",
     "path": "^0.12.7",
-    "typescript": "^5.3.3",
-    "vite": "^5.0.0",
-    "vite-plugin-dts": "^3.6.4"
+    "typescript": "^5.4.3",
+    "vite": "^5.2.7",
+    "vite-plugin-dts": "^3.8.1"
   },
   "dependencies": {
-    "lit": "^3.1.0",
+    "lit": "^3.1.2",
     "solid": "^0.2.1"
   }
 }
