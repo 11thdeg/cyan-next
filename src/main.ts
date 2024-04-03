@@ -11,6 +11,7 @@ export * from './components/cn-lightmode-button/cn-lightmode-button.ts'
 export * from './components/cn-avatar-button/cn-avatar-button.ts'
 export * from './components/cn-avatar/cn-avatar.ts'
 export * from './components/cn-bubble/cn-bubble.ts'
+export * from './components/cn-reaction-button/cn-reaction-button.ts'
 
 import './scripts/data-auto-expand'
 
