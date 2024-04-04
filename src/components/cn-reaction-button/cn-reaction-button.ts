@@ -10,7 +10,7 @@ export class CyanReactionButton extends LitElement {
   disabled = false
 
   @property({ type: Boolean, reflect: true })
-  on = false
+  checked = false
 
   @property({ type: Number, reflect: true })
   count = -1
@@ -24,7 +24,7 @@ export class CyanReactionButton extends LitElement {
     this.setAttribute('tabindex', '0')
     this.addEventListener('click', this.handleCommand)
     this.addEventListener('keydown', this.handleCommand)
-    this.setAttribute('aria-pressed', this.on ? 'true' : 'false')
+    this.setAttribute('aria-pressed', this.checked ? 'true' : 'false')
   }
 
   disconnectedCallback(): void {
@@ -50,11 +50,11 @@ export class CyanReactionButton extends LitElement {
     if (this.getAttribute('aria-pressed') === 'true') {
       this.setAttribute('aria-pressed', 'false')
       if (this.count > -1) this.count--
-      this.on = false
+      this.checked = false
     } else {
       this.setAttribute('aria-pressed', 'true')
       if (this.count > -1) this.count++
-      this.on = true
+      this.checked = true
     }
     this.dispatchEvent(new Event('change'))
   }
@@ -103,7 +103,7 @@ export class CyanReactionButton extends LitElement {
       box-shadow: var(--shadow-button-hover);
     }
     :host(:active) button, :host([aria-pressed="true"]) button {
-      background: var(--background-button-active);
+      background: var(--color-notify);
       // border: 0;
     }
     :host([disabled]) button {
