@@ -1,0 +1,165 @@
+button.fab,
+a.fab {
+    --_fab-size: calc(var(--cn-grid) * 7); /* 8 * 7 = 56px;*/
+
+    display: flex;
+    height: var(--_fab-size);
+    line-height: var(--_fab-size);
+    min-width: var(--_fab-size);
+    margin: 0;
+    border: none;
+    border-radius: var(--cn-border-radius); /* 16px */
+    padding: 0;
+    color: var(--color-on-fab);
+    background: var(--background-fab);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    font-family: var(--cn-font-family-ui);
+    font-size: var(--cn-font-size-ui);
+    letter-spacing: var(--cn-font-letter-spacing-ui);
+    line-height: var(--cn-font-line-height-ui);
+    font-weight: var(--cn-font-weight-ui);
+    align-items: center;
+    justify-content: center;
+    gap: var(--cn-grid);
+    box-shadow: var(--shadow-fab);
+}
+.fab:hover {
+  background: var(--background-fab-hover);
+}
+.fab:active {
+  background: var(--background-fab-active);
+}
+.fab cn-icon {
+  margin: 0;
+}
+.fab :first-child {
+    margin-left: var(--cn-gap);
+}
+.fab :last-child {
+    margin-right: var(--cn-gap);
+}
+.fab.secondary {
+  background: var(--background-button);
+  color: var(--color-on-button);
+}
+.fab.secondary:hover {
+  background: var(--background-button-hover);
+}
+.fab.secondary:active {
+  background: var(--background-button-active);
+}
+.fab.secondary cn-icon {
+  color: var(--color-on-button);
+}
+.fab.small {
+  --_fab-size: calc(var(--cn-grid) * 5); /* 8 * 5 = 40px;*/
+}
+/*
+:host {
+    display: block;
+}
+
+:host button {
+    display: block;
+    height: 56px;
+    min-width: 56px;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    border-radius: 16px;
+    line-height: 56px;
+    padding: 0;
+    position: relative;
+    color: var(--cyan-color-fab);
+    background: var(--cyan-background-fab);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    font-family: var(--cyan-ui-font-family);
+    font-size: var(--cyan-ui-font-size);
+    letter-spacing: var(--cyan-ui-letter-spacing);
+    line-height: var(--cyan-ui-line-height);
+    font-weight: var(--cyan-ui-font-weight);
+}
+
+:host button:hover {
+    background: var(--cyan-background-fab-hover);
+}
+
+:host button:active {
+    background: var(--cyan-background-fab-active);
+}
+
+:host([secondary]) button {
+    color: var(--cyan-fab-color-secondary);
+    background-color: var(--cyan-fab-background-color-secondary);
+}
+
+:host([small]) button {
+    height: 40px;
+    min-width: 40px;
+    border-radius: 12px;
+    line-height: 40px;
+}
+
+:host button:hover {
+    background-color: var(--cyan-fab-background-color-hover);
+}
+
+:host([secondary]) button:hover {
+    background-color: var(--cyan-fab-background-color-secondary-hover);
+}
+
+:host button:active {
+    background-color: var(--cyan-fab-background-color-active);
+}
+
+:host([secondary]) button:active {
+    background-color: var(--cyan-fab-background-color-secondary-active);
+}
+
+:host([small]) img.noun {
+    margin-left: 10px
+}
+
+:host button span {
+    margin: 0 16px;
+}
+
+:host([small]) button span {
+    margin: 0 12px;
+}
+
+:host button img+span {
+    margin-left: 0px;
+}
+
+:host([small]) button img+span {
+    margin-left: 0px;
+}
+
+img.noun {
+    margin-top: -2px;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    :host button span.hideOnMobile {
+        display: none;
+    }
+
+    img.noun,
+    :host([small]) img.noun {
+        margin-left: 0px;
+    }
+
+    img.noun {
+        height: 32px;
+        width: 32px;
+    }
+}
+*/
