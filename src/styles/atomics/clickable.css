@@ -1,0 +1,15 @@
+.clickable {
+  cursor: pointer;
+  user-select: none;
+  height: calc(var(--cn-line) * 2); /* 2 lines, 48px (wgac recommendadion is 44px) */
+  min-width: calc(var(--cn-line) * 2); /* 2 lines, 48px (wgac recommendadion is 44px) */
+  background: var(--background-button);
+  border-radius: var(--cn-line);
+  transition: background 0.2s;
+}
+.clickable:hover {
+  background: var(--background-button-hover);
+}
+.clickable:active {
+  background: var(--background-button-active);
+}
