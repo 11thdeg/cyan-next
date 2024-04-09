@@ -24,3 +24,7 @@ $breakpoint-small:   620px
 @mixin media-query-wide
   @media screen and (min-width: $breakpoint-wide + 1px)
     @content
+
+@mixin media-query-small
+  @media screen and (max-width: $breakpoint-medium)
+    @content
