@@ -1,6 +1,7 @@
 import './styles/styles.sass'
 import { logDebug } from './utils/logHelpers.ts'
 export * from './components/cn-card/cn-card.ts'
+export * from './components/cn-dialog/cn-dialog.ts'
 export * from './components/cn-icon'
 export * from './components/cn-navigation-icon'
 export * from './components/cn-app-bar'
