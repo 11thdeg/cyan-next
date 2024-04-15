@@ -1,9 +1,16 @@
 @import '../core/layout-breakpoints.sass'
 
+.hide
+  display: none
+
 @include media-query-desktop    
-  .hide-on-desktop
+  .hide-lg
+    display: none
+
+@include media-query-tablet
+  .hide-md
     display: none
 
 @include media-query-small
-  .hide-on-mobile
+  .hide-sm
     display: none
