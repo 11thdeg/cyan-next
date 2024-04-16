@@ -40,7 +40,7 @@ export class CnTrayButton extends LitElement {
     :host button {
       height: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-      background: var(--cn-color-nav-button);
+      background: var(--background-button);
       border: none;
       margin: 0;
       padding: 0;
@@ -48,10 +48,10 @@ export class CnTrayButton extends LitElement {
       transition: all 0.3s ease-in-out;
     }
     :host button:hover {
-      background: var(--cn-color-nav-button-hover);
+      background: var(--background-button-hover);
     }
     :host button:active {
-      background: var(--cn-color-nav-button-active);
+      background: var(--background-button);
     }
     :host .state-box {
       display: block;
@@ -85,17 +85,12 @@ export class CnTrayButton extends LitElement {
     .state-indicator::after {
       bottom: 5px;
     }
-    :host([ariaExpanded='true']) {
-      background: var(--cn-color-nav-button-active)
+    :host([ariaExpanded='true']) .state-indicator::before  {
+      transform: translate3d(0, 5px, 0) rotate(45deg);
     }
-    @media (max-width: 960px ) {
-      :host([ariaExpanded='true']) .state-indicator::before  {
-        transform: translate3d(0, 5px, 0) rotate(45deg);
-      }
-      :host([ariaExpanded='true']) .state-indicator::after {
-        transform: translate3d(0, -5px, 0) rotate(-45deg);
-      }
-    } 
+    :host([ariaExpanded='true']) .state-indicator::after {
+      transform: translate3d(0, -5px, 0) rotate(-45deg);
+    }
     :host button:focus {
       outline: none;
     }

@@ -16,8 +16,6 @@ main
   main
     container-type: inline-size
     margin-left: var(--cn-rail-width)
-    transition: margin-left 0.3s ease-in-out
-  body:has(.cn-tray:not(:empty)) main
-    margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width))
+    transition: margin-left 0.3s ease-in-out    
   body:has(cn-tray-button[ariaexpanded="true"]) main
-    margin-left: var(--cn-rail-width) !important
+    margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width))

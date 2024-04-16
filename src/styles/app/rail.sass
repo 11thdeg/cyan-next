@@ -2,22 +2,7 @@
 
 nav.rail
   display: none
-  z-index: var(--cn-z-index-rail, 2000)
-  flex-direction: column
-  position: fixed
-  top: var(--cn-height-app-bar, 64px)
-  left: 0
-  width: var(--cn-width-rail, 80px)
-  height: calc(100dvh - var(--cn-height-app-bar, 64px))
-  height: 100dvh
-  gap: var(--cn-gap, 16px)
-  align-items: center
-  padding-bottom: var(--cn-gap, 16px) // Add extra "gap" at the bottom to make sure the last item is not cut off
-  padding-top: var(--cn-padding-top-rail, 8px)
-
-body:has(cn-tray-button[ariaexpanded="true"]) nav.rail
-  display: flex
-  box-shadow: none
+  
 
 // The rail is hidden on small screens, if the screen is wider than
 // $breakpoint-small, the rail is displayed as a *fixed* column on the left
@@ -27,10 +12,16 @@ body:has(cn-tray-button[ariaexpanded="true"]) nav.rail
     --cn-margin-for-rail: var(--cn-width-rail)
   nav.rail
     display: flex
-   
-
-
-@include media-query-desktop
-  nav.rail
-    height: 100dvh
+    z-index: var(--cn-z-index-rail, 2000)
+    flex-direction: column
+    position: fixed
     top: 0
+    left: 0
+    width: var(--cn-width-rail, 80px)
+    height: calc(100dvh - var(--cn-height-app-bar, 64px))
+    height: 100dvh
+    gap: var(--cn-gap, 16px)
+    align-items: center
+    padding-bottom: var(--cn-gap, 16px) // Add extra "gap" at the bottom to make sure the last item is not cut off
+    padding-top: var(--cn-padding-top-rail, 8px)
+  
