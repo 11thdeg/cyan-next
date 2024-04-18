@@ -1,6 +1,9 @@
 @import '../core/layout-breakpoints'
 @import '../typography/heading_4.sass'
 
+cn-tray-button
+  z-index: calc(var(--z-index-tray) + 1000)
+
 header.cn-app-bar
   display: flex
   flex-direction: row
@@ -10,6 +13,8 @@ header.cn-app-bar
   margin-bottom: var(--cn-grid)
   gap: var(--cn-grid)
   align-items: center
+  z-index: var(--z-index-bar)
+  position: relative
 
 
   h2, h3
@@ -24,7 +29,8 @@ header.cn-app-bar
 header.cn-app-bar
   cn-tray-button[ariaexpanded="true"]
     right: calc(var(--cn-gap) * 1.5)
-    position: absolute
+    position: fixed
+    z-index: calc(var(--z-index-tray) + 1000)
 
 @include media-query-md-and-up
   header.cn-app-bar

@@ -12,7 +12,7 @@
 
   /* App rail, tray, etc */
   --cn-rail-width: calc(var(--cn-grid) * 10)
-  --cn-tray-width: calc(var(--cn-grid) * 40)
+  --cn-tray-width: calc(var(--cn-grid) * 32)
 
   /* content area */
   --cn-content-max-width: 58ch
@@ -26,3 +26,9 @@
   --cn-font-size-small: 0.8em
 
   --cn-card-width: calc(34 * var(--cn-grid))
+
+  /** Z-Index */
+  --z-index-base: 10000
+  --z-index-bar: calc(2 * var(--z-index-base))
+  --z-index-tray: calc(3 * var(--z-index-base))
+  --z-index-rail: calc(4 * var(--z-index-base))
