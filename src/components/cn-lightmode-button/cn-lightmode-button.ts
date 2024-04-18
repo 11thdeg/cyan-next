@@ -10,20 +10,20 @@ export class CnLightmodeButton extends LitElement {
       height: calc(6 * var(--cn-grid));
       height: calc(6 * var(--cn-grid));
       border-radius: 50%;
-      background: var(--cn-elevation-1);
+      background: var(--background-button);
       margin: 0;
       padding-top: calc(var(--cn-grid) / 2);
       transition: background 0.3s ease-in-out
     }
     :host(:hover) {
-      background: var(--cn-elevation-2);
+      background: var(--background-button-hover);
     }
     :host button {
       background: none;
       border: none;
     }
     :host([mode="dark"]) cn-icon {
-      color: var(--chroma-primary-20);
+      color: var(--color-notify);
     }
   `
 
