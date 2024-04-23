@@ -17,6 +17,12 @@ export class CnIcon extends LitElement {
     :host([xsmall]) {
       height: var(--cn-icon-size-xsmall);
       width: var(--cn-icon-size-xsmall);
+      position: relative;
+    }
+    :host([xsmall]) svg{
+      position: absolute;
+      top: 0;
+      left: 0;
     }
     :host([small]) {
       height: var(--cn-icon-size-small);

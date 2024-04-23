@@ -14,6 +14,7 @@ export * from './components/cn-avatar/cn-avatar.ts'
 export * from './components/cn-bubble/cn-bubble.ts'
 export * from './components/cn-reaction-button/cn-reaction-button.ts'
 export * from './components/cn-loader/cn-loader.ts'
+export * from './components/cn-pill/cn-pill.ts'
 
 import './scripts/data-auto-expand'
 
