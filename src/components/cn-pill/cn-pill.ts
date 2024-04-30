@@ -16,8 +16,16 @@ export class CnPill extends LitElement {
   disabled = false
 
   // If set, the pill will show a append icon with the given noun
-  @property({ type: String })
-  action = ''
+  @property({ type: Boolean, reflect: true })
+  checked = false
+
+  onclick = (e: Event) => {
+    if (this.disabled) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+    this.checked = !this.checked
+  }
 
   render() {
     return html`
@@ -28,8 +36,8 @@ export class CnPill extends LitElement {
             }
             <span class="caption">${this.label}</span>
             ${
-              this.action
-                ? html`<cn-icon class="action" noun="${this.action}" xsmall></cn-icon>`
+              this.checked
+                ? html`<cn-icon class="action" noun="check" xsmall></cn-icon>`
                 : ''
             }    
         `
@@ -39,7 +47,7 @@ export class CnPill extends LitElement {
         :host {
             position: relative;
             display: inline-block;
-            background: var(--background-button);
+            background: none;
             vertical-align: middle;
             height: calc(var(--cn-grid) * 4);
             color: var(--color-on-button);
@@ -50,6 +58,10 @@ export class CnPill extends LitElement {
             border-radius: calc(var(--cn-grid) * 1);
             user-select: none;
             cursor: pointer;
+            border: 1px solid var(--color-border);
+        }
+        :host([checked]) {
+          background: var(--background-button);
         }
         :host cn-icon.prepend {
           vertical-align: middle;
