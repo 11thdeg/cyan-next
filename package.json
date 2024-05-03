@@ -1,7 +1,7 @@
 {
   "name": "@11thdeg/cyan-next",
   "private": false,
-  "version": "1.0.0-alpha.72",
+  "version": "1.0.0-alpha.73",
   "description": "A lightweight web component library for Pelilauta, Cinis etc. projects",
   "main": "./dist/cyan.umd.cjs",
   "module": "./dist/cyan.mjs",
@@ -12,7 +12,8 @@
   "exports": {
     ".": {
       "import": "./dist/cyan.mjs",
-      "require": "./dist/cyan.umd.cjs"
+      "require": "./dist/cyan.umd.cjs",
+      "types": "./dist/main.d.ts"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",
