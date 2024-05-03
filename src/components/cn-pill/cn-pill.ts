@@ -28,6 +28,7 @@ export class CnPill extends LitElement {
       e.stopPropagation()
     }
     this.checked = !this.checked
+    this.dispatchEvent(new Event('change'))
   }
 
   render() {
