@@ -4,11 +4,14 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement('cn-pill')
 export class CnPill extends LitElement {
   // The text to display in the pill
-  @property({ type: String })
+  @property({ type: String, reflect: true })
   label = ''
 
+  @property({ type: String, reflect: true })
+  value = ''
+
   // If set, the pill will show a prepended icon with the given noun
-  @property({ type: String })
+  @property({ type: String, reflect: true })
   noun = ''
 
   // Standard disabled attribute
