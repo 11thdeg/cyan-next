@@ -55,6 +55,21 @@ a.fab {
 .fab.small {
   --_fab-size: calc(var(--cn-grid) * 5); /* 8 * 5 = 40px;*/
 }
+
+
+#fab-tray {
+  z-index: var(--z-index-bar);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: var(--cn-grid);
+}
+@media screen and (max-width: 620px) {
+  #fab-tray {
+    bottom:calc(10 * var(--cn-grid))
+  }
+}
+
 /*
 :host {
     display: block;
