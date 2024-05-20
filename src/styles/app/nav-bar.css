@@ -24,3 +24,8 @@ body:has(#fab-tray) #nav-bar{
     100% 100%, 
     0 100%);
 }
+@media screen and (min-width: 621px) {
+  #nav-bar {
+    display: none;
+  }
+}
