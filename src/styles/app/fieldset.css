@@ -1,10 +1,13 @@
 fieldset {
-  background: var(--cn-color-fieldset);
+  background: var(--cn-elevation-1);
   border: none;
   border-radius: var(--cn-border-radius);
   display: flex;
   flex-direction: column;
   gap: var(--cn-grid);
+}
+fieldset legend {
+  color: var(--color-text-low-emphasis);
 }
 
 fieldset label {

@@ -2,6 +2,8 @@
   padding: var(--cn-grid);
   margin-top: var(--cn-grid);
   margin-bottom: var(--cn-grid);
+  display: flex;
+  justify-content: space-between;
 }
 .toolbar:last-child {
   margin-bottom: 0;
