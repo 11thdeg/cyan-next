@@ -1,4 +1,17 @@
 footer {
   padding: var(--cn-gap);
   min-height: calc(var(--cn-gap) * 20);
+  container: main-app-footer;
+  container-type: inline-size;
+  padding-bottom: calc(9 * var(--cn-grid));
+  margin-bottom: calc(9 * var(--cn-grid));
+}
+footer li {
+  margin-bottom: var(--cn-grid);
+}
+@media screen and (min-width: 621px) {
+  footer {
+    margin-left: var(--cn-rail-width);
+    margin-bottom: 0;
+  }
 }

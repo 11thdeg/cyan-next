@@ -46,7 +46,7 @@
   margin-bottom: calc(3*var(--cn-grid))
   color: var(--color-heading-2)
 
-.head-4, h4
+.head-4, main h4, footer h4
   @include TypeHeading4
 
   &:not(:first-child)
@@ -54,3 +54,7 @@
 
 cn-card h4
   margin: 0
+
+main, footer 
+  h4:first-child
+    margin-top: 0

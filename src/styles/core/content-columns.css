@@ -45,4 +45,29 @@
         flex-grow: 1;
     }
 }
+@container main-app-footer (width > 760px) {
+    .content-columns {
+        flex-direction: row;
+    }
+
+    .content-columns> :not(.full-width):not(.column-l):not(.column-s) {
+        width: calc(55 * var(--cn-grid));
+        flex-grow: 0;
+    }
+
+    .content-columns>.column-s {
+        width: calc(34 * var(--cn-grid));
+        flex-grow: 0;
+    }
+
+    .content-columns>.column-l {
+        width: calc(88 * var(--cn-grid));
+        flex-grow: 0;
+    }
+
+    .content-columns>.full-width {
+        width: 100%;
+        flex-grow: 1;
+    }
+}
 

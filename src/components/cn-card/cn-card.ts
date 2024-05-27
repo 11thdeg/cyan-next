@@ -185,6 +185,30 @@ export class CnCard extends LitElement {
       justify-content: left;
       gap: var(--cn-grid);
     }
+    :host:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 44px;
+      height: 44px;
+      background: none;
+      opacity: 0;
+      z-index: 0;
+      pointer-events: none;
+      transition: opacity .2s ease-in-out;
+      will-change: opacity background;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+      border-radius: 0 var(--cn-border-radius-large) 0 0;
+    }
+    :host([notify]):after {
+      background: var(--color-notify);
+      opacity: 0.82;
+    }
+    :host([alert]):after {
+      background: var(--color-alert);
+      opacity: 1;
+    }
     `
 }
 
