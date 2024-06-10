@@ -1,21 +1,60 @@
-import { html, css, LitElement } from 'lit'
+import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
 @customElement('cn-toggle-button')
 export class CyanToggleButton extends LitElement {
-    @property({ type: String, reflect: true })
-    ariaPressed = 'false'
+  @property({ type: String, reflect: true })
+  ariaPressed = 'false'
 
   @property({ type: Boolean, reflect: true })
-    disabled = false
+  disabled = false
 
   @property({ type: Boolean, reflect: true })
-    pressed = false
+  pressed = false
 
   @property({ type: String, reflect: true })
-    label = ''
+  label = ''
 
-  render () {
+  handleCommand(event: Event) {
+    if (this.disabled) return
+    // Handles both mouse clicks and keyboard
+    // activate with Enter or Space
+
+    // Keypresses other then Enter and Space should not trigger a command
+    if (
+      event instanceof KeyboardEvent &&
+      event.key !== 'Enter' &&
+      event.key !== ' '
+    ) {
+      return
+    }
+
+    if (this.getAttribute('aria-pressed') === 'true') {
+      this.setAttribute('aria-pressed', 'false')
+      this.pressed = false
+    } else {
+      this.setAttribute('aria-pressed', 'true')
+      this.pressed = true
+    }
+    this.dispatchEvent(new Event('change'))
+  }
+
+  connectedCallback(): void {
+    super.connectedCallback()
+    this.setAttribute('role', 'button')
+    this.setAttribute('tabindex', '0')
+    this.addEventListener('click', this.handleCommand)
+    this.addEventListener('keydown', this.handleCommand)
+    this.setAttribute('aria-pressed', this.pressed ? 'true' : 'false')
+  }
+
+  disconnectedCallback(): void {
+    super.disconnectedCallback()
+    this.removeEventListener('click', this.handleCommand)
+    this.removeEventListener('keydown', this.handleCommand)
+  }
+
+  render() {
     return html`<button aria-pressed="${this.pressed}">${this.label}</button>`
   }
 
@@ -42,7 +81,7 @@ export class CyanToggleButton extends LitElement {
       letter-spacing: var(--cn-letter-spacing-ui);
       text-align: left;
       position: relative;
-      height: calc(var(--cn-grid) * 2);
+      height: calc(var(--cn-grid) * 4);
       border-radius: 0;
     }
     :host button::before {
@@ -50,9 +89,9 @@ export class CyanToggleButton extends LitElement {
       position: absolute;
       top: calc(var(--cn-grid) * 0.5);
       right: calc(var(--cn-grid) * 0.5);
-      width: calc(var(--cn-grid) * 2);
-      height: calc(var(--cn-grid) * 1);
-      border-radius: calc(var(--cn-grid) * 0.5);
+      width: calc(var(--cn-grid) * 6);
+      height: calc(var(--cn-grid) * 3);
+      border-radius: calc(var(--cn-grid) * 1.5);
       background-color: var(--cn-background-toggle-button-off);
       transition: all 0.2s ease-in-out;
     }
@@ -60,10 +99,10 @@ export class CyanToggleButton extends LitElement {
       content: '';
       position: absolute;
       top: calc(var(--cn-grid) * 0.5);
-      right: calc(var(--cn-grid) * 1.5);
-      width: calc(var(--cn-grid) * 1);
-      height: calc(var(--cn-grid) * 1);
-      border-radius: calc(var(--cn-grid) * 0.5);
+      right: calc(var(--cn-grid) * 4);
+      width: calc(var(--cn-grid) * 3);
+      height: calc(var(--cn-grid) * 3);
+      border-radius: calc(var(--cn-grid) * 1.5);
       background-color: var(--cn-background-toggle-button-knob-off);
       transition: all 0.2s ease-in-out;
     }
@@ -72,7 +111,7 @@ export class CyanToggleButton extends LitElement {
     }
     :host([aria-pressed="true"]) button::after {
       background-color: var(--cn-background-toggle-button-knob-on);
-      transform: translateX(calc(1 * var(--cn-grid)));
+      transform: translateX(calc(4 * var(--cn-grid)));
     }
     :host([disabled]) button::before {
       background-color: var(--cn-background-toggle-button-off) !important;
