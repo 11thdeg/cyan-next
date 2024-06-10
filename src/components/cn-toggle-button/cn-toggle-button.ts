@@ -60,9 +60,7 @@ export class CyanToggleButton extends LitElement {
 
   static styles = css`
     :host {
-      display: block;
-      width: 100%;
-      user-select: none;
+      display: contents;
     }
     :host([disabled]) {
       pointer-events: none;
@@ -111,7 +109,7 @@ export class CyanToggleButton extends LitElement {
     }
     :host([aria-pressed="true"]) button::after {
       background-color: var(--cn-background-toggle-button-knob-on);
-      transform: translateX(calc(4 * var(--cn-grid)));
+      transform: translateX(calc(3.5 * var(--cn-grid)));
     }
     :host([disabled]) button::before {
       background-color: var(--cn-background-toggle-button-off) !important;
