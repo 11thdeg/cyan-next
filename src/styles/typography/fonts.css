@@ -1,20 +1,18 @@
-/*@font-face {
-  font-family: Lato;
-  src: url('/fonts/lato-light.woff2') format('woff2'), 
-    url('/fonts/lato-light.woff') format('woff');
-  font-weight: 300;
-}
-@font-face {
-  font-family: Lato;
-  src: url('/fonts/lato-medium.woff2') format('woff2'), 
-    url('/fonts/lato-medium.woff') format('woff');
-  font-weight: 400;
-
-}*/
-
 :root {
   --cn-font-family-headings:
     'Lato',
+    /* Tailwind CSS "Sans" font spell for fallback */
+    ui-sans-serif, 
+    system-ui, 
+    sans-serif, 
+    "Apple Color Emoji", 
+    "Segoe UI Emoji", 
+    "Segoe UI Symbol", 
+    "Noto Color Emoji";
+
+  --cn-font-family-text: 
+    'Open Sans', 
+    'Lato', 
     /* Tailwind CSS "Sans" font spell for fallback */
     ui-sans-serif, 
     system-ui, 
