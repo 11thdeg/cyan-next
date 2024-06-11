@@ -3,7 +3,7 @@
 @import '../typography/heading_4.sass'
 @import '../typography/ui.sass'
 
-/* For phone and pad screens, the tray is only visible if the cn-tray-button has [ariaExpanded=true] */
+/* For phone and pad screens, the tray is only visible if the cn-tray-button has [aria-expanded=true] */
 .cn-tray
   width: min(calc(var(--cn-tray-width) + var(--cn-rail-width)), 95dvw)
   height: 100dvh
@@ -12,11 +12,9 @@
   top: 0
   left: 0
   height: 100dvh
-  transition: transform 0.3s ease-in-out
   padding: var(--cn-grid) var(--cn-gap)
   padding-left: calc(var(--cn-gap))
   z-index: var(--cn-z-index-tray, 1000)
-  transition: all 0.3s ease-in-out
   overflow-y: auto
   z-index: var(--z-index-tray)
 
@@ -26,27 +24,23 @@
   .cn-tray
     padding-left: calc(var(--cn-gap) + var(--cn-rail-width))
 
-body:has(cn-tray-button[ariaexpanded="true"]) .cn-tray
+body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
   transform: translateX(0)
   box-shadow: var(--cn-shadow-elevation-1)
   background: var(--cn-elevation-1)
 
-/* For larger screens, tray is hidden when cn-tray-button has [ariaExpanded=true] */
+/* For larger screens, tray is hidden when cn-tray-button has [aria-expanded=true] */
 @include media-query-desktop
   .cn-tray
     opacity: 0
     &:empty
       display: none
 
-  body:has(cn-tray-button[ariaexpanded="true"]) .cn-tray
+  body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
     opacity: 1
     transform: translateX(0)
     box-shadow: var(--cn-shadow-elevation-1)
     background: var(--cn-elevation-0)
-
-cn-tray-button
-  z-index: var(--cn-z-index-tray-button, 3000)
-
 
 .cn-tray
   ul

@@ -1,9 +1,10 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import './cn-tray-button.css'
 
 @customElement('cn-tray-button')
 export class CnTrayButton extends LitElement {
-  @property({ type: String, reflect: true })
+  @property({ type: String, reflect: true, attribute: 'aria-expanded' })
   ariaExpanded = 'false'
 
   @property({ type: String, reflect: true })
@@ -32,7 +33,6 @@ export class CnTrayButton extends LitElement {
   static styles = css`
     :host {
       display: block;
-      position: relative;
       height: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
       border-radius: 50%;
@@ -85,10 +85,10 @@ export class CnTrayButton extends LitElement {
     .state-indicator::after {
       bottom: 5px;
     }
-    :host([ariaExpanded='true']) .state-indicator::before  {
+    :host([aria-expanded='true']) .state-indicator::before  {
       transform: translate3d(0, 5px, 0) rotate(45deg);
     }
-    :host([ariaExpanded='true']) .state-indicator::after {
+    :host([aria-expanded='true']) .state-indicator::after {
       transform: translate3d(0, -5px, 0) rotate(-45deg);
     }
     :host button:focus {

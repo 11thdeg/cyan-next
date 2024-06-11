@@ -1,0 +1,38 @@
+/* This styling puts the Tray button to a fixed position to the top left of the screen
+ * (left of rail, if any)
+ */
+
+cn-tray-button {
+  position: fixed;
+  top: var(--cn-grid);
+  left: var(--cn-grid);
+  z-index: var(--z-index-tray-button, 10000);
+}
+cn-tray-button[aria-expanded=true] {
+  right: var(--cn-grid);
+  left: auto;
+}
+
+/**
+ * Override App Bar left margin to make space for the Tray button
+ */
+body:has(cn-tray-button) header.cn-app-bar {
+  margin-left: calc(var(--cn-grid) * 8);
+}
+
+/*
+ * On a large screen, we need to make space for the Rail
+ */
+@media (min-width: 621px) {
+  cn-tray-button {
+    left: calc(var(--cn-rail-width));
+  }
+  body:has(cn-tray-button) header.cn-app-bar {
+    margin-left: calc(var(--cn-grid) * 18);
+  }
+  cn-tray-button[aria-expanded=true] {
+    right: auto;
+    left: calc(var(--cn-tray-width) + var(--cn-grid) * 2);
+  }
+  
+}
