@@ -6,6 +6,8 @@ import './overrides.css'
 export class CnDialog extends LitElement {
   @property({ type: String, reflect: true })
   returnValue = ''
+  @property({ type: Boolean, reflect: true })
+  open = false
 
   private dialogId = 'cn-dialog'
 
@@ -17,6 +19,7 @@ export class CnDialog extends LitElement {
   }
 
   public close(returnValue?: string) {
+    this.open = false
     this.returnValue = returnValue || ''
     const d = this.shadowRoot?.querySelector('dialog')
     d?.close()
@@ -34,8 +37,36 @@ export class CnDialog extends LitElement {
     d?.showModal()
   }
 
+  public cancelOnOutsideClick(e: Event) {
+    // if the target is the dialog-card, do nothing
+    if (e.target === this.shadowRoot?.querySelector('.dialog-card')) {
+      return
+    }
+    // if the target is the dialog element: close it
+    if (e.target === this.shadowRoot?.querySelector('dialog')) {
+      this.close()
+      return
+    }
+  }
+
   static styles = css`
+    :host {
+      display: contents;
+    }
     :host dialog {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100dvw;
+      height: 100dvh;
+      background: var(--background-dialog-overlay, hsla(0, 33%, 30%, 0.5));
+      border: none;
+      box-sizing: border-box;
+      z-index: var(--cn-z-index-dialog, 10000);
+      align-content: center;
+    }
+    :host .dialog-card {
+      margin: auto;
       border-radius: var(--cn-border-radius);
       padding: var(--cn-gap);
       border: none;
@@ -44,18 +75,15 @@ export class CnDialog extends LitElement {
       width: min(720px, calc(100vh - var(--cn-gap)));
       box-sizing: border-box;
       max-height: calc(100vh - var(--cn-gap));
-      position: relative;
     }
     @media screen and (max-width: 840px) {
-      :host dialog {
+      :host .dialog-card {
         width: calc(100vw - 16px);
         width: calc(100vw - 16px);
       }
     }
-    :host dialog::backdrop {
-      background: var(--cn-background-dialog-backdrop, hsla(202, 100%, 11%, 0.55));
-    }
-    :host nav.dialog-header {
+    
+    :host nav.header {
       display: flex;
       gap: var(--cn-gap);
       color: var(--cn-color-dialog, #fff);
@@ -65,11 +93,6 @@ export class CnDialog extends LitElement {
       box-sizing: border-box;
     }
     :host nav.header h3 {
-      font-family: var(--cyan-font-family-headline-4);
-      font-weight: var(--cyan-font-weight-headline-4);
-      font-size: var(--cyan-font-size-headline-4);
-      line-height: 48px;
-      letter-spacing: var(--cyan-letter-spacing-headline-4);
       color: var(--cyan-color-heading-1);
       margin: 0;
       padding: 0;
@@ -77,6 +100,15 @@ export class CnDialog extends LitElement {
       height: 48px;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin: 0;
+      color: var(--color-on-dialog);
+      align-self: center;
+      margin: 0;
+      font-family: var(--cn-font-family-headings);
+      font-weight: var(--cn-font-weight-heading-4);
+      font-size: var(--cn-font-size-heading-4);
+      line-height: var(--cn-line-height-heading-4);
+      letter-spacing: var(--cn-letter-spacing-heading-4);
     }
     :host button {
       background: none;
@@ -93,19 +125,22 @@ export class CnDialog extends LitElement {
     :host .dialog-content {
       margin-top: 72px;
       overflow-y: scroll;
-    }`
+    }
+    `
 
   render() {
     return html`
-      <dialog>
-        <nav class="dialog-header">
+      <dialog ?open=${this.open} @click=${this.cancelOnOutsideClick}>
+        <div id=${this.dialogId} class="dialog-card">
+        <nav class="header">
           <button class="icon" @click=${this.cancel}>
             <cn-icon noun="close"></cn-icon>
           </button>
-          <slot name="header"></slot>
+          <h3>${this.title}</h3>
         </nav>
         <div class="dialog-content">
           <slot></slot>
+        </div>
         </div>
       </dialog>
     `

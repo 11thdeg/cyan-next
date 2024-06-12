@@ -33,6 +33,7 @@
    */
    --chroma-key-99: hsl(197, 100%, 11%);
    --chroma-key-95: hsl(198, 52%, 19%);
+   --chroma-key-95-hsl: 198, 52%, 19%;
    --chroma-key-90: hsl(199, 41%, 27%);
    --chroma-key-80: hsl(200, 33%, 35%);
    --chroma-key-70: hsl(201, 27%, 43%);
