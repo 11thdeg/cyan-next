@@ -1,7 +1,7 @@
 button,
 a.button
   display: inline-block
-  color: var(---cn-color-on-button)
+  color: var(--color-on-button)
   background: var(--background-button)
     
   // Font and text
@@ -31,3 +31,10 @@ a.button
   cn-icon:last-child
     margin-right: -9px
     margin-left: -9px
+  
+  &:disabled
+    background: var(--background-button-disabled)
+    color: var(--color-button-disabled)
+    cursor: not-allowed
+    pointer-events: none
+    opacity: 0.5
