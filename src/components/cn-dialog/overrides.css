@@ -12,3 +12,6 @@ cn-dialog h4 {
   line-height: var(--cn-line-height-heading-4);
   letter-spacing: var(--cn-letter-spacing-heading-4);
 }
+cn-dialog cn-icon {
+  color: var(--color-on-dialog);
+}
