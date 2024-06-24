@@ -1,15 +1,23 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
+export type CN_LOADER_FOR_VALUES = '' | 'navigation'
+
 @customElement('cn-loader')
 export class CnLoader extends LitElement {
   @property({ type: String, reflect: true })
   noun = 'fox'
 
+  @property({ type: String, reflect: true })
+  for: CN_LOADER_FOR_VALUES = ''
+
   public render() {
     return html`
       <div class="loader-animation"></div>
-      <cn-icon noun="${this.noun}" large></cn-icon>
+      <cn-icon
+        noun="${this.noun}"
+        ?large=${this.for === ''}
+      ></cn-icon>
     `
   }
 
@@ -19,6 +27,10 @@ export class CnLoader extends LitElement {
       height: calc(var(--cn-line) * 3);
       width: calc(var(--cn-line) * 3);
       place-content: center;
+    }
+    :host([for="navigation"]) {
+      height: calc(var(--cn-line) * 1);
+      width: calc(var(--cn-line) * 1);
     }
     :host .loader-animation {
        grid-area: 1 / 1; 
@@ -35,6 +47,9 @@ export class CnLoader extends LitElement {
       border-radius: 50%;
       animation: l1 7s infinite linear;
       opacity: 0.11;
+    }
+    :host([for="navigation"]) .loader-animation {
+      width: calc(var(--cn-line) * 1.5);
     }
     @keyframes c1 {
         0% {opacity: 0; transform: scale(0.4)}
