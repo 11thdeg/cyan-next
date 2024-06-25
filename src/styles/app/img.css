@@ -1,3 +1,15 @@
 main img {
   max-width: 100%;
 }
+
+.content-columns > * img {
+  max-width: 100%;
+  border-radius: var(--cn-border-radius-small);
+}
+
+img.icon {
+  width: calc(3 * var(--cn-line));
+  border-radius: var(--cn-border-radius-small);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}

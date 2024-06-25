@@ -1,0 +1,8 @@
+figure {
+  text-align: center;
+  margin: var(--cn-gap);
+  padding: 0;
+}
+figure figcaption {
+  padding: var(--cn-grid) 0;
+}
