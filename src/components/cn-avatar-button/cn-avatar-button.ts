@@ -9,11 +9,34 @@ export class CnAvatarButton extends LitElement {
   @property({ type: String, reflect: true })
   public src = ''
 
+  @property({ type: String, reflect: true })
+  popovertarget = ''
+
   connectedCallback(): void {
     super.connectedCallback()
     this.role = 'button'
     this.ariaLabel = 'Avatar'
   }
+
+  onclick: ((this: GlobalEventHandlers, ev: MouseEvent) => unknown) | null =
+    () => {
+      if (this.popovertarget) {
+        const target = this.parentElement?.querySelector(
+          `#${this.popovertarget}`,
+        )
+        // console.log(this.popovertarget, target, this.parentElement)
+        if (target) {
+          const rect = this.getBoundingClientRect()
+          console.log(rect)
+          const t = target as HTMLElement
+          t.style.top = `${this.getBoundingClientRect().top + 12}px`
+          t.style.left = `${this.getBoundingClientRect().left + 12}px`
+          t.style.right = 'auto'
+          t.style.bottom = 'auto'
+          t.togglePopover()
+        }
+      }
+    }
 
   public render() {
     const image = this.src
@@ -32,16 +55,16 @@ export class CnAvatarButton extends LitElement {
       width: calc(var(--cn-line) * 4.5);
       border-radius: calc(var(--cn-line) * 1.5);
       position: relative;
-      background-color: var(--cn-color-button);
+      background: var(--background-button);
       user-select: none;
       cursor: pointer;
       transition: background-color 0.3s ease-in-out;
     }
     :host(:hover) {
-      background-color: var(--cn-color-button-hover);
+      background: var(--background-button-hover);
     }
     :host(:active) {
-      background-color: var(--cn-color-button-active);
+      background-color: var(--background-button-active);
     }
     img {
       height: calc(var(--cn-line) * 3 - var(--cn-grid));
@@ -53,30 +76,30 @@ export class CnAvatarButton extends LitElement {
     }
     cn-icon.placeholder {
       position: absolute;
-      left: calc(var(--cn-gap));
-      top: calc(var(--cn-line) * 0.75);
-      color: var(--cn-color-on-field);
+      left: calc(var(--cn-grid) * 2 + 2px);
+      top: calc(var(--cn-grid) * 2 + 2px);
+      color: var(--color-on-field);
       z-index: 2;
     }
     cn-icon.placeholder::before {
       content: '';
       position: absolute;
-      left: calc(var(--cn-grid) * -1.5 );
-      top: calc(var(--cn-grid) * -1.5 );
+      left: calc(var(--cn-grid) * -1.5 - 1px);
+      top: calc(var(--cn-grid) * -1.5 - 1px);
       width: calc(var(--cn-line) * 3.25 - var(--cn-gap));
       height: calc(var(--cn-line) * 3.25 - var(--cn-gap));
       border-radius: 50%;
-      background-color: var(--cn-color-button-hover);
+      background-color: color-mix(in hsl, var(--color-primary), transparent 50%);
       z-index: -1;
     }
     :host(:hover) cn-icon.placeholder::before {
-      background-color: var(--cn-color-button);
+      background-color: color-mix(in hsl, var(--color-primary), transparent 70%);
     }
     cn-icon.action {
       position: absolute;
       right: var(--cn-grid);
       top: var(--cn-line);
-      color: var(--cn-color-on-field);
+      color: var(--color-on-field);
     }
   `
 }

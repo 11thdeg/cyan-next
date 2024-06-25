@@ -11,6 +11,6 @@
   box-shadow: var(--cn-shadow-elevation-3);
 }
 .elevation-4{ 
-  background: var(--cn-elevation-4);
-  box-shadow: var(--cn-shadow-elevation-4);
+  background: var(--background-elevation-4);
+  box-shadow: var(--box-shadow-elevation-4);
 }

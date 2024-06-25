@@ -1,0 +1,16 @@
+*[popover] {
+  border-radius: var(--border-radius);
+}
+*[popover] .menu {
+  display: flex;
+  flex-direction: column;
+  background: var(--background-elevation-4);
+  border-radius: var(--border-radius);
+}
+*[popover] .menu > *:hover {
+  background: color-mix(in hsl, var(--background-elevation-4), var(--color-on-primary) 22%)
+}
+*[popover] .menu a {
+  color: var(--color-notify);
+  text-decoration: none;
+}
