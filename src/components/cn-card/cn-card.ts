@@ -117,6 +117,7 @@ export class CnCard extends LitElement {
       align-self: flex-start;
       flex-shrink: 0;
       margin-top: var(--cn-grid);
+      color: var(--color-heading-2);
     }
     :host div.tint {
       position: absolute;
