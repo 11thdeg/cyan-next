@@ -39,6 +39,7 @@ export class CnIcon extends LitElement {
     svg {
       height: 100%;
       width: 100%;
+      fill: currentColor;
     }`
 
   @property({ type: String, reflect: true })

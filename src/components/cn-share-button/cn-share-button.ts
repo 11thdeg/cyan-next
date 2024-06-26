@@ -36,7 +36,7 @@ export class CnShareButton extends LitElement {
   <style type="text/css">
   .st0{opacity:0.3;enable-background:new;}
   </style>
-  <g fill="currentColor">
+  <g >
     <circle class="st0" cx="102.6" cy="19.3" r="6.4"/>
     <circle class="st0" cx="25.4" cy="64.3" r="6.4"/>
     <circle class="st0" cx="102.6" cy="109.4" r="6.4"/>
