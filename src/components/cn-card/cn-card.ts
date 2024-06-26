@@ -64,13 +64,15 @@ export class CnCard extends LitElement {
       <p class="cardDescription">
         <slot></slot>
      </p>
+     <div style="flex-grow:1"></div>
      <nav class="cardActions"><slot name="actions"></slot></nav>`
   }
 
   static styles = css`
     :host {
       box-sizing: border-box;
-      display: block;
+      display: flex;
+      flex-direction: column;
       // padding: var(--cn-grid) var(--cn-gap);
       border-radius: var(--cn-border-radius-large);
       position: relative;
@@ -87,11 +89,14 @@ export class CnCard extends LitElement {
     }
     :host([cover]) .cardNoun {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: calc(1 * var(--cn-grid));
+      right: calc(1 * var(--cn-grid));
       margin: 0;
       padding: 0;
       z-index: 2;
+    }
+    :host([cover]) .cardHeader cn-icon {
+      filter: drop-shadow(0 0 4px var(--color-halo));
     }
     :host .cardContent {
       padding: 0;
@@ -209,6 +214,10 @@ export class CnCard extends LitElement {
     :host([alert]):after {
       background: var(--color-alert);
       opacity: 1;
+    }
+    :host .cardActions {
+      margin-left: calc(-1 * var(--cn-grid));
+      margin-right: calc(-1 * var(--cn-grid));
     }
     `
 }
