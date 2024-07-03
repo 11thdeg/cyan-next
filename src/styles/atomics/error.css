@@ -1,0 +1,9 @@
+p.error {
+  color: var(--color-on-alert);
+  background-color: var(--color-alert);
+}
+input.error {
+  color: var(--color-on-alert);
+  border-color: var(--color-alert);
+  background-color: color-mix(in hsl, var(--color-alert), transparent 77%);
+}
