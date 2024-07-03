@@ -28,6 +28,3 @@ textarea:focus::placeholder {
   opacity: 0;
   display: none;
 }
-label:has(textarea) {
-  padding-left: var(--cn-grid);
-}

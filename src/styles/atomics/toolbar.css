@@ -4,6 +4,7 @@
   margin-bottom: var(--cn-grid);
   display: flex;
   justify-content: space-between;
+  gap: var(--cn-gap);
 }
 .toolbar:last-child {
   margin-bottom: 0;
@@ -22,4 +23,14 @@
 .toolbar h4,
 .toolbar p {
   margin: 0; 
+}
+fieldset > .toolbar {
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+fieldset > .toolbar:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }

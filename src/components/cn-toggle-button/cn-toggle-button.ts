@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import './styles.css'
 
 @customElement('cn-toggle-button')
 export class CyanToggleButton extends LitElement {
@@ -79,13 +80,13 @@ export class CyanToggleButton extends LitElement {
       letter-spacing: var(--cn-letter-spacing-ui);
       text-align: left;
       position: relative;
-      height: calc(var(--cn-grid) * 4);
+      height: calc(var(--cn-grid) * 6);
       border-radius: 0;
     }
     :host button::before {
       content: '';
       position: absolute;
-      top: calc(var(--cn-grid) * 0.5);
+      top: calc(var(--cn-grid) * 1.5);
       right: calc(var(--cn-grid) * 0.5);
       width: calc(var(--cn-grid) * 6);
       height: calc(var(--cn-grid) * 3);
@@ -96,7 +97,7 @@ export class CyanToggleButton extends LitElement {
     :host button::after {
       content: '';
       position: absolute;
-      top: calc(var(--cn-grid) * 0.5);
+      top: calc(var(--cn-grid) * 1.5);
       right: calc(var(--cn-grid) * 4);
       width: calc(var(--cn-grid) * 3);
       height: calc(var(--cn-grid) * 3);

@@ -4,7 +4,7 @@ select {
   transition: all 0.3s ease;
   color: var(--color-on-field);
   background: var(--color-field);
-  border-bottom: 1px solid var(--color-on-field);
+  border-bottom: 1px solid var(--cn-color-border);
   border-radius: var(--cn-border-radius-field);
  
   height: calc(var(--cn-line) * 1.5);
