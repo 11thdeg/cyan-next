@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { logDebug } from '../../utils/logHelpers'
 // import { logDebug } from '../../utils/logHelpers'
 
 /**
@@ -117,10 +118,11 @@ export class CnSnackbar extends LitElement {
   }
 
   handleAdd(event: Event) {
+    console.log('cn-snackbar-add event received', event)
     if (event instanceof CustomEvent) {
       const detail = event.detail
       if (typeof detail === 'object' && detail !== null) {
-        // logDebug('cn-snackbar-add event received', detail, this)
+        logDebug('cn-snackbar-add event received', detail, this)
         this.pushToStack(detail)
       } else {
         console.error(
@@ -137,6 +139,7 @@ export class CnSnackbar extends LitElement {
     window.addEventListener('cn-snackbar-add', (event: Event) =>
       this.handleAdd(event),
     )
+    console.log('CnSnackbar connected')
   }
 
   render() {
@@ -156,8 +159,8 @@ export class CnSnackbar extends LitElement {
       position: fixed;
       bottom: var( --cn-grid, 8px);
       left: var( --cn-grid, 8px);
-      background-color: var(--color-contrast, #333); 
-      color: var(--color-on-contrast, #fff);
+      background-color: var(--color-secondary, #333); 
+      color: var(--color-on-secondary, #fff);
       border-radius: var(--cn-border-radius, 4px) 0 var(--cn-border-radius, 4px) 0;
       opacity: 0;
       transition: opacity 0.3s;
