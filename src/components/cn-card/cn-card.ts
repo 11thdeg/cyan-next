@@ -10,13 +10,23 @@ export class CnCard extends LitElement {
   @property({ type: String, reflect: true })
   cover = undefined
 
-  @property({ type: String, reflect: true }) noun = ''
+  @property({ type: String, reflect: true })
+  noun = ''
 
-  @property({ type: String, reflect: true }) title = ''
+  @property({ type: String, reflect: true })
+  title = ''
 
-  @property({ type: String, reflect: true }) description = ''
+  @property({ type: String, reflect: true })
+  description = ''
 
-  @property({ type: String, reflect: true }) href = ''
+  @property({ type: String, reflect: true })
+  href = ''
+
+  @property({ type: Boolean, reflect: true })
+  notify = false
+
+  @property({ type: Boolean, reflect: true })
+  alert = false
 
   get coverSlot() {
     if (!this.cover) return undefined
