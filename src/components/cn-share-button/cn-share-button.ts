@@ -36,7 +36,7 @@ export class CnShareButton extends LitElement {
   <style type="text/css">
   .st0{opacity:0.3;enable-background:new;}
   </style>
-  <g >
+  <g fill="currentColor">
     <circle class="st0" cx="102.6" cy="19.3" r="6.4"/>
     <circle class="st0" cx="25.4" cy="64.3" r="6.4"/>
     <circle class="st0" cx="102.6" cy="109.4" r="6.4"/>
@@ -107,7 +107,7 @@ export class CnShareButton extends LitElement {
       display: contents;
     }
     :host button {
-      color: var(---cn-color-on-button);
+      color: var(--color-on-primary);
       background: var(--background-button);
       font-family: var(--cn-font-family-ui);
       font-weight: var(--cn-font-weight-ui);
