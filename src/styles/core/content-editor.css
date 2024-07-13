@@ -2,7 +2,7 @@
  * This is a CSS file for the editor viewport
  */
 .content-editor {
-    display: flex;
+    
     height: calc(100dvh - var(--cn-app-bar-height) - var(--cn-line));
     overflow: hidden;
 }
@@ -44,4 +44,35 @@
 }
 .content-editor .input-expand > * > * {
     height: 100%;
+}
+
+/*
+ * Children of content-editor should be either N * grid or 100% wide
+ *
+ * On mobile viewports, we hide the app-rail, so we can use the full width
+ */
+.content-editor {
+  --editor_max_width: calc(120 * var(--cn-grid));
+  container-name: content-editor;
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 var(--cn-gap);
+}
+
+.content-editor > * {
+  position: relative;
+  width: 100%
+}
+
+@media screen and (min-width: 621px) {
+  .content-editor > * {
+    width: min(
+      100cqw,
+      var(--editor_max_width)
+    )
+  }
 }
