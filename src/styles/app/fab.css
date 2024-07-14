@@ -1,7 +1,6 @@
 button.fab,
 a.fab {
     --_fab-size: calc(var(--cn-grid) * 7); /* 8 * 7 = 56px;*/
-
     display: flex;
     height: var(--_fab-size);
     line-height: var(--_fab-size);
@@ -23,6 +22,7 @@ a.fab {
     justify-content: center;
     gap: var(--cn-grid);
     box-shadow: var(--shadow-fab);
+    width: fit-content;
 }
 .fab:hover {
   background: var(--background-fab-hover);
