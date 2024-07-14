@@ -5,7 +5,7 @@
   --cn-icon-size-large: calc(72 / 16 * 1rem);    /* 72px */
   --cn-icon-size-xlarge: calc(128 / 16 * 1rem);  /* 128px */
 }
-button {
+button, .fab {
   --cn-icon-size-xsmall: calc(24 / 16 * 1rem);
   --cn-icon-size-small: calc(24 / 16 * 1rem);
   --cn-icon-size: calc(24 / 16 * 1rem);

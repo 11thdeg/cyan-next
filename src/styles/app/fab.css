@@ -26,6 +26,7 @@ a.fab {
 }
 .fab:hover {
   background: var(--background-fab-hover);
+  color: var(--color-on-fab-hover);
 }
 .fab:active {
   background: var(--background-fab-active);
@@ -56,6 +57,10 @@ a.fab {
   --_fab-size: calc(var(--cn-grid) * 5); /* 8 * 5 = 40px;*/
 }
 
+/* A fab without an icon, needs to have button padding */
+.fab:not(:has(cn-icon)) {
+  padding-inline: var(--cn-gap);
+}
 
 #fab-tray {
   z-index: var(--z-index-bar);
@@ -63,6 +68,10 @@ a.fab {
   bottom: 0;
   right: 0;
   padding: var(--cn-grid);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cn-grid);
+  align-items: flex-end;
 }
 @media screen and (max-width: 620px) {
   #fab-tray {
