@@ -1,0 +1,9 @@
+main article header,
+main div header:first-child {
+  border-bottom: solid 1px var(--color-border);
+  width: 100%;
+}
+main article header p,
+main div header:first-child p {
+  margin: 0;
+}

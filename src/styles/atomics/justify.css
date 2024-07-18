@@ -17,3 +17,6 @@
 .justify-end{
   justify-content: flex-end !important;
 }
+.justify-space-between {
+  justify-content: space-between !important;
+}

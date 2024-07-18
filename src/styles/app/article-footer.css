@@ -1,0 +1,9 @@
+main article footer,
+main div footer:last-child {
+  border-top: solid 1px var(--color-border);
+  width: 100%;
+}
+main article footer p,
+main div footer:last-child p {
+  margin: 0;
+}
