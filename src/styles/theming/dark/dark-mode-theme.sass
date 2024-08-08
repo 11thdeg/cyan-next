@@ -1,0 +1,9 @@
+// This file will only have imports to dark mode base theme files.
+// The theme files contain the actual theme variables (css variables)
+//
+// These variables are imported if the user has selected the dark mode theme, or the element has
+// a class 'force-dark'
+@import base.sass
+
+@mixin dark-mode-vars
+  @include dark-base

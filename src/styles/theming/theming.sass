@@ -1,24 +1,27 @@
 @import theme-light.sass
 @import theme-dark.sass
 @import chroma-palette
+@import dark/dark-mode-theme.sass
+@import light/light-mode-theme.sass
 
 :root
   // Support for dark and light mode available
   color-scheme: light dark
 
+.force-dark
+  @include dark-mode-vars
+
+//.force-light
+//  @include light-mode-vars
+
 @media (prefers-color-scheme: dark)
   body
-    @include theme-dark
+    @include dark-mode-vars
 
 @media (prefers-color-scheme: light)
   body
-    @include theme-light
-
-.light
-  @include theme-light
-      
-.dark
-  @include theme-dark
+    @include light-mode-vars
+    
 
 
     
