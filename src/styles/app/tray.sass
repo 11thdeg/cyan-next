@@ -71,3 +71,12 @@ body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
     overflow: hidden
     text-overflow: ellipsis
     font-weight: var(--cn-font-weight-heading-2)
+
+.cn-tray > h2:first-child,
+.cn-tray > h3:first-child,
+.cn-tray > h4:first-child
+  @include TypeHeading4
+  font-weight: var(--cn-font-weight-heading-2)
+  margin-top: 0
+  padding-right: calc(var(--cn-gap) * 2)
+  

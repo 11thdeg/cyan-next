@@ -30,7 +30,7 @@ export class CnNavigationIcon extends LitElement {
       left: -8px;
       right: 0;
       bottom: 0; 
-      background: var(--cn-color-nav-button);
+      background: transparent;
       transition: all 0.2s ease-in-out;
       border-radius: 50%;
       height: var(--cn-navigation-icon-size-small, calc(1rem / 16 * 40));
@@ -44,13 +44,15 @@ export class CnNavigationIcon extends LitElement {
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
     }
     :host(:hover) cn-icon::before {
-      background: var(--cn-color-nav-button-hover);
+      background: var(--background-button-hover);
     }
-    :host(:active) cn-icon::before {
-      background: var(--cn-color-nav-button-active);
+    :host(:active) cn-icon,
+    :host([active]) cn-icon{
+      color: var(--color-on-primary);
     }
-    :host([checked]) cn-icon::before {
-      opacity: 0.055;
+    :host(:active) cn-icon::before,
+    :host([active]) cn-icon::before {
+      background: var(--background-button-active);
     }
     :host .navigation-icon-label {
       height: var(--cn-navigation-icon-label-height, 1rem);
