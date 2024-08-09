@@ -34,3 +34,11 @@ fieldset > .toolbar:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
 }
+.toolbar h1,
+.toolbar h2,
+.toolbar h3,
+.toolbar h4, 
+.toolbar p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
