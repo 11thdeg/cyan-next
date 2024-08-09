@@ -18,8 +18,8 @@ export class CnBubble extends LitElement {
   static styles = css`
     :host {
       display: block;
-      background: var(--cn-color-bubble);
-      color: var(--cn-color-on-bubble);
+      background: var(--color-bubble);
+      color: var(--color-on-bubble);
       border-radius: 0 var(--cn-border-radius) var(--cn-border-radius) var(--cn-border-radius); 
       padding: var(--cn-grid);
       margin: 0;
@@ -34,13 +34,13 @@ export class CnBubble extends LitElement {
       position: absolute;
       top: 0;
       border-style: solid;
-      border-color: transparent var(--cn-color-bubble);
+      border-color: transparent var(--color-bubble);
       left: calc(-1 * var(--cn-gap));
       border-width: 0 var(--cn-gap) var(--cn-gap) 0;
       bottom: auto;
     }
     :host([reply]){
-      background: var(--cn-color-reply-bubble);
+      background: var(--color-reply-bubble);
       border-radius: var(--cn-border-radius) 0px var(--cn-border-radius) var(--cn-border-radius);
       margin-right: var(--cn-gap);
     }
@@ -49,7 +49,7 @@ export class CnBubble extends LitElement {
       position: absolute;
       top: 0;
       border-style: solid;
-      border-color: transparent var(--cn-color-reply-bubble);
+      border-color: transparent var(--color-reply-bubble);
       right: calc(-1 * var(--cn-gap));
       border-width: 0 0 var(--cn-gap) var(--cn-gap) ;
       bottom: auto;
