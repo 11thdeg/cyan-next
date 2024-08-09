@@ -21,6 +21,7 @@ export class CnNavigationIcon extends LitElement {
     :host cn-icon {
       margin-left: var(--cn-navigation-icon-margin-left, calc(1rem / 16 * 16));
       position: relative;
+      color: var(--color-heading-1);
     }
     :host cn-icon::before {
       content: '';

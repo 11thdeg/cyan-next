@@ -26,8 +26,8 @@
 
 body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
   transform: translateX(0)
-  box-shadow: var(--cn-shadow-elevation-1)
-  background: var(--cn-elevation-1)
+  box-shadow: var(--shadow-elevation-1)
+  background: var(--background-elevation-1)
 
 /* For larger screens, tray is hidden when cn-tray-button has [aria-expanded=true] */
 @include media-query-desktop
@@ -39,8 +39,6 @@ body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
   body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
     opacity: 1
     transform: translateX(0)
-    box-shadow: var(--cn-shadow-elevation-1)
-    background: var(--cn-elevation-0)
 
 .cn-tray
   ul

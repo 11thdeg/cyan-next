@@ -1,6 +1,6 @@
 .elevation-1 {
-  background: var(--cn-elevation-1);
-  box-shadow: var(--cn-shadow-elevation-1);
+  background: var(--background-elevation-1);
+  box-shadow: var(--shadow-elevation-1);
 }
 .elevation-2 {
   background: var(--cn-elevation-2);

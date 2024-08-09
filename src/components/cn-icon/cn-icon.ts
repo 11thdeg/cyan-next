@@ -9,7 +9,7 @@ import './styles.css'
 export class CnIcon extends LitElement {
   public static styles = css`
     :host {
-      color: var(--color-on-primary, currentColor);
+      color: var(--color-on, currentColor);
       height: var(--cn-icon-size, 128px);
       width: var(--cn-icon-size, 128px);
       display: inline-block;

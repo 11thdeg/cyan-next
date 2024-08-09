@@ -4,6 +4,12 @@
 // These variables are imported if the user has selected the dark mode theme, or the element has
 // a class 'force-dark'
 @import base.sass
+@import buttons-dark.sass
+@import elevation-dark.sass
+@import text-dark.sass
 
 @mixin dark-mode-vars
   @include dark-base
+  @include buttons-dark
+  @include elevation-dark
+  @include text-dark
