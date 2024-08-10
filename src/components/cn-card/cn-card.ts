@@ -1,6 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import './styles.sass'
+import './styles.css'
 
 @customElement('cn-card')
 export class CnCard extends LitElement {
@@ -96,6 +96,9 @@ export class CnCard extends LitElement {
       letter-spacing: var(--cn-letter-spacing-text);
       color: var(--color-text-low-emphasis);
       padding: var(--cn-grid) var(--cn-gap);
+      /* These are set with variables in the./styless.css file */
+      background: var(--cn-card-background);
+      box-shadow: var(--cn-card-box-shadow);
     }
     :host([cover]) .cardNoun {
       position: absolute;
@@ -174,25 +177,10 @@ export class CnCard extends LitElement {
     :host h4 a:hover {
       text-decoration: underline;
     }
+    
     :host([elevation="0"]) {
       padding: calc(var(--cn-grid) - 1px) calc(var(--cn-gap) - 1px);
       border: 1px solid var(--color-border);
-    }
-    :host([elevation="1"]) {
-      background: var(--cn-elevation-1);
-      box-shadow: var(--cn-shadow-elevation-1)
-    }
-    :host([elevation="2"]) {
-      background: var(--cn-elevation-2);
-      box-shadow: var(--cn-shadow-elevation-2)
-    }
-    :host([elevation="3"]) {
-      background: var(--cn-elevation-3);
-      box-shadow: var(--cn-shadow-elevation-3)
-    }
-    :host([elevation="4"]) {
-      background: var(--cn-elevation-4);
-      box-shadow: var(--cn-shadow-elevation-4)
     }
     :host .cardHeader {
       display: flex;
