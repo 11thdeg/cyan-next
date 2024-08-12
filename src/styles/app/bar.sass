@@ -32,13 +32,25 @@ header.cn-app-bar
     position: fixed
     z-index: calc(var(--z-index-tray) + 1000)
 
+header.cn-app-bar.modal
+  background: var(--background-modal, red)
+  // box-shadow: var(--shadow-elevation-1)
+  position: fixed
+  top: 0
+  width: 100dvw
+
+body:has(header.cn-app-bar.modal) main
+  margin-top: calc(var(--cn-grid) * 8)
+
 @include media-query-md-and-up
   header.cn-app-bar
     margin-left: var(--cn-rail-width)
     cn-tray-button[aria-expanded="true"]
       left: calc(var(--cn-tray-width) + var(--cn-gap))
       right: inherit
-    
+  header.cn-app-bar.modal
+    width: calc(100dvw - var(--cn-rail-width))
+    border-radius: 0 0 0 var(--cn-border-radius)
 
 /* on a desktop, and large screens, we need to make room for rail and tray (if visible) */
 @include media-query-desktop

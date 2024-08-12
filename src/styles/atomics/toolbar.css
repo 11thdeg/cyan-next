@@ -4,6 +4,7 @@
   margin-bottom: var(--cn-grid);
   display: flex;
   justify-content: space-between;
+  align-items: end;
   gap: var(--cn-gap);
 }
 .toolbar:last-child {
