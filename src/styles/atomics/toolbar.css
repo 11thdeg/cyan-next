@@ -12,9 +12,6 @@
 .toolbar:first-child {
   margin-top: 0;
 }
-.toolbar > * {
-  display: inline-block;
-}
 .flex.toolbar {
   display: flex;
   justify-content: space-between;

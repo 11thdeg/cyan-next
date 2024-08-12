@@ -19,8 +19,8 @@ select {
 } 
 label:has(select) {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   margin-bottom: calc(var(--cn-grid) * 2);
 }
 

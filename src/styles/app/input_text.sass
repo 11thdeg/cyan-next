@@ -8,7 +8,7 @@ input
   width: 100%
   position: relative
   transition: all 0.3s ease
-  color: var(--cn-color-on-field)
+  color: var(--color-on-field)
   background: var(--color-field)
   border-bottom: 1px solid var(--color-border)
   border-radius: var(--cn-border-radius-field)
@@ -17,17 +17,17 @@ input
   margin: 0
   padding: 0
   &::placeholder
-    color: var(--cn-color-on-field-placeholder)
+    color: var(--color-on-field-placeholder, red)
 
   &:hover
-    color: var(--cn-color-on-field-hover)
-    background: var(--cn-color-field-hover)
-    border-bottom: 1px solid var(--cn-color-border-hover)
+    color: var(--color-on-field-hover, var(--color-on-field))
+    background: var(--color-field-hover, var(--color-field))
+    border-bottom: 1px solid var(--color-border-hover, var(--color-border))
 
   &:focus
     outline: none
     color: var(--cn-color-on-field-active)
-    background: var(--cn-color-field-active)
+    background: var(--color-field-focus)
     border-bottom: 1px solid var(--cn-color-border-active)
     &::placeholder
       opacity: 0
