@@ -1,0 +1,24 @@
+.flex {
+  display: flex;
+  gap: var(--cn-gap);
+  flex-wrap: wrap;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-col > * {
+  width: 100%;
+}
+.flex-no-wrap {
+  flex-wrap: nowrap
+}
+.grow {
+  flex-grow: 1;
+}
+.shrink {
+  flex-shrink: 1;
+}
+
