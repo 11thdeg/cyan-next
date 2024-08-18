@@ -18,6 +18,9 @@ export class CyanReactionButton extends LitElement {
   @property({ type: String, reflect: true })
   noun = 'loves'
 
+  @property({ type: Boolean, reflect: true })
+  small = false
+
   connectedCallback(): void {
     super.connectedCallback()
     this.setAttribute('role', 'button')
@@ -61,7 +64,7 @@ export class CyanReactionButton extends LitElement {
 
   render() {
     return html`<div><button>
-      <cn-icon small noun="${this.noun}"></cn-icon>
+      <cn-icon ?small=${!this.small} ?xsmall=${this.small} noun="${this.noun}"></cn-icon>
     </button>
     ${
       this.count > -1 ? html`<div class="count">${this.count}</div>` : html``
@@ -103,7 +106,7 @@ export class CyanReactionButton extends LitElement {
       box-shadow: var(--shadow-button-hover);
     }
     :host(:active) button, :host([aria-pressed="true"]) button {
-      background: var(--color-notify);
+      background: var(--background-button-active);
       // border: 0;
     }
     :host([disabled]) button {

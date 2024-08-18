@@ -36,11 +36,11 @@ export class CnLightmodeButton extends LitElement {
     this.mode = this.mode === 'dark' ? 'light' : 'dark'
     this.dispatchEvent(new Event(this.mode, { bubbles: true }))
     if (this.mode === 'dark') {
-      document.body.classList.add('dark')
-      document.body.classList.remove('light')
+      document.body.classList.add('force-dark')
+      document.body.classList.remove('force-light')
     } else {
-      document.body.classList.add('light')
-      document.body.classList.remove('dark')
+      document.body.classList.add('force-light')
+      document.body.classList.remove('force-dark')
     }
   }
 
