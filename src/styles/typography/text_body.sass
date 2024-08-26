@@ -23,6 +23,10 @@ td, th
 
 main p, .text_body, main td, main th, .text-body, footer p
   @include text_body
+  &.high_emphasis
+    color: var(--color-text-high-emphasis)
+  &.low_emphasis
+    color: var(--color-text-low-emphasis)
   
 main p strong, .text_body strong
   font-weight: var(--cn-font-weight-text-strong)
