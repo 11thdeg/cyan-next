@@ -43,7 +43,7 @@ export class CnCard extends LitElement {
 
     return html`<div class="cardContent" aria-hidden="true">
       <a href=${linkUrl} class="cardContent">
-        <img src=${coverUrl} alt="" />
+        <img src=${coverUrl} alt="" class="coverImage"/>
         <div class="tint"></div>
       </a>
     </div>`
@@ -110,12 +110,13 @@ export class CnCard extends LitElement {
     }
     :host([cover]) .cardHeader cn-icon {
       filter: drop-shadow(0 0 4px var(--color-halo));
+      color: var(--chroma-K-S);
     }
     :host .cardContent {
       padding: 0;
       margin: calc(-1 * var(--cn-grid)) calc(-1 * var(--cn-gap));
       margin-bottom: 0;
-      border-radius: var(--cn-border-radius-card, 16px);
+      border-radius: var(--cn-border-radius-large, 16px);
       max-height: 100cqw;
       overflow: hidden;
       position: relative;
@@ -206,8 +207,11 @@ export class CnCard extends LitElement {
       border-radius: 0 var(--cn-border-radius-large) 0 0;
     }
     :host([notify]):after {
-      background: var(--color-notify);
-      opacity: 0.82;
+      background: linear-gradient(-45deg, 
+        color-mix(in hsl, var(--color-notify), transparent 90%),
+        color-mix(in hsl, var(--color-notify), var(--color-primary) 50%),
+        var(--color-notify));
+      opacity: 1;
     }
     :host([alert]):after {
       background: var(--color-alert);
