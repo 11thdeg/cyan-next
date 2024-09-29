@@ -116,9 +116,14 @@ export class CnDialog extends LitElement {
       font-size: var(--cn-font-size-heading-4);
       line-height: var(--cn-line-height-heading-4);
       letter-spacing: var(--cn-letter-spacing-heading-4);
+      flex-grow: 1;
     }
     :host nav.header cn-icon {
       color: var(--color-on-dialog-header, #fff);
+    }
+    :host nav.header .icon {
+      flex-shrink: 0;
+      flex-grow: 0;
     }
     :host button {
       background: none;
@@ -128,9 +133,14 @@ export class CnDialog extends LitElement {
       margin: 0;
       border-radius: 50%;
       aspect-ratio: 1;
+      width: 48px;
+      background: var(--background-button-text, hsla(0, 0%, 100%, 0.1));
     }
     :host button:hover {
-      background: var(--background-button-hover, hsla(0, 0%, 100%, 0.1));
+      background: var(--background-button-text-hover, hsla(0, 0%, 100%, 0.1));
+    }
+    :host button:active {
+      background: var(--background-button-text-active, hsla(0, 0%, 100%, 0.1));
     }
     :host .dialog-content {
       margin: var(--cn-gap) 0;
@@ -147,7 +157,7 @@ export class CnDialog extends LitElement {
       <dialog ?open=${this.open} @click=${this.cancelOnOutsideClick}>
         <div id=${this.dialogId} class="dialog-card">
           <nav class="header">
-            <button class="icon" @click=${this.cancel}>
+            <button class="icon text" @click=${this.cancel}>
               <cn-icon noun="close"></cn-icon>
             </button>
             <h3>${this.title}</h3>
