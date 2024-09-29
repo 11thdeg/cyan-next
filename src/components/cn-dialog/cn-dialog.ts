@@ -11,6 +11,20 @@ export class CnDialog extends LitElement {
 
   private dialogId = 'cn-dialog'
 
+  constructor() {
+    super()
+    this.style.display = 'none' // Initially hide the component
+  }
+
+  /**
+   * To avoid CSS issues, we append the dialog element to the body
+   */
+  firstUpdated() {
+    // Move the entire component to the end of the body
+    document.body.appendChild(this)
+    this.style.display = 'contents' // Show the component
+  }
+
   connectedCallback() {
     super.connectedCallback()
     this.dialogId = `cn-dialog-${Math.random().toString(36).substring(2, 9)}`
