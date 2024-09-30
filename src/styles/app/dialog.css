@@ -1,0 +1,30 @@
+dialog {
+  background-color: var(--background-elevation-2);
+  border-radius: var(--cn-border-radius-large);
+  border: none;
+  box-shadow: var(--shadow-elevation-2);
+  padding: var(--cn-gap);
+}
+dialog .header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--cn-gap);
+  border-bottom: solid var(--cn-border-width) var(--color-border);
+  margin-bottom: calc(var(--cn-gap) - var(--cn-border-width));
+}
+dialog .header h1,
+dialog .header h2,
+dialog .header h3,
+dialog .header h4 {
+  margin: 0;
+  font-family: var(--cn-font-family-headings);
+  font-weight: var(--cn-font-weight-heading-4);
+  font-size: var(--cn-font-size-heading-4);
+  line-height: var(--cn-line-height-heading-4);
+  letter-spacing: var(--cn-letter-spacing-heading-4);
+}
+
+dialog::backdrop {
+  background: var(--background-dialog-backdrop);
+}
