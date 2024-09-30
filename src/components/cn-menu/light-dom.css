@@ -1,0 +1,30 @@
+cn-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+cn-menu ul + ul {
+  margin-top: -1px;
+  border-top: 1px solid var(--color-border);
+}
+
+cn-menu ul li {
+  margin: 0;
+  display: block;
+  padding: 0;
+  background: none;
+}
+cn-menu ul li a {
+    display: block;
+    text-decoration: none;
+    color: var(--cn-text-color);
+    padding: var(--cn-grid);
+    height: calc(var(--cn-grid) * 5);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--cn-grid);
+}
+cn-menu ul li a:hover {
+  background: color-mix(in hsl, var(--color-link), transparent 90%);
+}
