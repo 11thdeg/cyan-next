@@ -52,9 +52,8 @@ export class CnMenu extends LitElement {
       display: block;
     }
   `
-
-  @property({ type: Boolean, reflect: true, attribute: 'aria-expanded' })
-  expanded = false
+  @property({ type: String, reflect: true, attribute: 'aria-expanded' })
+  expanded = 'false' // Set initial value to 'false'
 
   render() {
     return html`
@@ -66,9 +65,9 @@ export class CnMenu extends LitElement {
           aria-expanded="${this.expanded ? 'true' : 'false'}" 
           @click="${this._toggleMenu}"
         >
-          <cn-icon noun="menu"></cn-icon>
+          <cn-icon small noun="kebab"></cn-icon>
         </button>
-        <div class="cn-menu-content ${this.expanded ? 'show' : ''}" role="menuitem"> 
+        <div class="cn-menu-content ${this.expanded === 'true' ? 'show' : ''}" role="menuitem"> 
           <slot></slot>
         </div>
       </div>
@@ -76,11 +75,12 @@ export class CnMenu extends LitElement {
   }
 
   private _toggleMenu() {
-    this.expanded = !this.expanded
-    logDebug('Menu expanded:', this.expanded)
+    const expanded = this.expanded === 'true' ? 'false' : 'true' // Toggle between 'true' and 'false'
+    this.expanded = expanded
+    logDebug('dispatching menu-toggled', expanded)
     this.dispatchEvent(
       new CustomEvent('menu-toggled', {
-        detail: { expanded: this.expanded },
+        detail: { expanded },
         bubbles: true,
         composed: true,
       }),
@@ -90,8 +90,8 @@ export class CnMenu extends LitElement {
   // New method to handle document clicks
   private _handleDocumentClick(event: MouseEvent) {
     const target = event.target as HTMLElement
-    if (this.expanded && !this.contains(target)) {
-      this.expanded = false
+    if (this.expanded === 'true' && !this.contains(target)) {
+      this._toggleMenu()
     }
   }
 
