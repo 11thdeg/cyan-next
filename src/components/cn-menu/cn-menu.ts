@@ -53,61 +53,45 @@ export class CnMenu extends LitElement {
     }
   `
 
-  @property({ type: String }) value = ''
-  @property({ type: Boolean, reflect: true }) showMenu = false // Correctly define the property
+  @property({ type: Boolean, reflect: true, attribute: 'aria-expanded' })
+  expanded = false
 
   render() {
     return html`
-      <div class="cn-menu">
-        <button type="button" class="text icon" @click="${this._toggleMenu}"> 
-          <cn-icon noun="kebab"></cn-icon>
+      <div class="cn-menu" role="menu"> 
+        <button 
+          type="button" 
+          class="text icon" 
+          aria-haspopup="true" 
+          aria-expanded="${this.expanded ? 'true' : 'false'}" 
+          @click="${this._toggleMenu}"
+        >
+          <cn-icon noun="menu"></cn-icon>
         </button>
-        <div class="cn-menu-content ${this.showMenu ? 'show' : ''}">
-          <slot @slotchange="${this._handleSlotChange}"></slot>
+        <div class="cn-menu-content ${this.expanded ? 'show' : ''}" role="menuitem"> 
+          <slot></slot>
         </div>
       </div>
     `
   }
 
   private _toggleMenu() {
-    this.showMenu = !this.showMenu
-    this.requestUpdate() // This line is crucial for LIt to re-render the component
-    // Dispatch a custom event for a reactive parent component (see Solid-js + Lit issues)
-    logDebug('Menu toggled', this.showMenu)
-
-    setTimeout(() => {
-      this.dispatchEvent(
-        new CustomEvent('menu-toggled', {
-          detail: { showMenu: this.showMenu },
-          bubbles: true, // Ensure the event bubbles up
-          composed: true, // Allow the event to cross shadow DOM boundaries
-        }),
-      )
-    }, 0)
-  }
-
-  private _handleSlotChange(e: Event) {
-    const slot = e.target as HTMLSlotElement
-    const elements = slot.assignedElements()
-
-    for (const el of elements) {
-      el.addEventListener('click', () => {
-        const textContent = el.textContent?.trim()
-        this.value = textContent ?? ''
-        this.showMenu = false
-        this.dispatchEvent(
-          new CustomEvent('option-selected', { detail: { value: this.value } }),
-        )
-      })
-    }
+    this.expanded = !this.expanded
+    logDebug('Menu expanded:', this.expanded)
+    this.dispatchEvent(
+      new CustomEvent('menu-toggled', {
+        detail: { expanded: this.expanded },
+        bubbles: true,
+        composed: true,
+      }),
+    )
   }
 
   // New method to handle document clicks
   private _handleDocumentClick(event: MouseEvent) {
     const target = event.target as HTMLElement
-    if (this.showMenu && !this.contains(target)) {
-      this.showMenu = false
-      this.requestUpdate()
+    if (this.expanded && !this.contains(target)) {
+      this.expanded = false
     }
   }
 
