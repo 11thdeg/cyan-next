@@ -1,6 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import './light-dom.css'
+import { logDebug } from '../../utils/logHelpers'
 
 @customElement('cn-menu')
 export class CnMenu extends LitElement {
@@ -53,8 +54,7 @@ export class CnMenu extends LitElement {
   `
 
   @property({ type: String }) value = ''
-
-  private _showMenu = false
+  @property({ type: Boolean, reflect: true }) showMenu = false // Correctly define the property
 
   render() {
     return html`
@@ -62,7 +62,7 @@ export class CnMenu extends LitElement {
         <button type="button" class="text icon" @click="${this._toggleMenu}"> 
           <cn-icon noun="kebab"></cn-icon>
         </button>
-        <div class="cn-menu-content ${this._showMenu ? 'show' : ''}">
+        <div class="cn-menu-content ${this.showMenu ? 'show' : ''}">
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </div>
       </div>
@@ -70,11 +70,12 @@ export class CnMenu extends LitElement {
   }
 
   private _toggleMenu() {
-    this._showMenu = !this._showMenu
+    this.showMenu = !this.showMenu
     this.requestUpdate() // This line is crucial for LIt to re-render the component
     // Dispatch a custom event for a reactive parent component (see Solid-js + Lit issues)
+    logDebug('Menu toggled', this.showMenu)
     this.dispatchEvent(
-      new CustomEvent('menu-toggled', { detail: { showMenu: this._showMenu } }),
+      new CustomEvent('menu-toggled', { detail: { showMenu: this.showMenu } }),
     )
   }
 
@@ -86,7 +87,7 @@ export class CnMenu extends LitElement {
       el.addEventListener('click', () => {
         const textContent = el.textContent?.trim()
         this.value = textContent ?? ''
-        this._showMenu = false
+        this.showMenu = false
         this.dispatchEvent(
           new CustomEvent('option-selected', { detail: { value: this.value } }),
         )
@@ -97,8 +98,8 @@ export class CnMenu extends LitElement {
   // New method to handle document clicks
   private _handleDocumentClick(event: MouseEvent) {
     const target = event.target as HTMLElement
-    if (this._showMenu && !this.contains(target)) {
-      this._showMenu = false
+    if (this.showMenu && !this.contains(target)) {
+      this.showMenu = false
       this.requestUpdate()
     }
   }
