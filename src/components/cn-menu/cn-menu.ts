@@ -74,7 +74,8 @@ export class CnMenu extends LitElement {
     `
   }
 
-  private _toggleMenu() {
+  private _toggleMenu(e: Event) {
+    e.stopPropagation() // Prevent the click event from bubbling up
     const expanded = this.expanded === 'true' ? 'false' : 'true' // Toggle between 'true' and 'false'
     this.expanded = expanded
     logDebug('dispatching menu-toggled', expanded)
@@ -97,9 +98,11 @@ export class CnMenu extends LitElement {
     if (
       this.expanded === 'true' &&
       !this.contains(target) &&
-      !isClickInsideMenu
+      !isClickInsideMenu &&
+      !(this === target)
     ) {
-      this._toggleMenu()
+      logDebug('CnMenu', "_handleDocumentClick", this.expanded)
+      this._toggleMenu(event)
     }
   }
 
