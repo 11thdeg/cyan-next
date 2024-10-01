@@ -87,10 +87,18 @@ export class CnMenu extends LitElement {
     )
   }
 
-  // New method to handle document clicks
+  // Handle clicks outside the menu
   private _handleDocumentClick(event: MouseEvent) {
     const target = event.target as HTMLElement
-    if (this.expanded === 'true' && !this.contains(target)) {
+    // Check if the click target is within the menu content
+    const isClickInsideMenu = this.shadowRoot
+      ?.querySelector('.cn-menu-content')
+      ?.contains(target)
+    if (
+      this.expanded === 'true' &&
+      !this.contains(target) &&
+      !isClickInsideMenu
+    ) {
       this._toggleMenu()
     }
   }
