@@ -71,7 +71,11 @@ export class CnMenu extends LitElement {
 
   private _toggleMenu() {
     this._showMenu = !this._showMenu
-    this.requestUpdate() // This line is crucial!
+    this.requestUpdate() // This line is crucial for LIt to re-render the component
+    // Dispatch a custom event for a reactive parent component (see Solid-js + Lit issues)
+    this.dispatchEvent(
+      new CustomEvent('menu-toggled', { detail: { showMenu: this._showMenu } }),
+    )
   }
 
   private _handleSlotChange(e: Event) {
