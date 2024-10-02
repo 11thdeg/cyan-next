@@ -43,7 +43,7 @@ export class CnMenu extends LitElement {
       box-shadow: var(--shadow-elevation-2);
       z-index: 1;
       top: calc(2 * var(--cn-grid));
-      right: calc(2 * var(--cn-grid));
+      // right: calc(2 * var(--cn-grid));
       padding: 0;
       border-radius: var(--cn-border-radius);
       overflow: hidden;
@@ -56,6 +56,8 @@ export class CnMenu extends LitElement {
   expanded = 'false' // Set initial value to 'false'
 
   render() {
+    const menuPosition = this._getMenuPosition()
+
     return html`
       <div class="cn-menu" role="menu"> 
         <button 
@@ -67,11 +69,30 @@ export class CnMenu extends LitElement {
         >
           <cn-icon small noun="kebab"></cn-icon>
         </button>
-        <div class="cn-menu-content ${this.expanded === 'true' ? 'show' : ''}" role="menuitem"> 
+        <div class="cn-menu-content ${this.expanded === 'true' ? 'show' : ''}" role="menuitem"
+          style="${menuPosition === 'left' ? 'right: var(--cn-grid);' : 'left: var(--cn-grid);'}"
+        > 
           <slot></slot>
         </div>
       </div>
     `
+  }
+
+  private _getMenuPosition(): string {
+    const buttonRect = this.shadowRoot
+      ?.querySelector('button')
+      ?.getBoundingClientRect()
+    const viewportWidth = window.innerWidth
+
+    if (buttonRect) {
+      const buttonMidpoint = buttonRect.left + buttonRect.width / 2
+      if (buttonMidpoint < viewportWidth / 2) {
+        return 'right' // Open to the right if the button is on the left side
+      }
+      return 'left' // Open to the left if the button is on the right side
+    }
+
+    return 'right' // Default to right if the button rect cannot be determined
   }
 
   private _toggleMenu(e: Event) {
@@ -101,7 +122,7 @@ export class CnMenu extends LitElement {
       !isClickInsideMenu &&
       !(this === target)
     ) {
-      logDebug('CnMenu', "_handleDocumentClick", this.expanded)
+      logDebug('CnMenu', '_handleDocumentClick', this.expanded)
       this._toggleMenu(event)
     }
   }

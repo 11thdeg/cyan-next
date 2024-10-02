@@ -14,6 +14,7 @@ cn-menu ul li {
   padding: 0;
   background: none;
 }
+cn-menu ul li button, 
 cn-menu ul li a {
     display: block;
     text-decoration: none;
@@ -24,7 +25,12 @@ cn-menu ul li a {
     align-items: center;
     justify-content: flex-start;
     gap: var(--cn-grid);
+    background: none;
+    border-radius: 0;
+    width: 100%;
+    margin: 0;
 }
+cn-menu ul li button:hover, 
 cn-menu ul li a:hover {
   background: color-mix(in hsl, var(--color-link), transparent 90%);
 }
