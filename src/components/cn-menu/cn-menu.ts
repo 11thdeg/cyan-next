@@ -38,7 +38,7 @@ export class CnMenu extends LitElement {
     .cn-menu-content {
       display: none;
       position: absolute;
-      background-color: var(--background-elevation-2);
+      background-color: var(--background-elevation-3);
       min-width: 160px;
       box-shadow: var(--shadow-elevation-2);
       z-index: 1;
