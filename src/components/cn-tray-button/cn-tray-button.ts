@@ -13,8 +13,27 @@ export class CnTrayButton extends LitElement {
   @property({ type: String, reflect: true })
   ariaControls = '#cn-tray'
 
+  firstUpdated() {
+    this.checkInitialMenuState()
+    window.addEventListener('resize', this.checkInitialMenuState)
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('resize', this.checkInitialMenuState)
+  }
+
+  checkInitialMenuState() {
+    if (window.innerWidth > 960) {
+      const storedState = localStorage.getItem('cn-menu-state')
+      this.ariaExpanded = storedState ? storedState : 'false'
+    } else {
+      this.ariaExpanded = 'false'
+    }
+  }
+
   toggleOpen() {
     this.ariaExpanded = this.ariaExpanded === 'true' ? 'false' : 'true'
+    localStorage.setItem('cn-menu-state', this.ariaExpanded)
     this.dispatchEvent(new CustomEvent('change', { detail: this.ariaExpanded }))
   }
 

@@ -20,3 +20,6 @@
 .justify-space-between {
   justify-content: space-between !important;
 }
+.align-center {
+  align-items: center;
+}

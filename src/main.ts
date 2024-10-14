@@ -4,7 +4,7 @@ export * from './components/cn-card/cn-card.ts'
 export * from './components/cn-dialog/cn-dialog.ts'
 export * from './components/cn-icon'
 export * from './components/cn-navigation-icon'
-export * from './components/cn-app-bar'
+// export * from './components/cn-app-bar' DEPRECATED
 export * from './components/cn-share-button/cn-share-button.ts'
 export * from './components/cn-snackbar/cn-snackbar.ts'
 export * from './components/cn-tray-button/cn-tray-button.ts'
