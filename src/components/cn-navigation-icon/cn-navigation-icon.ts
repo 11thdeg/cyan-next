@@ -1,6 +1,11 @@
 import { LitElement, css, html } from 'lit'
 /**
- * This is a wrapper lit component for the lazy loading of icons.
+ * A navigation icon is a clickable icon that is used to navigate to a different page or
+ * section of the application. It's intented to be used in application rail and bar navigation.
+ *
+ * The element is 56x56 pixels by default, but can be resized using the
+ * `--cn-navigation-icon-size` CSS variable. Do note, that the contents are intentionally
+ * smaller that the clickable area in size to create a visual effect when hovered over.
  */
 import { customElement, property } from 'lit/decorators.js'
 import './styles.css'
@@ -9,50 +14,52 @@ import './styles.css'
 export class CnNavigationIcon extends LitElement {
   public static styles = css`
     :host {
-      display: block;
+      display: flex;
       position: relative;
       height: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-      padding-top: var(--cn-navigation-icon-padding-top, calc(1rem / 16 * 10));
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
-    :host([label=""]) cn-icon {
-      margin-left: var(--cn-navigation-icon-margin-left, calc(1rem / 16 * 10));
+    :host([label]) {
+      justify-content: flex-start;
     }
     :host cn-icon {
-      margin-left: var(--cn-navigation-icon-margin-left, calc(1rem / 16 * 16));
+      color: var(--color-link);
       position: relative;
-      color: var(--color-heading-1);
-    }
-    :host cn-icon::before {
-      content: '';
-      position: absolute;
-      top: -8px;
-      left: -8px;
-      right: 0;
-      bottom: 0; 
-      background: transparent;
-      transition: all 0.2s ease-in-out;
-      border-radius: 50%;
-      height: var(--cn-navigation-icon-size-small, calc(1rem / 16 * 40));
-      width: var(--cn-navigation-icon-size-small, calc(1rem / 16 * 40));
-      z-index: -1;
-    }
-    :host([label=""]) cn-icon::before {
-      top: -10px;
-      left: -10px;
-      height: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-      width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-    }
-    :host(:hover) cn-icon::before {
-      background: var(--background-button-hover);
     }
     :host(:active) cn-icon,
     :host([active]) cn-icon{
-      color: var(--color-on-primary);
+      color: var(--color-link-active);
     }
+    :host cn-icon::before {
+      background: transparent;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      position: absolute;
+      height: calc(100% + var(--cn-grid) * 2);
+      width: calc(100% + var(--cn-grid) * 2);
+      z-index: -1;
+      top: calc(-1 * var(--cn-grid) / 1);
+      left: calc(-1 * var(--cn-grid) / 1);
+      transition: background 0.2s ease;
+    }
+    :host([label]) cn-icon {
+      margin-top: var(--cn-grid);
+    }
+
+    :host(:hover) cn-icon::before {
+      background: var(--background-button-text-hover);
+    }
+    
     :host(:active) cn-icon::before,
     :host([active]) cn-icon::before {
-      background: var(--background-button-active);
+      background: var(--background-button-text-active);
     }
     :host .navigation-icon-label {
       height: var(--cn-navigation-icon-label-height, 1rem);
@@ -60,11 +67,13 @@ export class CnNavigationIcon extends LitElement {
       line-height: var(--cn-navigation-icon-label-height, 1rem);
       display: block;
       text-align: center;
-      max-width: 100%;
+      width: 100%;
       overflow: hidden;
-      padding-top: var(--cn-navigation-icon-label-padding-top, 0.5rem);
       text-overflow: ellipsis;
-      text-decoration: none;      
+      text-decoration: none;
+      flex-shrink: 0;
+      padding-top: calc(var(--cn-grid));
+      color: var(--color-text);
     }
   `
   @property({ type: String, reflect: true })

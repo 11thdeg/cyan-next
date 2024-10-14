@@ -2,3 +2,7 @@
 a:has(cn-navigation-icon) {
   text-decoration: none;
 }
+cn-navigation-icon {
+  --cn-navigation-icon-size: calc(var(--cn-grid) * 7);
+  /*background-color: color-mix(in hsl, transparent, red 22%);*/
+}

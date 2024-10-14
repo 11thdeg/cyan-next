@@ -40,17 +40,28 @@ export class CnTrayButton extends LitElement {
     :host button {
       height: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
-      background: var(--background-button);
+      background: none;
       border: none;
       margin: 0;
       padding: 0;
+    }
+    :host button::before {
+      background: var(--background-button-text);
       border-radius: 50%;
-      transition: all 0.3s ease-in-out;
+      content: '';
+      display: block;
+      position: absolute;
+      height: calc(100% - var(--cn-grid));
+      width: calc(100% - var(--cn-grid));
+      z-index: -1;
+      top: calc(var(--cn-grid) / 2);
+      left: calc(var(--cn-grid) / 2);
+      transition: background 0.2s ease;
     }
-    :host button:hover {
-      background: var(--background-button-hover);
+    :host button:hover::before {
+      background: var(--background-button-text-hover);
     }
-    :host button:active {
+    :host button:active::before {
       background: var(--background-button);
     }
     :host .state-box {
@@ -93,18 +104,6 @@ export class CnTrayButton extends LitElement {
     }
     :host button:focus {
       outline: none;
-    }
-    :host img {
-      pointer-events: none;
-      width: 52px;
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      opacity: 0.17;
-      z-index: 3;
-    }
-    :host([open]) img {
-      opacity: 0.22;
     }
   `
 }
