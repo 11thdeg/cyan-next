@@ -1,11 +1,12 @@
 :root {
-  --cn-icon-size-xsmall: 1rem;                   /* 16px */
-  --cn-icon-size-small: calc(24 / 16 * 1rem);    /* 36px */
-  --cn-icon-size: calc(36 / 16 * 1rem);          /* 32px */
-  --cn-icon-size-large: calc(72 / 16 * 1rem);    /* 72px */
-  --cn-icon-size-xlarge: calc(128 / 16 * 1rem);  /* 128px */
+  --cn-icon-size-xsmall: 1rem; /* 16px */
+  --cn-icon-size-small: calc(24 / 16 * 1rem); /* 36px */
+  --cn-icon-size: calc(36 / 16 * 1rem); /* 32px */
+  --cn-icon-size-large: calc(72 / 16 * 1rem); /* 72px */
+  --cn-icon-size-xlarge: calc(128 / 16 * 1rem); /* 128px */
 }
-button, .fab {
+button,
+.fab {
   --cn-icon-size-xsmall: calc(24 / 16 * 1rem);
   --cn-icon-size-small: calc(24 / 16 * 1rem);
   --cn-icon-size: calc(24 / 16 * 1rem);
@@ -19,7 +20,7 @@ button cn-icon,
   margin-top: -0.2rem;
 }
 button cn-icon:after,
-.button cn-icon:after{
-  content: ' ';
+.button cn-icon:after {
+  content: " ";
   padding: 1rem;
 }

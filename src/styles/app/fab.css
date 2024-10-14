@@ -1,28 +1,28 @@
 button.fab,
 a.fab {
-    --_fab-size: calc(var(--cn-grid) * 7); /* 8 * 7 = 56px;*/
-    display: flex;
-    height: var(--_fab-size);
-    line-height: var(--_fab-size);
-    min-width: var(--_fab-size);
-    margin: 0;
-    border: none;
-    border-radius: var(--cn-border-radius); /* 16px */
-    padding: 0;
-    color: var(--color-on-fab);
-    background: var(--background-fab);
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-    font-family: var(--cn-font-family-ui);
-    font-size: var(--cn-font-size-ui);
-    letter-spacing: var(--cn-font-letter-spacing-ui);
-    line-height: var(--cn-font-line-height-ui);
-    font-weight: var(--cn-font-weight-ui);
-    align-items: center;
-    justify-content: center;
-    gap: var(--cn-grid);
-    box-shadow: var(--shadow-fab);
-    width: fit-content;
+  --_fab-size: calc(var(--cn-grid) * 7); /* 8 * 7 = 56px;*/
+  display: flex;
+  height: var(--_fab-size);
+  line-height: var(--_fab-size);
+  min-width: var(--_fab-size);
+  margin: 0;
+  border: none;
+  border-radius: var(--cn-border-radius); /* 16px */
+  padding: 0;
+  color: var(--color-on-fab);
+  background: var(--background-fab);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-family: var(--cn-font-family-ui);
+  font-size: var(--cn-font-size-ui);
+  letter-spacing: var(--cn-font-letter-spacing-ui);
+  line-height: var(--cn-font-line-height-ui);
+  font-weight: var(--cn-font-weight-ui);
+  align-items: center;
+  justify-content: center;
+  gap: var(--cn-grid);
+  box-shadow: var(--shadow-fab);
+  width: fit-content;
 }
 .fab:hover {
   background: var(--background-fab-hover);
@@ -35,10 +35,10 @@ a.fab {
   margin: 0;
 }
 .fab :first-child {
-    margin-left: var(--cn-gap);
+  margin-left: var(--cn-gap);
 }
 .fab :last-child {
-    margin-right: var(--cn-gap);
+  margin-right: var(--cn-gap);
 }
 .fab.secondary {
   background: var(--background-button);
@@ -75,7 +75,7 @@ a.fab {
 }
 @media screen and (max-width: 620px) {
   #fab-tray {
-    bottom:calc(10 * var(--cn-grid))
+    bottom: calc(10 * var(--cn-grid));
   }
 }
 

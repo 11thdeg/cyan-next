@@ -8,7 +8,11 @@
   border-radius: var(--border-radius);
 }
 *[popover] .menu > *:hover {
-  background: color-mix(in hsl, var(--background-elevation-4), var(--color-on-primary) 22%)
+  background: color-mix(
+    in hsl,
+    var(--background-elevation-4),
+    var(--color-on-primary) 22%
+  );
 }
 *[popover] .menu a {
   color: var(--color-notify);

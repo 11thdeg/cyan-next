@@ -2,25 +2,25 @@
   margin: 0;
 }
 .m-1 {
-    margin: var(--cn-grid);
+  margin: var(--cn-grid);
 }
 .my-0 {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .my-1 {
-    margin-top: var(--cn-grid);
-    margin-bottom: var(--cn-grid);
+  margin-top: var(--cn-grid);
+  margin-bottom: var(--cn-grid);
 }
 .mt-0 {
-    margin-top: 0;
+  margin-top: 0;
 }
 .mt-1 {
-    margin-top: var(--cn-grid);
+  margin-top: var(--cn-grid);
 }
 .mb-0 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 .mb-1 {
-    margin-bottom: var(--cn-grid);
+  margin-bottom: var(--cn-grid);
 }

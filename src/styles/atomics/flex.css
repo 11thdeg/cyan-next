@@ -13,7 +13,7 @@
   width: 100%;
 }
 .flex-no-wrap {
-  flex-wrap: nowrap
+  flex-wrap: nowrap;
 }
 .grow {
   flex-grow: 1;
@@ -21,4 +21,3 @@
 .shrink {
   flex-shrink: 1;
 }
-

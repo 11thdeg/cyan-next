@@ -6,7 +6,7 @@ select {
   background: var(--color-field);
   border-bottom: 1px solid var(--color-border);
   border-radius: var(--cn-border-radius-field);
- 
+
   height: calc(var(--cn-line) * 1.5);
   padding-left: calc(var(--cn-grid) * 1);
   padding-right: calc(var(--cn-grid) * 4);
@@ -16,7 +16,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   margin: 0;
-} 
+}
 label:has(select) {
   position: relative;
   display: grid;
@@ -26,16 +26,16 @@ label:has(select) {
 
 /* Add Chevronh */
 label:has(select):after {
-    content: '';
-    --_size: calc(var(--cn-grid) * 1.5);
-    width: var(--_size);
-    height: var(--_size);
-    background-color: var(--color-on-field);
-    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-    position: absolute;
-    right: calc(var(--cn-grid) * 1.5);
-    bottom: calc(var(--cn-grid) * 1.5);
-    z-index: 1
+  content: "";
+  --_size: calc(var(--cn-grid) * 1.5);
+  width: var(--_size);
+  height: var(--_size);
+  background-color: var(--color-on-field);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  position: absolute;
+  right: calc(var(--cn-grid) * 1.5);
+  bottom: calc(var(--cn-grid) * 1.5);
+  z-index: 1;
 }
 
 select:focus,

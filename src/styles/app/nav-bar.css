@@ -11,18 +11,19 @@
   box-sizing: border-box;
   background: var(--background-nav-bar);
   z-index: var(--z-index-bar);
-  height: calc(9 * var(--cn-grid))
+  height: calc(9 * var(--cn-grid));
 }
-body:has(#fab-tray) #nav-bar{
+body:has(#fab-tray) #nav-bar {
   clip-path: polygon(
-    0 0, 
+    0 0,
     calc(100% - 76px) 0,
     calc(100% - 64px) 8px,
     calc(100% - 24px) 8px,
     calc(100% - 12px) 0,
-    100% 0, 
-    100% 100%, 
-    0 100%);
+    100% 0,
+    100% 100%,
+    0 100%
+  );
 }
 @media screen and (min-width: 621px) {
   #nav-bar {

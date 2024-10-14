@@ -8,7 +8,7 @@ cn-tray-button {
   left: var(--cn-grid);
   z-index: var(--z-index-tray-button, 10000);
 }
-cn-tray-button[aria-expanded=true] {
+cn-tray-button[aria-expanded="true"] {
   right: var(--cn-grid);
   left: auto;
 }
@@ -30,9 +30,8 @@ body:has(cn-tray-button) header.cn-app-bar {
   body:has(cn-tray-button) header.cn-app-bar {
     margin-left: calc(var(--cn-grid) * 18);
   }
-  cn-tray-button[aria-expanded=true] {
+  cn-tray-button[aria-expanded="true"] {
     right: auto;
     left: calc(var(--cn-tray-width) + var(--cn-grid) * 2);
   }
-  
 }

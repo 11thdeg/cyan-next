@@ -1,6 +1,6 @@
-cn-dialog h1, 
-cn-dialog h2, 
-cn-dialog h3, 
+cn-dialog h1,
+cn-dialog h2,
+cn-dialog h3,
 cn-dialog h4 {
   margin: 0;
   color: var(--color-on-dialog);

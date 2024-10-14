@@ -20,7 +20,7 @@
 }
 .toolbar h4,
 .toolbar p {
-  margin: 0; 
+  margin: 0;
 }
 fieldset > .toolbar {
   margin-left: 0;
@@ -35,7 +35,7 @@ fieldset > .toolbar:last-child {
 .toolbar h1,
 .toolbar h2,
 .toolbar h3,
-.toolbar h4, 
+.toolbar h4,
 .toolbar p {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
