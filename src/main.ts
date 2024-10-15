@@ -17,6 +17,7 @@ export * from './components/cn-loader/cn-loader.ts'
 export * from './components/cn-pill/cn-pill.ts'
 export * from './components/cn-toggle-button/cn-toggle-button.ts'
 export * from './components/cn-menu/cn-menu.ts'
+export * from './components/cn-editor/cn-editor.ts'
 
 import './scripts/data-auto-expand'
 
