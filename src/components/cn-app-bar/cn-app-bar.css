@@ -1,0 +1,16 @@
+@media screen and (max-width: 620px) {
+  body:has(cn-tray-button) cn-app-bar {
+    margin-left: calc(var(--cn-grid) * 7);
+  }
+}
+@media screen and (min-width: 621px) {
+    cn-app-bar {
+      margin-left: calc(var(--cn-grid) * 10);
+    }
+  }
+
+@media screen and (min-width: 961px) {
+  body:has(cn-tray-button[aria-expanded="true"]) cn-app-bar {
+    margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width))
+  }
+}

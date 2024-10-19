@@ -25,3 +25,7 @@ nav.rail
     padding-bottom: var(--cn-gap, 16px) // Add extra "gap" at the bottom to make sure the last item is not cut off
     padding-top: var(--cn-padding-top-rail, 8px)
   
+  body:has(cn-tray-button) nav.rail
+    /* Make space for the tray button */
+    padding-top: calc(var(--cn-grid) * 10)
+  

@@ -25,13 +25,13 @@ body:has(cn-tray-button) header.cn-app-bar {
  */
 @media (min-width: 621px) {
   cn-tray-button {
-    left: calc(var(--cn-rail-width));
+    left: calc(var(--cn-grid) * 1.5)
   }
   body:has(cn-tray-button) header.cn-app-bar {
     margin-left: calc(var(--cn-grid) * 18);
   }
   cn-tray-button[aria-expanded="true"] {
     right: auto;
-    left: calc(var(--cn-tray-width) + var(--cn-grid) * 2);
+    left: calc(var(--cn-grid) * 1.5)
   }
 }

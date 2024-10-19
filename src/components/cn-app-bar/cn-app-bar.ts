@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import './cn-app-bar.css'
 
 // Define the allowed values for the barType attribute
 type BarMode = 'sticky' | 'modal' | ''
@@ -61,7 +62,7 @@ export class CnAppBar extends LitElement {
 
   static styles = css`
     :host {
-      border: solid 1px red;
+      /* border: solid 1px red; */
       display: block;
       position: relative;
       height: var(--cn-app-bar-height, 56px);
@@ -116,11 +117,13 @@ export class CnAppBar extends LitElement {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: var(--cn-app-bar-height, 56px);
     }
 
     .actions {
       display: flex;
       align-items: center;
+      gap: var(--cn-gap, 16px); /* Use cn-gap variable */
     }
 
     .back-button {

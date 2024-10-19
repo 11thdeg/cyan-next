@@ -5,7 +5,7 @@
 
 /* For phone and pad screens, the tray is only visible if the cn-tray-button has [aria-expanded=true] */
 .cn-tray
-  width: min(calc(var(--cn-tray-width) + var(--cn-rail-width)), 95dvw)
+  width: calc(100dvw - var(--cn-gap))
   height: 100dvh
   transform: translateX(-100%)
   position: fixed
@@ -23,6 +23,7 @@
 @include media-query-md-and-up
   .cn-tray
     padding-left: calc(var(--cn-gap) + var(--cn-rail-width))
+    width: min(calc(var(--cn-tray-width) + var(--cn-rail-width)), calc(100dvw - var(--cn-gap)))
 
 body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
   transform: translateX(0)
