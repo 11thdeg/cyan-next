@@ -19,6 +19,7 @@ export * from './components/cn-toggle-button/cn-toggle-button.ts'
 export * from './components/cn-menu/cn-menu.ts'
 export * from './components/cn-editor/cn-editor.ts'
 export * from './components/cn-app-bar/cn-app-bar.ts'
+export * from './components/cn-sortable-list/cn-sortable-list.ts'
 
 import './scripts/data-auto-expand'
 
