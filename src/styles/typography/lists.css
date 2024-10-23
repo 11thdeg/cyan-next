@@ -1,0 +1,30 @@
+main ul,
+main ol {
+  margin: 0;
+  padding: 0;
+  padding-left: var(--cn-grid);
+  list-style-type: numbered;
+}
+main ul {
+  list-style-type: none;
+  position: relative;
+}
+main ul li::before {
+  content: "–";
+  position: absolute;
+  left: var(--cn-grid);
+}
+main ul li,
+main ol li {
+  padding: 0;
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--cn-font-family-text);
+  font-size: var(--cn-font-size-text);
+  font-weight: var(--cn-font-weight-text);
+  line-height: var(--cn-line-height-text);
+  letter-spacing: var(--cn-letter-spacing-text);
+  margin-bottom: var(--cn-gap);
+  padding-left: calc(var(--cn-grid) * 2);
+  margin-left: calc(var(--cn-grid) * 2);
+}
