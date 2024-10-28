@@ -1,0 +1,4 @@
+.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-on-secondary);
+}

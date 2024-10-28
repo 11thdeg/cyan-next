@@ -18,9 +18,33 @@
 .mt-1 {
   margin-top: var(--cn-grid);
 }
+.mt-2 {
+  margin-top: calc(2 * var(--cn-grid));
+}
 .mb-0 {
   margin-bottom: 0;
 }
 .mb-1 {
   margin-bottom: var(--cn-grid);
+}
+.mb-2 {
+  margin-bottom: calc(2 * var(--cn-grid));
+}
+.ml-0 {
+  margin-left: 0;
+}
+.ml-1 {
+  margin-left: var(--cn-grid);
+}
+.ml-2 {
+  margin-left: calc(2 * var(--cn-grid));
+}
+.mr-0 {
+  margin-right: 0;
+}
+.mr-1 {
+  margin-right: var(--cn-grid);
+}
+.mr-2 {
+  margin-right: calc(2 * var(--cn-grid));
 }

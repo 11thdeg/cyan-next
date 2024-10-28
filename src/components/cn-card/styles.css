@@ -20,3 +20,9 @@ cn-card[elevation="4"] {
   --cn-card-background: var(--background-elevation-4);
   --cn-card-box-shadow: var(--shadow-elevation-4);
 }
+cn-card > *:first-child {
+  margin-top: 0;
+}
+cn-card > *:last-child {
+  margin-bottom: 0;
+}

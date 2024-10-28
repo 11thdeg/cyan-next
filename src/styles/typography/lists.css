@@ -28,3 +28,15 @@ main ol li {
   padding-left: calc(var(--cn-grid) * 2);
   margin-left: calc(var(--cn-grid) * 2);
 }
+
+ul.compact,
+ol.compact {
+  margin-top: 0;
+  margin-bottom: calc(2 * var(--cn-gap));
+}
+
+ul.compact li,
+ol.compact li {
+  margin-bottom: 0;
+  margin-top: 0;
+}
