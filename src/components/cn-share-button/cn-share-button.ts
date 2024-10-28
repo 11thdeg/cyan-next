@@ -108,7 +108,7 @@ export class CnShareButton extends LitElement {
     }
     :host button {
       color: var(--color-on-primary);
-      background: var(--background-button);
+      background: var(--background-button-text);
       font-family: var(--cn-font-family-ui);
       font-weight: var(--cn-font-weight-ui);
       font-size: var(--cn-font-size-ui);
@@ -122,14 +122,17 @@ export class CnShareButton extends LitElement {
       transition: all 0.3s ease-in-out;
       text-decoration: none;
       user-select: none;
+      overflow: hidden;
+      flex-grow: 0;
+      flex-shrink: 0;
     }
     :host(:hover) button {
-      background: var(--background-button-hover);
+      background: var(--background-button-text-hover);
       box-shadow: var(--shadow-button-hover);
       color: var(---cn-color-on-button-hover);
     }
     :host(:active) button {
-      background: var(--background-button-active);
+      background: var(--background-button-text-active);
       color: var(---cn-color-on-button-active);
     }
     :host svg,

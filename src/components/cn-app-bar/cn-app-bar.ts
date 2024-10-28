@@ -30,7 +30,7 @@ export class CnAppBar extends LitElement {
   }
 
   private handleBackClick() {
-    this.dispatchEvent(new CustomEvent('back-click'))
+    history.back()
   }
 
   render() {
@@ -55,7 +55,13 @@ export class CnAppBar extends LitElement {
             : ''
         }
         <h3 class="title">${this.title}</h3>
-        <div class="actions"><slot></slot></div>
+        ${
+          this.mode !== 'modal'
+            ? html`
+          <div class="actions"><slot></slot></div>
+        `
+            : ''
+        }
       </div>
     `
   }

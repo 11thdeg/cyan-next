@@ -1,4 +1,5 @@
 import { LitElement, css, html } from 'lit'
+import './light-dom.css'
 /**
  * This is a wrapper lit component for the lazy loading of icons.
  */
