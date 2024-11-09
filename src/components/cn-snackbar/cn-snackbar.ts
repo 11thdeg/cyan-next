@@ -164,7 +164,7 @@ export class CnSnackbar extends LitElement {
       border-radius: var(--cn-border-radius, 4px) 0 var(--cn-border-radius, 4px) 0;
       opacity: 0;
       transition: opacity 0.3s;
-      z-index: var(--cn-snackbar-z-index, 1000);
+      z-index: var(--z-index-snackbar, 1000);
       // disable selection
       user-select: none;
     }
