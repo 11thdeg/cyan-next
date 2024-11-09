@@ -1,0 +1,10 @@
+/* Cleaned up .cn-tray styles, in CSS instead of SASS 
+ *
+ * This file is a imported to tray.sass as the last line
+ */
+
+/* Tray scrollbars */
+nav.cn-tray,
+nav.cn-tray * {
+  scrollbar-color: var(--color-elevation-4) var(--color-elevation-1);
+}
