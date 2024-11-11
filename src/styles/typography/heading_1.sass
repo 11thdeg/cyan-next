@@ -60,3 +60,8 @@ cn-card h1,
 footer h1
   color: red !important 
   // A H1 should not be used in a card or footer, we'll color it red as a warning
+
+// If a H1 is first child of a section, we'll remove the margin-top
+section > h1:first-child,
+article > h1:first-child
+  margin-top: 0

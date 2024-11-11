@@ -1,17 +1,21 @@
 @mixin elevation-light
-  --shadow-color: var(--chroma-key-50)
+  --shadow-color: color-mix(in hsl, var(--chroma-surface-70), transparent 70%)
 
-  --background-elevation-1: var(--color-primary)
-  --shadow-elevation-1: 4px 4px 16px -2px var(--chroma-key-50)
+  --color-elevation-1: color-mix(in hsl, var(--chroma-primary-70), var(--color-primary) 89%)
+  --background-elevation-1: var(--color-elevation-1)
+  --shadow-elevation-1: 4px 4px 16px -2px var(--shadow-color)
 
-  --background-elevation-2: var(--color-primary)
-  --shadow-elevation-2: 4px 4px 22px -2px var(--chroma-key-50)
+  --color-elevation-2: color-mix(in hsl, var(--chroma-primary-70), var(--color-primary) 78%)
+  --background-elevation-2: var(--color-elevation-2)
+  --shadow-elevation-2: 4px 4px 22px -2px var(--shadow-color)
 
-  --background-elevation-3: var(--color-primary)
-  --shadow-elevation-3: 4px 4px 32px -2px var(--chroma-key-50)
+  --color-elevation-3: color-mix(in hsl, var(--chroma-primary-70), var(--color-primary) 67%)
+  --background-elevation-3: var(--color-elevation-3)
+  --shadow-elevation-3: 4px 4px 32px -2px var(--shadow-color)
 
-  --background-elevation-4: var(--color-primary)
-  --shadow-elevation-4: 4px 4px 40px -2px var(--chroma-key-50)
+  --color-elevation-4: color-mix(in hsl, var(--chroma-primary-70), var(--color-primary) 56%)
+  --background-elevation-4: var(--color-elevation-4)
+  --shadow-elevation-4: 4px 4px 40px -2px var(--shadow-color)
 
   --color-halo: var(--color-notify)
 

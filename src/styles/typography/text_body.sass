@@ -12,6 +12,17 @@ td, th
   --cn-font-size-text: calc(1rem / 16 * 14)
   --cn-letter-spacing-text: 0.25px
 
+// On small screens, the text size is increased! (unlike headings)
+@media (max-width: 620px)
+  :root
+    --cn-font-size-text: calc(1rem / 16 * 18)
+    --cn-letter-spacing-text: 0.75px
+
+    .downscaled,
+    .small,
+    td, th
+      --cn-font-size-text: calc(1rem / 16 * 16)
+
 @mixin text_body()
   color: var(--color-text)
   font-family: var(--cn-font-family-text)
@@ -20,6 +31,7 @@ td, th
   line-height: var(--cn-line-height-text)
   letter-spacing: var(--cn-letter-spacing-text)
   margin-bottom: var(--cn-gap)
+
 
 main p, .text_body, main td, main th, .text-body, footer p
   @include text_body
