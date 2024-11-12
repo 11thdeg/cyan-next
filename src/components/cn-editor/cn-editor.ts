@@ -7,6 +7,7 @@ export class CnEditor extends LitElement {
   @property({ type: String }) value = ''
   @property({ type: Object }) selection: { start: number; end: number } | null =
     null
+  @property({ type: String }) placeholder = ''
 
   private _textArea: HTMLTextAreaElement | null = null
   private _turndownService = new TurndownService()
@@ -19,6 +20,7 @@ export class CnEditor extends LitElement {
         @paste="${this._handlePaste}"
         @blur="${this._handleBlur}"
         @focus="${this._handleFocus}"
+        placeholder="${this.placeholder}"
       >${this.value}</textarea>
     `
   }
@@ -56,6 +58,9 @@ export class CnEditor extends LitElement {
     } else {
       this.insertText(text)
     }
+    this.dispatchEvent(
+      new CustomEvent('change', { detail: { value: this.value } }),
+    )
   }
 
   async _copy() {
@@ -147,7 +152,13 @@ export class CnEditor extends LitElement {
         border-bottom: 1px solid var(--color-border-focus);
     }
     :host textarea::placeholder {
-      color: var(--color-placeholder);
+      // UI text-styling
+      font-family: var(--cn-font-family-ui);
+      font-weight: var(--cn-font-weight-ui);
+      font-size: var(--cn-font-size-ui);
+      line-height: var(--cn-line-height-ui);
+      letter-spacing: var(--cn-letter-spacing-ui);
+      color: var(--color-on-field-placeholder, blue)
     }
     :host textarea::selection {
       background: var(--color-selection);

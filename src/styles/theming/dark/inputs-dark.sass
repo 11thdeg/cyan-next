@@ -1,17 +1,26 @@
 @mixin inputs-dark
-  --color-field: color-mix(in hsl, transparent, var(--chroma-surface-70) 22%)
-  
-  --color-field-focus: color-mix(in hsl, transparent, var(--chroma-surface-80) 11%)
-  --border-color-field-focus: var(--chroma-surface-20)
 
-  --color-on-field: var(--chroma-K-S)
-  --color-on-field-focus: var(--chroma-K-S)
-  --color-on-field-hover: var(--chroma-primary-10)
-  --color-on-field-placeholder: color-mix(in hsl, transparent, var(--chroma-surface-40) 70%)
-
+  // Toggle buttons are used in the cn-switch component
   --background-toggle-button: var(--chroma-surface-70)
   --background-toggle-button-off: var(--chroma-surface-80)
   --color-on-toggle-button: var(--chroma-surface-30)
   --color-on-toggle-button-off: var(--chroma-surface-70)
 
-  --background-editor: var(--chroma-surface-99)
+  // --color-field is the main background color for input fields
+  --color-field: var(--chroma-surface-99)
+  --color-field-focus: color-mix(in hsl, var(--color-field), transparent 10%)
+  
+  // --color-on-field[-*] defines the text color for input fields
+  --color-on-field: var(--chroma-K-S)
+  --color-on-field-focus: var(--chroma-K-S)
+  --color-on-field-hover: var(--chroma-primary-10)
+  --color-on-field-placeholder: color-mix(in hsl, transparent, var(--chroma-surface-40) 70%)
+  
+  // --background-editor is the background color for the cn-editor, we'll
+  // set it to --color-field by default
+  --background-editor: var(--color-field) 
+
+  --foreground-editor: var(--color-on-field)
+  --foreground-editor-focus: var(--color-on-field-focus)
+  --foreground-editor-hover: var(--color-on-field-hover)
+  --foreground-editor-placeholder: var(--color-on-field-placeholder)

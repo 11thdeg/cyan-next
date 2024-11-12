@@ -5,7 +5,7 @@ textarea {
   position: relative;
   transition: all 0.3s ease;
   color: var(--color-on-field);
-  background: var(--color-field);
+  background-color: var(--color-field);
   border-bottom: 1px solid var(--color-border);
   border-radius: var(--cn-border-radius-field);
 
@@ -14,7 +14,7 @@ textarea {
   padding: var(--cn-grid);
 }
 textarea::placeholder {
-  color: var(--cn-color-on-field-placeholder);
+  color: var(--color-on-field-placeholder);
   opacity: 1;
   transition: all 0.3s ease;
 }
@@ -22,7 +22,12 @@ textarea:focus {
   outline: none;
   color: var(--color-on-field-active);
   background: var(--color-field-focus);
-  border: 1px solid var(--border-color-field-focus);
+  border-bottom: 1px solid var(--color-border-hover, var(--color-border));
+}
+textarea:hover {
+  color: var(--color-on-field-hover, var(--color-on-field));
+  background: var(--color-field-hover, var(--color-field));
+  border-bottom: 1px solid var(--color-border-hover, var(--color-border));
 }
 textarea:focus::placeholder {
   opacity: 0;
