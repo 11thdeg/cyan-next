@@ -5,7 +5,7 @@
   "description": "A lightweight web component library for Pelilauta, Cinis etc. projects",
   "main": "./dist/cyan.umd.cjs",
   "module": "./dist/cyan.mjs",
-  "types": "./dist/main.d.ts",
+  "types": "./dist/src/main.d.ts",
   "files": [
     "dist"
   ],
@@ -19,7 +19,7 @@
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     },
-    "./dist/main.d.ts": {
+    "./dist/src/main.d.ts": {
       "import": "/dist/src/main.d.ts",
       "require": "/dist/src/main.d.ts"
     }
