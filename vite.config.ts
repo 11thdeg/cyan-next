@@ -12,6 +12,12 @@ export default defineConfig({
     },
   },
   plugins: [dts({
+    // Include the cn-dice directory in the entry points
+    entryRoot: resolve(__dirname), 
+    include: [
+      resolve(__dirname, 'src'), 
+      resolve(__dirname, 'cn-dice')
+    ],
     copyDtsFiles: true,
   })],
 })
