@@ -1,11 +1,11 @@
 {
   "name": "@11thdeg/cyan-next",
   "private": false,
-  "version": "1.0.0-beta.15",
+  "version": "1.0.0-beta.16",
   "description": "A lightweight web component library for Pelilauta, Cinis etc. projects",
   "main": "./dist/cyan.umd.cjs",
   "module": "./dist/cyan.mjs",
-  "types": "./dist/main.d.ts",
+  "types": "./dist/src/main.d.ts",
   "files": [
     "dist"
   ],
