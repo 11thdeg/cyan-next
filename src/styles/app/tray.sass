@@ -48,12 +48,12 @@ body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
       margin: 0 calc(-1 * var(--cn-gap))
       transition: background 0.3s ease-in-out
     li:hover
-      background: hsla(var(--chroma-key-10-hsl), 0.11)
+      background: var(--color-elevation-3) // The tray is of elevation 1, so this is + 2
       a,
       cn-icon
         color: var(--color-link-hover)
     li:active
-      background: hsla(var(--chroma-key-10-hsl), 0.22)
+      background: var(--color-elevation-2) // The tray is of elevation 1, so this is the next elevation's color
     a
       padding: var(--cn-gap)
       color: var(--color-link)

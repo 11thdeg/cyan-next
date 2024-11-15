@@ -25,8 +25,7 @@
   --chroma-key-50: hsl(190, 42%, 51%);
   --chroma-key-40: hsl(189, 49%, 60%); 
   --chroma-key-30: hsl(188, 58%, 70%);
-  --chroma-key-20: hsl(187, 71%, 81%);
-  --chroma-key-10: hsl(180, 71%, 95%);*/
+
 
   /*
    * WGAC + MUI 3 inspired colors
@@ -41,12 +40,8 @@
   --chroma-key-50: hsl(202, 20%, 59%);
   --chroma-key-40: hsl(202, 18%, 67%);
   --chroma-key-30: hsl(203, 16%, 75%);
-  --chroma-key-20: hsl(204, 15%, 83%);
-  --chroma-key-10-hsl: 204, 15%, 93%;
-  --chroma-key-10: hsl(var(--chroma-key-10-hsl));
 
-  /*--chroma-key-10-hsl: 202, 100%, 11%;
-  --chroma-key-20-hsl: 202, 52%, 19%;
+  /*
   --chroma-key-30-hsl: 202, 41%, 27%;
   --chroma-key-40-hsl: 202, 33%, 35%;
   --chroma-key-50-hsl: 202, 27%, 43%;
@@ -82,8 +77,55 @@
   --chroma-primary-20-hsl: 65deg, 100%, 63%;
   --chroma-primary-10-hsl: 65deg, 100%, 83%;
 
-  --chroma-secondary-10: hsl(188, 53%, 65%);
-  --chroma-secondary-10-hsl: 188, 53%, 65%;
+  /* Secondary palette, shifting from 90 to black/surface */
+
+  --chroma-secondary-99: #232b2b;
+  --chroma-secondary-95: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-secondary-99) 95%
+  );
+  --chroma-secondary-90: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-secondary-99) 90%
+  );
+  --chroma-secondary-80: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-secondary-99) 80%
+  );
+  --chroma-secondary-70: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-secondary-99) 68%
+  );
+  --chroma-secondary-60: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-secondary-99) 55%
+  );
+  --chroma-secondary-50: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-secondary-99) 40%
+  );
+  --chroma-secondary-40: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-secondary-99) 20%
+  );
+  --chroma-secondary-30: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-secondary-99) 10%
+  );
+  --chroma-secondary-20: #d0f0c0;
+  --chroma-secondary-10: color-mix(
+    in hsl,
+    var(--chroma-secondary-20),
+    var(--chroma-K-S) 50%
+  );
 
   /* Surface palette, in material 3 style notation */
   --chroma-surface-10: var(--chroma-K-S);
