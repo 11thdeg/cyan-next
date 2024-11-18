@@ -9,11 +9,9 @@
   justify-content: space-between;
   align-items: flex-start;
   box-sizing: border-box;
-  background: var(--background-nav-bar);
-  z-index: var(--z-index-bar);
   height: calc(9 * var(--cn-grid));
-  background-color: var(--background-elevation-1);
-  box-shadow: 0 0 var(--cn-gap) 0 var(--shadow-color);
+  background: var(--background-mobile-nav-bar);
+  z-index: var(--z-index-bar);
 }
 body:has(#fab-tray) #nav-bar {
   clip-path: polygon(

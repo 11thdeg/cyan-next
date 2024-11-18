@@ -8,3 +8,10 @@ nav.cn-tray,
 nav.cn-tray * {
   scrollbar-color: var(--color-elevation-4) var(--color-elevation-1);
 }
+nav.cn-tray {
+  background: var(--background-nav-tray);
+}
+body:has(cn-tray-button[aria-expanded="true"]) .cn-tray {
+  transform: translateX(0);
+  box-shadow: var(--box-shadow-nav-tray);
+}

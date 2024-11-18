@@ -1,0 +1,22 @@
+@media (prefers-color-scheme: light) {
+  body {
+    --background-mobile-nav-bar: linear-gradient(
+        -11deg in hsl,
+        var(--chroma-surface-20),
+        var(--chroma-surface-30)
+      );
+    --background-nav-tray: linear-gradient(
+        -11deg in hsl,
+        var(--chroma-surface-30),
+        var(--chroma-surface-40)
+      );
+    /* Shadows */
+    /* Shadows */
+    --background-before-mobile-nav-bar: linear-gradient(
+      to bottom in hsl,
+      transparent,
+      var(--color-shadow)
+    );
+    --box-shadow-nav-tray: 0 0 var(--cn-line) 0 var(--color-shadow);
+  }
+}

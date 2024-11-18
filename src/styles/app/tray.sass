@@ -25,11 +25,6 @@
     padding-left: calc(var(--cn-gap) + var(--cn-rail-width))
     width: min(calc(var(--cn-tray-width) + var(--cn-rail-width)), calc(100dvw - var(--cn-gap)))
 
-body:has(cn-tray-button[aria-expanded="true"]) .cn-tray
-  transform: translateX(0)
-  box-shadow: var(--shadow-elevation-1)
-  background: var(--background-elevation-1)
-
 /* For larger screens, tray is hidden when cn-tray-button has [aria-expanded=true] */
 @include media-query-desktop
   .cn-tray
