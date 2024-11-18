@@ -7,16 +7,17 @@
       var(--chroma-surface-80)
     );
     --background-nav-tray: linear-gradient(
-        -79deg in hsl,
-        var(--chroma-surface-80),
-        var(--chroma-surface-90)
-      );
+      -79deg in hsl,
+      var(--chroma-surface-80),
+      var(--chroma-surface-90)
+    );
     /* Shadows */
     --background-before-mobile-nav-bar: linear-gradient(
       to bottom in hsl,
       transparent,
       var(--color-shadow)
     );
-    --box-shadow-nav-tray: 0 0 var(--cn-line) calc(-1 * var(--cn-grid)) var(--color-shadow);
+    --box-shadow-nav-tray: 0 0 var(--cn-line) calc(-1 * var(--cn-grid))
+      var(--color-shadow);
   }
 }
