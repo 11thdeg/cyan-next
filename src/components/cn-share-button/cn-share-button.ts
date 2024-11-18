@@ -1,6 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { logDebug } from '../../utils/logHelpers'
+import './styles.css'
 
 /**
  * An example of SVG Icons wrapped in a LitElement.
@@ -107,34 +108,52 @@ export class CnShareButton extends LitElement {
       display: contents;
     }
     :host button {
-      color: var(--color-on-primary);
-      background: var(--background-button-text);
+      color: var(--color-on-cn-share-button, yellow);
+      position: relative;
+      z-index: 1;
       font-family: var(--cn-font-family-ui);
       font-weight: var(--cn-font-weight-ui);
       font-size: var(--cn-font-size-ui);
       letter-spacing: var(--cn-letter-spacing-ui);
       line-height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
-      /* 38px */
-      border-radius: calc(19 / 16 * 1rem);
+      padding: var(--cn-padding-button, 0 var(--cn-gap));
       border: none;
-      height: var(--cn-line-height-button, calc(38 / 16 * 1rem));
-      padding: var(--cn-padding-button, 0 16px);
-      transition: all 0.3s ease-in-out;
+      background: none;
       text-decoration: none;
       user-select: none;
       overflow: hidden;
       flex-grow: 0;
       flex-shrink: 0;
     }
-    :host(:hover) button {
+    :host button:hover{
+      color: var(--color-on-cn-share-button-hover);
+    }
+    :host button:active {
+      color: var(--color-on-cn-share-button-active);
+    }
+
+    :host button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: var(--cn-share-button-size);
+      background: var(--background-button-text);
+      z-index: -1;
+      border-radius: calc(var(--cn-share-button-size) / 2);
+      transition: all 0.3s ease-in-out;
+      transform: translateY(-50%);
+    }
+    :host(:hover) button::before {
       background: var(--background-button-text-hover);
       box-shadow: var(--shadow-button-hover);
-      color: var(---cn-color-on-button-hover);
     }
-    :host(:active) button {
+    :host(:active) button::before {
       background: var(--background-button-text-active);
-      color: var(---cn-color-on-button-active);
+      color: var(--color-on-cn-share-button-active);
     }
+
     :host svg,
     :host img {
       height: var(--cn-icon-size-small);
@@ -161,7 +180,29 @@ export class CnShareButton extends LitElement {
     }
     :host img {
       object-fit: contain;
-    }`
+    }
+    @media (max-width: 620px) {
+      :host button {
+        aspect-ratio: 1/1;
+        width: var(--cn-share-button-size);
+        margin: 0;
+        padding: 0;
+      }
+      :host button::before {
+        border-radius: 50%;
+        top: 0;
+        transform: translateY(0);
+        left: 0;
+      }
+      :host svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.25);
+      }
+    }
+    
+    `
 }
 
 declare global {

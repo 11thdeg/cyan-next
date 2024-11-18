@@ -1,0 +1,14 @@
+cn-share-button {
+  --color-cn-share-button: var(--background-button-text);
+  /* Foreground color of the button */
+  --color-on-cn-share-button: var(--color-on-button);
+  --color-on-cn-share-button-hover: var(--color-on-button-hover);
+  --color-on-cn-share-button-active: var(--color-on-button-active);
+  /* This is the visual size of the button, the physical size is var(--cn-navigation-icon-size, calc(1rem / 16 * 56)) */
+  --cn-share-button-size: var(--cn-line-height-button, calc(38 / 16 * 1rem));
+}
+@media (max-width: 620px) {
+  cn-share-button {
+    --cn-share-button-size: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
+  }
+}
