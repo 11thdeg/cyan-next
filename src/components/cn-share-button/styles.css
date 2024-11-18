@@ -9,6 +9,6 @@ cn-share-button {
 }
 @media (max-width: 620px) {
   cn-share-button {
-    --cn-share-button-size: var(--cn-navigation-icon-size, calc(1rem / 16 * 56));
+    --cn-share-button-size: var(--cn-navigation-button-size);
   }
 }
