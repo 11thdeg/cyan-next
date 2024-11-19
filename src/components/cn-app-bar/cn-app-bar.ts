@@ -12,6 +12,7 @@ type BarMode = 'sticky' | 'modal' | ''
 export class CnAppBar extends LitElement {
   @property({ type: String, reflect: true }) noun = ''
   @property({ type: String, reflect: true }) title = ''
+  @property({ type: String, reflect: true }) shortTitle = ''
   @property({ type: String, reflect: true }) mode: BarMode = '' // 'sticky' or 'modal'
   @property({ type: Boolean, reflect: true }) scrolled = false
 
@@ -34,6 +35,10 @@ export class CnAppBar extends LitElement {
   }
 
   render() {
+    const titleSnippet = this.shortTitle
+      ? html`<span class="sm-hidden">${this.title}</span><span class="md-hidden">${this.shortTitle}</span>`
+      : html`${this.title}`
+
     return html`
       <div class="container">
         ${
@@ -54,7 +59,7 @@ export class CnAppBar extends LitElement {
             `
             : ''
         }
-        <h3 class="title">${this.title}</h3>
+        <h3 class="title">${titleSnippet}</h3>
         ${
           this.mode !== 'modal'
             ? html`
@@ -82,6 +87,14 @@ export class CnAppBar extends LitElement {
     @media (max-width: 620px) {
       :host {
         border-radius: 0;
+      }
+      .sm-hidden {
+        display: none;
+      }
+    }
+    @media (min-width: 621px) {
+      .md-hidden {
+        display: none
       }
     }
 
