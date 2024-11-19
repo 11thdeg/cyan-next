@@ -79,6 +79,12 @@ export class CnAppBar extends LitElement {
       border-radius: 0 0 0 var(--cn-border-radius-large, 16px);
     }
 
+    @media (max-width: 620px) {
+      :host {
+        border-radius: 0;
+      }
+    }
+
     :host([mode="sticky"]),
     :host([mode="modal"]) {
       position: sticky;
@@ -98,6 +104,10 @@ export class CnAppBar extends LitElement {
       background-color: var(--background-modal, rgba(0, 0, 0, 0.2));
     }
 
+    button cn-icon {
+      z-index: 120;
+    }
+
     .container {
       display: flex;
       align-items: center;
@@ -110,6 +120,7 @@ export class CnAppBar extends LitElement {
       display: flex;
       align-items: center;
       /*margin-left: calc(var(--cn-grid, 8px) * -1); /* Use cn-grid variable */
+      z-index: 120;
     }
 
     .title {
@@ -140,7 +151,7 @@ export class CnAppBar extends LitElement {
       background: none;
       border: none;
       position: relative;
-      margin-left: calc(var(--cn-grid, 8px) * -1); /* Use cn-grid variable */
+      /*margin-left: calc(var(--cn-grid, 8px) * -1); /* Use cn-grid variable */
       
     }
     .back-button::before {
@@ -149,8 +160,6 @@ export class CnAppBar extends LitElement {
       height: var(--cn-navigation-icon-size, calc(1rem / 16 * 42));
       width: var(--cn-navigation-icon-size, calc(1rem / 16 * 42));
       border-radius: 50%;
-      background: var(--background-button-text);
-    }
-
-  `
+      background: var(--background-button);
+    }`
 }

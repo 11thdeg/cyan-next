@@ -1,6 +1,9 @@
 @media screen and (max-width: 620px) {
-  body:has(cn-tray-button) cn-app-bar {
-    margin-left: calc(var(--cn-grid) * 7);
+  body:has(cn-tray-button) cn-app-bar:not([mode="modal"]) {
+    padding-left: calc(var(--cn-grid) * 7);
+  }
+  body:has(cn-tray-button) cn-app-bar[mode="modal"] {
+    padding-left: 0;
   }
 }
 @media screen and (min-width: 621px) {
