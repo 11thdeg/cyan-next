@@ -17,10 +17,13 @@ export * from './components/cn-loader/cn-loader.ts'
 export * from './components/cn-pill/cn-pill.ts'
 export * from './components/cn-toggle-button/cn-toggle-button.ts'
 export * from './components/cn-menu/cn-menu.ts'
-export * from './components/cn-editor/cn-editor.ts'
+
 export * from './components/cn-app-bar/cn-app-bar.ts'
 export * from './components/cn-sortable-list/cn-sortable-list.ts'
+
+// Addons for 1.0.0
 export * from '../cn-dice/src/cn-dice.ts'
+export * from '../cn-editor/src/cn-editor.ts'
 
 import './scripts/data-auto-expand'
 
