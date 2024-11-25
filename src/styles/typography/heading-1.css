@@ -1,0 +1,5 @@
+/* Eliminate margin-top for first h1 in main/article and main/section */
+main article h1:first-child,
+main section h1:first-child {
+  margin-top: 0;
+}

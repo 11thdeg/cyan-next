@@ -1,0 +1,15 @@
+.debug {
+  color: var(--color-notify) !important;
+
+  border: solid 1px var(--color-notify);
+
+  padding: var(--cn-gap);
+
+  margin: var(--cn-gap) 0;
+
+  background-color: var(--chroma-primary-95);
+}
+
+.debug > * {
+  color: var(--color-notify) !important;
+}
