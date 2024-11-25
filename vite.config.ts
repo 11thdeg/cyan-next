@@ -16,7 +16,8 @@ export default defineConfig({
     entryRoot: resolve(__dirname), 
     include: [
       resolve(__dirname, 'src'), 
-      resolve(__dirname, 'cn-dice')
+      resolve(__dirname, 'cn-dice'),
+      resolve(__dirname, 'cn-editor')
     ],
     copyDtsFiles: true,
   })],
