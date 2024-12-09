@@ -1,0 +1,11 @@
+h4 {
+  font-size: var(--cn-heading-4-font-size);
+  font-weight: var(--cn-heading-4-font-weight);
+  line-height: var(--cn-heading-4-line-height);
+}
+h4.downscaled,
+cn-card h4 {
+  font-size: var(--cn-heading-5-font-size);
+  font-weight: var(--cn-heading-5-font-weight);
+  line-height: var(--cn-heading-5-line-height);
+}

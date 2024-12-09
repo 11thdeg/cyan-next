@@ -1,0 +1,11 @@
+h2 {
+  font-size: var(--cn-heading-2-font-size);
+  font-weight: var(--cn-heading-2-font-weight);
+  line-height: var(--cn-heading-2-line-height);
+}
+h2.downscaled,
+cn-card h2 {
+  font-size: var(--cn-heading-3-font-size);
+  font-weight: var(--cn-heading-3-font-weight);
+  line-height: var(--cn-heading-3-line-height);
+}

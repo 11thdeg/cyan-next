@@ -1,0 +1,12 @@
+h5 {
+  font-size: var(--cn-heading-5-font-size);
+  font-weight: var(--cn-heading-5-font-weight);
+  line-height: var(--cn-heading-5-line-height);
+  color: magenta;
+}
+h5.downscaled,
+cn-card h5 {
+  font-size: var(--cn-heading-5-font-size);
+  font-weight: var(--cn-heading-5-font-weight);
+  line-height: var(--cn-heading-5-line-height);
+}

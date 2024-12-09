@@ -1,0 +1,11 @@
+h3 {
+  font-size: var(--cn-heading-3-font-size);
+  font-weight: var(--cn-heading-3-font-weight);
+  line-height: var(--cn-heading-3-line-height);
+}
+h3.downscaled,
+cn-card h3 {
+  font-size: var(--cn-heading-4-font-size);
+  font-weight: var(--cn-heading-4-font-weight);
+  line-height: var(--cn-heading-4-line-height);
+}
