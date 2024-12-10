@@ -1,7 +1,9 @@
 h3 {
+  font-family: var(--cn-headings-font-family);
   font-size: var(--cn-heading-3-font-size);
   font-weight: var(--cn-heading-3-font-weight);
   line-height: var(--cn-heading-3-line-height);
+  letter-spacing: var(--cn-heading-3-letter-spacing);
 }
 h3.downscaled,
 cn-card h3 {
