@@ -59,7 +59,7 @@ export class CnNavigationIcon extends LitElement {
     
     :host(:active) cn-icon::before,
     :host([active]) cn-icon::before {
-      background: var(--background-button-text-active);
+      background: var(--cn-navigation-icon-backdrop-color);
     }
     :host .navigation-icon-label {
       height: var(--cn-navigation-icon-label-height, 1rem);
