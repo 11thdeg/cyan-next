@@ -83,7 +83,7 @@ export class CnNavigationIcon extends LitElement {
   public label = ''
 
   @property({ type: Boolean, reflect: true })
-  public checked = false
+  public active = false
 
   public render() {
     const hasLabel = this.label !== ''
