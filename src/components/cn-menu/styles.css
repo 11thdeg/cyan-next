@@ -14,11 +14,15 @@ cn-menu ul li {
   padding: 0;
   background: none;
 }
+cn-menu ul li::before {
+  content: "";
+  display: none;
+}
 cn-menu ul li button,
 cn-menu ul li a {
   display: block;
   text-decoration: none;
-  color: var(--cn-text-color);
+  color: var(--color-text);
   padding: var(--cn-grid);
   height: calc(var(--cn-grid) * 5);
   display: flex;

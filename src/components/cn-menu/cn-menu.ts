@@ -1,11 +1,14 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import './light-dom.css'
+import './styles.css'
 import { logDebug } from '../../utils/logHelpers'
 
 @customElement('cn-menu')
 export class CnMenu extends LitElement {
   static styles = css`
+    :host {
+      display: contents;
+    }
     .cn-menu {
       position: relative;
       display: inline-block;
@@ -14,7 +17,7 @@ export class CnMenu extends LitElement {
     .cn-menu button { 
       border: none;
       cursor: pointer;
-      color: var(--color-on-primary);
+      color: var(--color-on-surface);
       background: var(--background-button-text);
       border-radius: 50%;
       width: calc(6 * var(--cn-grid));
@@ -38,9 +41,9 @@ export class CnMenu extends LitElement {
     .cn-menu-content {
       display: none;
       position: absolute;
-      background-color: var(--background-elevation-3);
+      background-color: var(--color-surface-3);
       min-width: 160px;
-      box-shadow: var(--shadow-elevation-2);
+      box-shadow: var(--shadow-elevation-3);
       z-index: 1;
       top: calc(2 * var(--cn-grid));
       // right: calc(2 * var(--cn-grid));
