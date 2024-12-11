@@ -5,19 +5,19 @@ cn-card {
   --cn-letter-spacing-headline-card: var(--cn-letter-spacing-heading-4);
 }
 cn-card[elevation="1"] {
-  --cn-card-background: var(--background-elevation-1);
+  --cn-card-background: var(--color-surface-1);
   --cn-card-box-shadow: var(--shadow-elevation-1);
 }
 cn-card[elevation="2"] {
-  --cn-card-background: var(--background-elevation-2);
+  --cn-card-background: var(--color-surface-2);
   --cn-card-box-shadow: var(--shadow-elevation-2);
 }
 cn-card[elevation="3"] {
-  --cn-card-background: var(--background-elevation-3);
+  --cn-card-background: var(--color-surface-3);
   --cn-card-box-shadow: var(--shadow-elevation-3);
 }
 cn-card[elevation="4"] {
-  --cn-card-background: var(--background-elevation-4);
+  --cn-card-background: var(--color-surface-4);
   --cn-card-box-shadow: var(--shadow-elevation-4);
 }
 cn-card > *:first-child {
