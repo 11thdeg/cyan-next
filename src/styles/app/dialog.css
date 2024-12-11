@@ -1,5 +1,5 @@
 dialog {
-  background-color: var(--background-elevation-2);
+  background-color: var(--color-surface-1);
   border-radius: var(--cn-border-radius-large);
   border: none;
   box-shadow: var(--shadow-elevation-2);
