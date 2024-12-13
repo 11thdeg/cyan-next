@@ -207,10 +207,8 @@ export class CnCard extends LitElement {
       border-radius: 0 var(--cn-border-radius-large) 0 0;
     }
     :host([notify]):after {
-      background: linear-gradient(-45deg, 
-        color-mix(in hsl, var(--color-notify), transparent 90%),
-        color-mix(in hsl, var(--color-notify), var(--color-primary) 50%),
-        var(--color-notify));
+      background: color-mix(in hsl, var(--color-notify), var(--color-surface) 66%);
+      border: 1px color-mix(in hsl, var(--color-notify), var(--color-surface) 66%);
       opacity: 1;
     }
     :host([alert]):after {
