@@ -1,5 +1,5 @@
 .elevation-1 {
-  background: var(--background-elevation-1);
+  background-color: var(--color-surface-1);
   box-shadow: var(--shadow-elevation-1);
 }
 .elevation-2 {

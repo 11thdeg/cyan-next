@@ -5,6 +5,7 @@
   --cn-icon-size-large: calc(72 / 16 * 1rem); /* 72px */
   --cn-icon-size-xlarge: calc(128 / 16 * 1rem); /* 128px */
 }
+a.button,
 button,
 .fab {
   --cn-icon-size-xsmall: calc(24 / 16 * 1rem);
@@ -28,7 +29,40 @@ h1 cn-icon,
 h2 cn-icon,
 h3 cn-icon,
 h4 cn-icon {
+  display: inline-block;
   vertical-align: middle;
-  height: var(--cn-line-height-heading-3);
   padding: 0;
+}
+h1 cn-icon {
+  --cn-icon-size-xsmall: var(--cn-heading-1-font-size);
+  --cn-icon-size-small: var(--cn-heading-1-font-size);
+  --cn-icon-size: var(--cn-heading-1-font-size);
+  --cn-icon-size-large: var(--cn-heading-1-font-size);
+  --cn-icon-size-xlarge: var(--cn-heading-1-font-size);
+  margin-inline: var(--cn-grid);
+}
+h2 cn-icon {
+  --cn-icon-size-xsmall: var(--cn-heading-2-font-size);
+  --cn-icon-size-small: var(--cn-heading-2-font-size);
+  --cn-icon-size: var(--cn-heading-2-font-size);
+  --cn-icon-size-large: var(--cn-heading-2-font-size);
+  --cn-icon-size-xlarge: var(--cn-heading-2-font-size);
+  margin-inline: var(--cn-grid);
+}
+h3 cn-icon {
+  --cn-icon-size-xsmall: var(--cn-heading-3-font-size);
+  --cn-icon-size-small: var(--cn-heading-3-font-size);
+  --cn-icon-size: var(--cn-heading-3-font-size);
+  --cn-icon-size-large: var(--cn-heading-3-font-size);
+  --cn-icon-size-xlarge: var(--cn-heading-3-font-size);
+  margin: 0;
+  margin-inline: var(--cn-grid);
+}
+h4 cn-icon {
+  --cn-icon-size-xsmall: var(--cn-heading-4-font-size);
+  --cn-icon-size-small: var(--cn-heading-4-font-size);
+  --cn-icon-size: var(--cn-heading-4-font-size);
+  --cn-icon-size-large: var(--cn-heading-4-font-size);
+  --cn-icon-size-xlarge: var(--cn-heading-4-font-size);
+  margin-inline: var(--cn-grid);
 }

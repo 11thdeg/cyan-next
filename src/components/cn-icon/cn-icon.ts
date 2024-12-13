@@ -13,17 +13,15 @@ export class CnIcon extends LitElement {
       height: var(--cn-icon-size, 128px);
       width: var(--cn-icon-size, 128px);
       display: inline-block;
+      margin: 0;
+      padding: 0;
+      position: relative;
     }
     :host([xsmall]) {
       height: var(--cn-icon-size-xsmall);
       width: var(--cn-icon-size-xsmall);
       position: relative;
-    }
-    :host([xsmall]) svg{
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+    } 
     :host([small]) {
       height: var(--cn-icon-size-small);
       width: var(--cn-icon-size-small);
@@ -40,6 +38,9 @@ export class CnIcon extends LitElement {
       height: 100%;
       width: 100%;
       fill: currentColor;
+      position: absolute;
+      top: 0;
+      left: 0;
     }`
 
   @property({ type: String, reflect: true })
@@ -58,22 +59,13 @@ export class CnIcon extends LitElement {
   xlarge?: boolean = false
 
   protected render() {
-    const iconUrl = `/icons/${this.noun}.svg#icon`
+    const iconUrl = this.noun ? `/icons/${this.noun}.svg#icon` : '/icons/design.svg#icon'
     return html`<svg
       viewBox="0 0 128 128"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="ariaNoun">
       <title id="ariaNoun">${this.noun}</title>
-      <style type="text/css">
-	.st1{fill:url(#SVGID_1_);}
-</style>
-      <defs>
-        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="120.58" y1="23.7324" x2="69.4427" y2="108.0212" gradientTransform="matrix(1 0 0 -1 0 128)">
-		      <stop  offset="3.900706e-02" style="stop-color:#004147"/>
-		      <stop  offset="1" style="stop-color:#EFFF42;stop-opacity:0"/>
-	      </linearGradient>
-      </defs>
       <use href=${iconUrl}></use>
     </svg>`
   }
