@@ -1,0 +1,29 @@
+a.cn-tag,
+span.cn-tag {
+  --cn-tag-color: var(--color-secondary);
+  background-color: var(--cn-tag-color);
+  display: inline-block;
+  position: relative;
+  height: calc(3 * var(--cn-grid));
+  line-height: calc(3 * var(--cn-grid));
+  border-radius: calc(1.5 * var(--cn-grid));
+  font-size: var(--cn-text-small-font-size);
+  padding: 0 var(--cn-grid);
+  padding-left: calc(2.5 * var(--cn-grid));
+  margin: 0;
+}
+a.cn-tag:hover,
+span.cn-tag:hover {
+  --cn-tag-color: var(--color-secondary-1);
+}
+a.cn-tag::before,
+span.cn-tag::before {
+  content: "#";
+  color: var(--color-on-secondary);
+  margin: 0;
+  margin-left: calc(-1.5 * var(--cn-grid));
+}
+a.cn-tag {
+  color: var(--color-text);
+  text-decoration: none;
+}
