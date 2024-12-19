@@ -1,6 +1,3 @@
-[submodule "cn-dice"]
-	path = cn-dice
-	url = https://github.com/villetakanen/cn-dice.git
 [submodule "cn-editor"]
 	path = cn-editor
 	url = https://github.com/villetakanen/cn-editor.git
