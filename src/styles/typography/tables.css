@@ -1,0 +1,25 @@
+main table {
+  border-collapse: collapse;
+  --_highlight-color: var(--color-surface-1);
+  margin-bottom: var(--cn-gap);
+}
+main .elevation-1 table {
+  --_highlight-color: var(--color-surface-2);
+}
+main .elevation-2 table {
+  --_highlight-color: var(--color-surface-3);
+}
+main .elevation-3 table {
+  --_highlight-color: var(--color-surface-4);
+}
+main th {
+  background: var(--_highlight-color);
+  border: var(--_highlight-color) 1px solid;
+  padding: calc(var(--cn-grid) / 2);
+  vertical-align: top;
+}
+main td {
+  border: var(--_highlight-color) 1px solid;
+  padding: calc(var(--cn-grid) / 2);
+  vertical-align: top;
+}

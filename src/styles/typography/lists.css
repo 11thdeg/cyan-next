@@ -24,7 +24,7 @@ main ol li {
   font-weight: var(--cn-font-weight-text);
   line-height: var(--cn-line-height-text);
   letter-spacing: var(--cn-letter-spacing-text);
-  margin-bottom: var(--cn-gap);
+  margin-bottom: var(--cn-grid);
   padding-left: calc(var(--cn-grid) * 2);
   margin-left: calc(var(--cn-grid) * 2);
 }

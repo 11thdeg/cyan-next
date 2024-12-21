@@ -1,0 +1,12 @@
+main ol,
+main ul {
+  margin-left: var(--cn-gap);
+}
+main ol li,
+main ul li {
+  margin-left: var(--cn-gap);
+  margin-bottom: var(--cn-grid);
+}
+main ul {
+  list-style-type: disc;
+}
