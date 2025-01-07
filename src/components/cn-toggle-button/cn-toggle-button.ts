@@ -37,7 +37,7 @@ export class CyanToggleButton extends LitElement {
       this.setAttribute('aria-pressed', 'true')
       this.pressed = true
     }
-    this.dispatchEvent(new Event('change'))
+    this.dispatchEvent(new Event('change', { bubbles: true, composed: true }))
   }
 
   connectedCallback(): void {
