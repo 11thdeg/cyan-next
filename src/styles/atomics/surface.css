@@ -1,5 +1,5 @@
 .surface {
-  background: var(--color-primary);
+  background: var(--color-surface);
 }
 .surface-44 {
   background: hsla(var(--color-primary-hsl), 0.44);
