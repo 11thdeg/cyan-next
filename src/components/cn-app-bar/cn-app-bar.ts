@@ -121,6 +121,10 @@ export class CnAppBar extends LitElement {
       z-index: 120;
     }
 
+    :host([mode="modal"]) .container {
+      padding-left: var(--cn-grid, 8px);
+    }
+
     .container {
       display: flex;
       align-items: center;
