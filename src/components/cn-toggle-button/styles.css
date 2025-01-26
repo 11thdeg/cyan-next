@@ -1,0 +1,18 @@
+:root {
+  --background-toggle-button: light-dark(
+    var(--chroma-primary-40),
+    var(--chroma-surface-70)
+  );
+  --background-toggle-button-off: light-dark(
+    var(--chroma-surface-30),
+    var(--chroma-surface-80)
+  );
+  --color-on-toggle-button: light-dark(
+    var(--chroma-primary-70),
+    var(--chroma-surface-30)
+  );
+  --color-on-toggle-button-off: light-dark(
+    var(--chroma-surface-50),
+    var(--chroma-surface-70)
+  );
+}
