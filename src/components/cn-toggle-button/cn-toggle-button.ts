@@ -82,6 +82,7 @@ export class CyanToggleButton extends LitElement {
       position: relative;
       height: calc(var(--cn-grid) * 6);
       border-radius: 0;
+      user-select: none;
     }
     :host button::before {
       content: '';
@@ -112,11 +113,15 @@ export class CyanToggleButton extends LitElement {
       background-color: var(--color-on-toggle-button);
       transform: translateX(calc(3.5 * var(--cn-grid)));
     }
+    :host([disabled]) button{
+      pointer-events: none;
+      opacity: 0.33;
+    }
     :host([disabled]) button::before {
-      background-color: var(--cn-background-toggle-button-off) !important;
+      background-color: var(--background-toggle-button-off) !important;
     }
     :host([disabled]) button::after {
-      background-color: var(--cn-background-toggle-button-knob-off) !important;
+      background-color: var(--color-on-toggle-button-off) !important;
     }
     
   `
