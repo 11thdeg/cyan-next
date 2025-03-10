@@ -1,0 +1,11 @@
+:root {
+  --background-reaction-button: var(--color-button-text, cyan);
+  --background-reaction-button-hover: var(--color-button-text-hover, blue);
+  --background-reaction-button-active: linear-gradient(
+    120deg,
+    var(--color-alert, green) 0,
+    var(--color-text-low) 100%
+  );
+  --color-reaction-button: var(--color-text-low, magenta);
+  --color-reaction-button-active: var(--color-surface);
+}

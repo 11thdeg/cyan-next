@@ -38,4 +38,6 @@
     var(--chroma-surface-80),
     var(--chroma-surface-40)
   );
+  --color-alert: light-dark(var(--chroma-A), var(--chroma-A));
+  --color-notify: light-dark(var(--chroma-N), var(--chroma-N));
 }

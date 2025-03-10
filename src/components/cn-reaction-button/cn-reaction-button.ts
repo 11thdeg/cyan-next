@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import './styles.css'
 
 @customElement('cn-reaction-button')
 export class CyanReactionButton extends LitElement {
@@ -16,7 +17,7 @@ export class CyanReactionButton extends LitElement {
   count = -1
 
   @property({ type: String, reflect: true })
-  noun = 'loves'
+  noun = 'love'
 
   @property({ type: Boolean, reflect: true })
   small = false
@@ -63,28 +64,31 @@ export class CyanReactionButton extends LitElement {
   }
 
   render() {
-    return html`<div><button>
+    return html`<button>
       <cn-icon ?small=${!this.small} ?xsmall=${this.small} noun="${this.noun}"></cn-icon>
     </button>
-    ${
-      this.count > -1 ? html`<div class="count">${this.count}</div>` : html``
-    }</div>`
+    ${this.count > -1 ? html`<div class="count">${this.count}</div>` : html``}`
   }
 
   static styles = css`
     :host {
-      display: contents;
-    }
-    :host div{
+      display: block;
       flex-shrink: 0;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       height: calc(var(--cn-line) * 2);
       position: relative;
-      color: var(--cn-color-reaction-button);
+      color: var(--color-reaction-button, magenta);
       line-height: calc(var(--cn-line) * 2);
       flex-shrink: 0;
+    }
+    :host([small]) {
+      height: calc(var(--cn-line) * 1.5);
+    }
+    :host([disabled]) {
+      pointer-events: none;
+      opacity: 0.5;
     }
     :host button {
       position: relative;
@@ -96,18 +100,26 @@ export class CyanReactionButton extends LitElement {
       /* 44px is the minimum _clickable_ height for a wgag AA compliant button. */
       margin: 2px;
       border-radius: 22px;
-      background: var(--background-button);
+      background: var(--background-reaction-button);
       // border: solid 1px var(--color-border);
       border: none;
       transition: background 0.2s ease-in-out;
     }
+    :host([small]) button {
+      height: calc(var(--cn-line) * 1.5 - 4px);
+      width: calc(var(--cn-line) * 1.5 - 4px);
+      border-radius: 16px;
+    }
     :host(:hover) button {
-      background: var(--background-button-hover);
+      background: var(--background-reaction-button-hover);
       box-shadow: var(--shadow-button-hover);
     }
     :host(:active) button, :host([aria-pressed="true"]) button {
-      background: var(--background-button-active);
+      background: var(--background-reaction-button-active);
       // border: 0;
+    }
+    :host(:active) cn-icon, :host([aria-pressed="true"]) cn-icon {
+      color: var(--color-reaction-button-active, magenta);
     }
     :host([disabled]) button {
       background: none;
@@ -117,13 +129,14 @@ export class CyanReactionButton extends LitElement {
       opacity: 0.72;
       pointer-events: none;
       transition: opacity 0.2s ease-in-out;
+      color: var(--color-reaction-button, magenta);
     }
     :host(:active) cn-icon, :host([aria-pressed="true"]) cn-icon {
       opacity: 1;
     }
     :host .count {
       line-height: calc(var(--cn-line) * 2);
-      font-size: var(--cn-font-size-caption);
+      font-size: var(--cn-font-size-text);
       text-align: center;
       pointer-events: none;
       font-family: var(--cn-font-family-ui);
@@ -131,6 +144,11 @@ export class CyanReactionButton extends LitElement {
       letter-spacing: var(--cn-font-family-ui);
       margin: 0;
       padding: 0 var(--cn-grid);
+      user-select: none;
+    }
+    :host([small]) .count {
+      font-size: var(--cn-font-size-caption);
+      line-height: calc(var(--cn-line) * 1.5);
     }
   `
 }
