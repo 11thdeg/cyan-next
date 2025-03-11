@@ -40,4 +40,7 @@
   );
   --color-alert: light-dark(var(--chroma-A), var(--chroma-A));
   --color-notify: light-dark(var(--chroma-N), var(--chroma-N));
+
+  /* Reaction colors */
+  --color-reaction-red: #e03c31;
 }
