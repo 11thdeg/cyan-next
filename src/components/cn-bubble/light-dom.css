@@ -7,3 +7,12 @@ cn-bubble {
 cn-bubble {
   padding: var(--cn-gap);
 }
+cn-bubble .toolbar:first-child {
+  /* If a toolbar is the first child, it should not have a top margin/padding, as standard toolbar margin is enough */
+  margin-top: calc(-1 * var(--cn-grid));
+}
+
+cn-bubble .toolbar:last-child {
+  /* If a toolbar is the last child, it should not have a bottom margin/padding, as standard toolbar margin is enough */
+  margin-bottom: calc(-1 * var(--cn-grid));
+}

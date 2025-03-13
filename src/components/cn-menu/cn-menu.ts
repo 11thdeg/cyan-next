@@ -18,26 +18,48 @@ export class CnMenu extends LitElement {
       border: none;
       cursor: pointer;
       color: var(--color-on-surface);
-      background: var(--background-button-text);
       border-radius: 50%;
-      width: calc(6 * var(--cn-grid));
-      height: calc(6 * var(--cn-grid));
+      width: var(--cn-button-size-physical);
+      height: var(--cn-button-size-physical);
       padding: 0;
       margin: 0;
       display: flex;
-        justify-content: center;
-        align-items: center;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: none;
+    }
+    .cn-menu button::after {
+      content: '';
+      position: absolute;
+      top: calc((var(--cn-button-size-physical) - var(--cn-button-size)) / 2);
+      left: calc((var(--cn-button-size-physical) - var(--cn-button-size)) / 2);
+      border-radius: 50%;
+      background: var(--color-button-text);
+      transition: opacity 0.3s;
+      width: var(--cn-button-size);
+      height: var(--cn-button-size);
+      transition: background 0.22s;
+    }
+    .cn-menu button:hover::after {
+      background: var(--color-button-text-hover);
+    }
+    .cn-menu button:active::after {
+      background: var(--color-button-text-active);
+    }
+
+    .cn-menu cn-icon {
+      z-index: 1;
     }
     .cn-menu button:hover {
-        background: var(--background-button-text-hover);
-        box-shadow: var(--shadow-button-hover);
+       
         color: var(---cn-color-on-button-hover);
     }
     .cn-menu button:active {
-        background: var(--background-button-text-active);
+       
         color: var(---cn-color-on-button-active);
     }
-
+    
     .cn-menu-content {
       display: none;
       position: absolute;
@@ -58,8 +80,16 @@ export class CnMenu extends LitElement {
   @property({ type: String, reflect: true, attribute: 'aria-expanded' })
   expanded = 'false' // Set initial value to 'false'
 
+  @property({ type: Boolean, reflect: true })
+  inline = false
+
+  @property({ type: Boolean, reflect: true })
+  disabled = false
+
   render() {
     const menuPosition = this._getMenuPosition()
+
+    const icon = this.inline ? 'dots' : 'kebab'
 
     return html`
       <div class="cn-menu" role="menu"> 
@@ -70,7 +100,7 @@ export class CnMenu extends LitElement {
           aria-expanded="${this.expanded ? 'true' : 'false'}" 
           @click="${this._toggleMenu}"
         >
-          <cn-icon small noun="kebab"></cn-icon>
+          <cn-icon small noun=${icon}></cn-icon>
         </button>
         <div class="cn-menu-content ${this.expanded === 'true' ? 'show' : ''}" role="menuitem"
           style="${menuPosition === 'left' ? 'right: var(--cn-grid);' : 'left: var(--cn-grid);'}"
