@@ -7,12 +7,25 @@ cn-bubble {
 cn-bubble {
   padding: var(--cn-gap);
 }
+cn-bubble .toolbar {
+  padding-left: 0;
+  padding-right: 0;
+}
 cn-bubble .toolbar:first-child {
   /* If a toolbar is the first child, it should not have a top margin/padding, as standard toolbar margin is enough */
-  margin-top: calc(-1 * var(--cn-grid));
+  margin-top: calc(-1 * var(--cn-gap));
 }
-
 cn-bubble .toolbar:last-child {
   /* If a toolbar is the last child, it should not have a bottom margin/padding, as standard toolbar margin is enough */
   margin-bottom: calc(-1 * var(--cn-grid));
+}
+body {
+  --color-bubble: light-dark(
+    color-mix(in hsl, var(--chroma-surface-10), var(--chroma-surface-20) 50%),
+    color-mix(in hsl, var(--chroma-surface-90), var(--chroma-surface-70) 30%)
+  );
+  --color-reply-bubble: light-dark(
+    color-mix(in hsl, var(--chroma-primary-40), transparent 50%),
+    color-mix(in hsl, var(--chroma-surface-90), var(--chroma-primary-90) 50%)
+  );
 }
