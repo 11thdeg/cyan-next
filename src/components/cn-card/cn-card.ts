@@ -109,7 +109,10 @@ export class CnCard extends LitElement {
       z-index: 2;
     }
     :host([cover]) .cardHeader cn-icon {
-      filter: drop-shadow(0 0 4px var(--color-halo));
+      filter: drop-shadow(0 0 4px light-dark(
+        var(--chroma-primary-95), 
+        var(--color-halo)
+      ));
       color: var(--chroma-K-S);
     }
     :host .cardContent {
@@ -193,10 +196,10 @@ export class CnCard extends LitElement {
     :host:after {
       content: "";
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 44px;
-      height: 44px;
+      top: -1px;
+      right: -1px;
+      width: calc(7 * var(--cn-grid));
+      height: calc(7 * var(--cn-grid));
       background: none;
       opacity: 0;
       z-index: 0;
@@ -207,7 +210,10 @@ export class CnCard extends LitElement {
       border-radius: 0 var(--cn-border-radius-large) 0 0;
     }
     :host([notify]):after {
-      background: color-mix(in hsl, var(--color-notify), var(--color-surface) 66%);
+      background: light-dark(
+        var(--color-notify),
+        color-mix(in hsl, var(--color-notify), var(--color-surface) 66%)
+      );
       border: 1px color-mix(in hsl, var(--color-notify), var(--color-surface) 66%);
       opacity: 1;
     }
