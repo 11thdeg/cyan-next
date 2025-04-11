@@ -22,6 +22,9 @@ export class CyanReactionButton extends LitElement {
   @property({ type: Boolean, reflect: true })
   small = false
 
+  @property({ type: Boolean, reflect: true })
+  inactive = false
+
   connectedCallback(): void {
     super.connectedCallback()
     this.setAttribute('role', 'button')
@@ -38,7 +41,7 @@ export class CyanReactionButton extends LitElement {
   }
 
   handleCommand(event: Event) {
-    if (this.disabled) return
+    if (this.disabled || this.inactive) return
     // Handles both mouse clicks and keyboard
     // activate with Enter or Space
 
@@ -89,6 +92,9 @@ export class CyanReactionButton extends LitElement {
     :host([disabled]) {
       pointer-events: none;
       opacity: 0.5;
+    }
+    :host([inactive]) {
+      pointer-events: none;
     }
     :host button {
       position: relative;
