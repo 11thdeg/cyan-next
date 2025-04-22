@@ -1,0 +1,23 @@
+body {
+  --cn-loader-color: light-dark(
+    var(--chroma-primary-60),
+    var(--chroma-surface-60)
+  );
+  --cn-loader-size: calc(var(--cn-line) * 3);
+  --cn-loader-line-width: calc(var(--cn-grid) / 2);
+}
+button {
+  --cn-loader-size: calc(var(--cn-line) * 1);
+  --cn-loader-color: light-dark(
+    var(--chroma-primary-10),
+    var(--chroma-surface-10)
+  );
+}
+.rail,
+.app-bar {
+  --cn-loader-size: calc(var(--cn-line) * 2);
+  --cn-loader-color: light-dark(
+    var(--chroma-primary-10),
+    var(--chroma-surface-10)
+  );
+}
