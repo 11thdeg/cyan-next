@@ -78,7 +78,7 @@ export class CnAppBar extends LitElement {
       position: relative;
       height: var(--cn-app-bar-height, 56px);
       background-color: transparent;
-      color: var(--color-on-primary, cyan);
+      color: var(--color-on-app-bar, cyan);
       z-index: 100;
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
       border-radius: 0 0 0 var(--cn-border-radius-large, 16px);
@@ -141,7 +141,7 @@ export class CnAppBar extends LitElement {
     }
 
     .title {
-      color: var(--color-heading-2);
+      color: var(--color-on-app-bar);
       flex-grow: 1;
       font-family: var(--cn-font-family-headings);
       font-weight: var(--cn-font-weight-app-bar, 300);
