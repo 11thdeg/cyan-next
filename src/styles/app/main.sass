@@ -6,15 +6,9 @@ main
   padding: 0
   color: var(--cn-color-text)
 
-/* on a small screen, we need to make room for the rail */
 @include media-query-pad-and-up
-  main
-    margin-left: var(--cn-rail-width)
-   
-/* on a desktop, and large screens, we need to make room for rail and tray */
-@include media-query-desktop
   main
     container-type: inline-size
     margin-left: var(--cn-rail-width)
   body:has(cn-tray-button[aria-expanded="true"]) main
-    margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width))
+    margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width) + var(--cn-gap))

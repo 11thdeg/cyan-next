@@ -40,4 +40,9 @@
 
   /* Reaction colors */
   --color-reaction-red: #e03c31;
+
+  --color-hover: light-dark(
+    color-mix(in hsl, var(--chroma-surface-50), transparent 90%),
+    color-mix(in hsl, var(--chroma-surface-50), transparent 80%)
+  );
 }

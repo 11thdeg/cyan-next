@@ -14,7 +14,11 @@
 
 @media screen and (min-width: 961px) {
   body:has(cn-tray-button[aria-expanded="true"]) cn-app-bar {
-    margin-left: calc(var(--cn-rail-width) + var(--cn-tray-width));
+    margin-left: calc(
+      var(--cn-rail-width) +
+      var(--cn-tray-width) +
+      var(--cn-gap)
+    );
   }
 }
 body {

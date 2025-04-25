@@ -3,15 +3,72 @@
  * This file is a imported to tray.sass as the last line
  */
 
+@media (prefers-color-scheme: dark) {
+  body {
+    --background-nav-tray: linear-gradient(
+      -11deg in hsl,
+      var(--chroma-surface-90),
+      var(--chroma-surface-80)
+    );
+    --box-shadow-nav-tray: 0 0 var(--cn-line) calc(-1 * var(--cn-grid))
+      var(--color-shadow);
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    --background-nav-tray: linear-gradient(
+      93deg in hsl,
+      white,
+      var(--chroma-surface-10)
+    );
+    --box-shadow-nav-tray: 0 0 var(--cn-gap) 0
+      color-mix(in hsl, var(--color-shadow), transparent 50%);
+  }
+}
+
+/* For phone and pad screens, the tray is only visible if the cn-tray-button has [aria-expanded=true] */
+.cn-tray {
+  width: calc(100dvw - var(--cn-gap));
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  height: 100dvh;
+  padding: var(--cn-grid) var(--cn-gap);
+  z-index: var(--cn-z-index-tray, 1000);
+  overflow-y: auto;
+  z-index: var(--z-index-tray);
+  background: var(--background-nav-tray);
+}
+
 /* Tray scrollbars */
 nav.cn-tray,
 nav.cn-tray * {
   scrollbar-color: var(--color-elevation-4) var(--color-elevation-1);
 }
-nav.cn-tray {
-  background: var(--background-nav-tray);
-}
 body:has(cn-tray-button[aria-expanded="true"]) .cn-tray {
   transform: translateX(0);
   box-shadow: var(--box-shadow-nav-tray);
+}
+
+/* Typography and sub-elements */
+nav.cn-tray h2,
+nav.cn-tray h3,
+nav.cn-tray h4 {
+  color: var(--color-on-app-bar);
+}
+
+/* Larger than phoone: the tray pops up from the left */
+@media screen and (min-width: 621px) {
+  .cn-tray {
+    --_tray_left_padding: calc(var(--cn-rail-width) + var(--cn-gap));
+    width: calc(var(--cn-tray-width) + var(--_tray_left_padding));
+    padding-left: var(--_tray_left_padding);
+    opacity: 0;
+  }
+  body:has(cn-tray-button[aria-expanded="true"]) .cn-tray {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
