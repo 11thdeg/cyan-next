@@ -28,14 +28,14 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/turndown": "^5.0.5",
-    "sass": "^1.77.6",
-    "typescript": "^5.5.2",
+    "sass": "^1.87.0",
+    "typescript": "^5.8.3",
     "vite": "^5.3.1",
     "vite-plugin-dts": "^3.9.1"
   },
   "dependencies": {
-    "@types/node": "^20.14.9",
-    "lit": "3.2.1",
+    "@types/node": "^22.15.2",
+    "lit": "3.3.0",
     "solid": "^0.2.1",
     "turndown": "^7.2.0"
   }
