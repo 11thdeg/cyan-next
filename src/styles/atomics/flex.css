@@ -9,9 +9,6 @@
 .flex-col {
   flex-direction: column;
 }
-.flex-col > * {
-  width: 100%;
-}
 .flex-no-wrap {
   flex-wrap: nowrap;
 }
