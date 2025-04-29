@@ -8,7 +8,7 @@ a.button {
 
   background: var(--background-button);
   color: var(--color-on-button);
-  
+
   /* Font and text */
   font-family: var(--cn-font-family-ui);
   font-weight: var(--cn-font-weight-ui);
@@ -94,5 +94,5 @@ a.button.cta {
 }
 button.cta:hover,
 a.button.cta:hover {
- background: var(--color-button-cta);
+  background: var(--color-button-cta);
 }
