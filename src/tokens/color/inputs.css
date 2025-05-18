@@ -1,0 +1,7 @@
+:root {
+  --color-input: light-dark(var(--chroma-surface-20), var(--chroma-surface-95));
+  --color-input-focus: light-dark(
+    var(--chroma-surface-30),
+    var(--chroma-surface-99)
+  );
+}
