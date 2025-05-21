@@ -1,3 +1,4 @@
+import './styles.css'
 import { LitElement, css, html } from 'lit'
 /**
  * This is a wrapper lit component for the lazy loading of icons.
@@ -12,9 +13,29 @@ export class CnAvatar extends LitElement {
   @property({ type: String, reflect: true })
   public nick = ''
 
+  @property({ type: Number, reflect: true })
+  public elevation = 0
+
   connectedCallback(): void {
     super.connectedCallback()
     this.ariaLabel = 'Avatar'
+  }
+
+  /**
+   * We want to turn the nick into a value between 0 and 100, and then
+   * use that to color-mix between the avatar background color 1 and 2
+   */
+  private renderBackgroundStyle() {
+    const nick = this.nick
+    if (nick) {
+      const hash = Array.from(nick).reduce(
+        (acc, char) => acc + char.charCodeAt(0),
+        0,
+      )
+      const value = Math.abs(hash % 100)
+      return `background-color: color-mix(in hsl, var(--cn-color-avatar-1), var(--cn-color-avatar-2) ${value}%)`
+    }
+    return 'background-color: var(--cn-color-avatar-1)'
   }
 
   public render() {
@@ -22,34 +43,47 @@ export class CnAvatar extends LitElement {
       ? html`<img src="${this.src}" alt="Avatar" />`
       : this.nick
         ? html`<div class="placeholder">${this.nick.substring(0, 2)}</div>`
-        : html`<cn-icon noun="avatar" class="placeholder"></cn-icon>`
+        : html`<cn-icon noun="avatar"></cn-icon>`
 
     return html`
-      ${image}
+      <div class="avatarFrame" style="${this.renderBackgroundStyle()}">
+        ${image}
+      </div>
     `
   }
   public static styles = css`
     :host {
-      display: block;
-      height: calc(var(--cn-line) * 3);
-      width: calc(var(--cn-line) * 3);
-      border-radius: calc(var(--cn-line) * 1.5);
-      position: relative;
-      background-color: var(--cn-color-button);
-      user-select: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
+      display: contents;
+      
     }
     :host(:hover) {
-      background-color: var(--cn-color-button-hover);
+      --cn-color-avatar-1: var(--color-surface-4);
+      --cn-color-avatar-2: var(--color-surface-4);
     }
     :host(:active) {
       background-color: var(--cn-color-button-active);
     }
+    :host .avatarFrame {
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      aspect-ratio: 1 / 1;
+      height: calc(var(--cn-line) * 3);
+      background-color: var(--cn-color-button);
+      user-select: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      color: var(--color-on-surface);
+    }
+    :host([elevation="1"]) .avatarFrame {
+      box-shadow: var(--shadow-elevation-1);
+    }
+    :host([elevation="2"]) .avatarFrame {
+      box-shadow: var(--shadow-elevation-2);
+    }
     img {
       height: calc(var(--cn-line) * 3 - var(--cn-grid));
-      padding-top: calc(var(--cn-grid) / 2);
-      padding-left: calc(var(--cn-grid) / 2);
       border-radius: 50%;
       object-fit: cover;
       aspect-ratio: 1 / 1;

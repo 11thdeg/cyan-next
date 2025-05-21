@@ -8,7 +8,7 @@ export class CnCard extends LitElement {
   elevation = 1
 
   @property({ type: String, reflect: true })
-  cover = undefined
+  cover: string | undefined = undefined
 
   @property({ type: String, reflect: true })
   noun = ''
@@ -52,11 +52,11 @@ export class CnCard extends LitElement {
   get titleSlot() {
     if (!this.title) return html``
 
-    if (!this.href) return html`<h4>${this.title}</h4>`
+    if (!this.href) return html`<h4 class="cardTitle">${this.title}</h4>`
 
     const linkUrl: string = this.href || ''
 
-    return html`<h4><a href=${linkUrl}>${this.title}</a></h4>`
+    return html`<h4 class="cardTitle"><a href=${linkUrl}>${this.title}</a></h4>`
   }
 
   render() {
@@ -225,10 +225,19 @@ export class CnCard extends LitElement {
       margin-left: calc(-1 * var(--cn-grid));
       margin-right: calc(-1 * var(--cn-grid));
     }
+    :host h4.cardTitle,
+    :host h4.cardTitle a {
+      color: var(--_cn-card-title-color, var(--color-heading-2));
+      text-decoration: none;
+    }
     `
 }
 
 /*export * from './theme.sass'
+
+
+
+
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { CyanThemedElement } from '../../cyan-themed-element'
