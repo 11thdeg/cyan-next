@@ -50,7 +50,7 @@ export class CnAvatarButton extends LitElement {
   }
   public static styles = css`
     :host {
-      display: block;
+      display: inline-block;
       height: calc(var(--cn-line) * 3);
       width: calc(var(--cn-line) * 4.5);
       border-radius: calc(var(--cn-line) * 1.5);

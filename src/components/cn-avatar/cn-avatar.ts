@@ -54,14 +54,10 @@ export class CnAvatar extends LitElement {
   public static styles = css`
     :host {
       display: contents;
-      
     }
     :host(:hover) {
       --cn-color-avatar-1: var(--color-surface-4);
       --cn-color-avatar-2: var(--color-surface-4);
-    }
-    :host(:active) {
-      background-color: var(--cn-color-button-active);
     }
     :host .avatarFrame {
       border-radius: 50%;
@@ -70,7 +66,7 @@ export class CnAvatar extends LitElement {
       align-items: center;
       aspect-ratio: 1 / 1;
       height: calc(var(--cn-line) * 3);
-      background-color: var(--cn-color-button);
+      background-color: var(--color-button);
       user-select: none;
       cursor: pointer;
       transition: background-color 0.3s ease-in-out;
@@ -112,9 +108,6 @@ export class CnAvatar extends LitElement {
       border-radius: 50%;
       background-color: var(--cn-color-button-hover);
       z-index: -1;
-    }
-    :host(:hover) cn-icon.placeholder::before {
-      background-color: var(--cn-color-button);
     }
   `
 }

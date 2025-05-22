@@ -4,7 +4,7 @@
     var(--chroma-surface-80)
   );
   --cn-color-avatar-2: light-dark(
-    var(--chroma-primary-80),
+    var(--chroma-primary-50),
     var(--chroma-primary-80)
   );
 }
