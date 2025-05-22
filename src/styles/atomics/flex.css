@@ -3,6 +3,11 @@
   gap: var(--cn-gap);
   flex-wrap: wrap;
 }
+.flex > * {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
 .flex-row {
   flex-direction: row;
 }
