@@ -4,4 +4,6 @@
     var(--chroma-surface-30),
     var(--chroma-surface-99)
   );
+  /* Lets just use the surface color for the input label for now */
+  --color-on-label: var(--color-on-surface);
 }
