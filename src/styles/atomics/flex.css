@@ -24,3 +24,10 @@
 .shrink {
   flex-shrink: 1;
 }
+.flex.items-center {
+  align-items: center;
+  justify-content: center;
+}
+.flex.items-center > * {
+  flex-grow: 0;
+}
