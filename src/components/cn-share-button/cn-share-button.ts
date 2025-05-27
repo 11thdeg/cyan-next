@@ -22,6 +22,15 @@ export class CnShareButton extends LitElement {
   @property({ type: String, reflect: true })
   noun = ''
 
+  @property({ type: Boolean, reflect: true })
+  disabled = false
+
+  @property({ type: Boolean, reflect: true })
+  fallback = false
+
+  @property({ type: String, reflect: true })
+  text = ''
+
   private defaultIcon = html`<?xml version="1.0" encoding="UTF-8"?>
   <svg width="1200pt" height="1200pt" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
    <path fill="currentColor" 
@@ -39,20 +48,40 @@ export class CnShareButton extends LitElement {
    * on the action taken.
    */
   private async handleClicked() {
-    // Check if the Web Share API is supported by the browser, if so, use it
-    if (typeof navigator.share !== 'undefined') {
-      await navigator.share({
-        title: this.title || document.title,
-        url: this.src || window.location.href,
-      })
-      this.dispatchEvent(new Event('share'))
+    if (!this.fallback && typeof navigator.share === 'function') {
+      // Check this.fallback
+      try {
+        await navigator.share({
+          title: this.title || document.title,
+          url: this.src || window.location.href, // Corrected
+          text: this.text || undefined, // Added text
+        })
+        this.dispatchEvent(new Event('share'))
+      } catch (error: unknown) {
+        console.error('Web Share API failed:', error)
+        // Optionally, dispatch an error event or try the fallback here too
+        if ((error as Error).name !== 'AbortError') {
+          // User didn't cancel the share
+          this.executeFallback() // Or just call the copy part directly
+        }
+      }
       return
     }
 
-    // Otherwise, fallback to the Clipboard API
-    const text = this.src || window.location.href
-    await navigator.clipboard.writeText(text)
-    this.dispatchEvent(new Event('copy'))
+    // Fallback to Clipboard API (or if this.fallback is true)
+    this.executeFallback()
+  }
+
+  private async executeFallback() {
+    const textToCopy = this.src || window.location.href
+    try {
+      await navigator.clipboard.writeText(textToCopy)
+      this.dispatchEvent(new Event('copy'))
+      // Consider dispatching a success notification/event
+    } catch (error) {
+      console.error('Failed to copy to clipboard:', error)
+      this.dispatchEvent(new Event('copy_error')) // Or a generic error event
+    }
   }
 
   render() {
@@ -61,18 +90,21 @@ export class CnShareButton extends LitElement {
       : this.defaultIcon
 
     const labelString = this.label ? this.label : 'Share'
+    const showLabelText = this.label.length > 0
 
     return html`
       <button 
         aria-label=${labelString}
+        ?disabled=${this.disabled}
         @click=${this.handleClicked}>
-        <span class="label">${labelString}</span> ${icon}
+        ${showLabelText ? html`<span class="label">${labelString}</span>` : ''} 
+        ${icon}
       </button>`
   }
 
   static styles = css`
     :host {
-      display: contents;
+      display: inline-block;
     }
     :host button {
       background: var(
@@ -106,6 +138,8 @@ export class CnShareButton extends LitElement {
       flex-grow: 0;
       flex-shrink: 0;
       transition: all 0.22s; 
+
+      vertical-align: middle;
     }
     :host button:hover{
       background: var(
@@ -147,7 +181,6 @@ export class CnShareButton extends LitElement {
         padding: 0;
       }
     }
-    
     `
 }
 
