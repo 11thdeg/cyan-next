@@ -1,0 +1,18 @@
+body {
+  --color-removed: light-dark(
+    color-mix(in hsl, var(--chroma-A), white 70%),
+    color-mix(in hsl, var(--chroma-A), black 20%)
+  );
+  --color-on-removed: light-dark(
+    color-mix(in hsl, var(--chroma-A), black 80%),
+    color-mix(in hsl, var(--chroma-A), white 80%)
+  );
+  --color-added: light-dark(
+    color-mix(in hsl, var(--chroma-primary-70), white 50%),
+    var(--chroma-primary-99)
+  );
+  --color-on-added: light-dark(
+    color-mix(in hsl, var(--chroma-primary-40), black 70%),
+    var(--chroma-primary-10)
+  );
+}

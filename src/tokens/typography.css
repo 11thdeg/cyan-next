@@ -26,4 +26,7 @@ body {
   --cn-heading-5-line-height: calc(2 * var(--cn-grid) * 2);
 
   --cn-heading-3-letter-spacing: calc(var(--cn-grid) / 32);
+
+  --cn-font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
 }

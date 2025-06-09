@@ -1,0 +1,23 @@
+/*
+ * A style for diff views, such as those in pull requests.
+ * It uses the `diff` class to apply styles to the diff view.
+ * The diff view is expected to have a structure with lines
+ * that can be identified by their classes.
+ */
+.diff {
+  background: var(--color-field);
+  color: var(--color-on-field);
+  padding: var(--cn-gap);
+  font-family: var(--cn-font-family-monospace);
+  white-space: pre-wrap;
+  border-radius: 0 var(--cn-border-radius) 0 0;
+  border-bottom: solid 1px var(--color-border);
+}
+.diff-added {
+  color: var(--color-on-added);
+  background: var(--color-added);
+}
+.diff .diff-deletion {
+  color: var(--color-on-removed);
+  background: var(--color-removed);
+}
