@@ -77,8 +77,8 @@ export class CnMenu extends LitElement {
       display: block;
     }
   `
-  @property({ type: String, reflect: true, attribute: 'aria-expanded' })
-  expanded = 'false' // Set initial value to 'false'
+  @property({ type: Boolean, reflect: true })
+  expanded = false
 
   @property({ type: Boolean, reflect: true })
   inline = false
@@ -97,12 +97,13 @@ export class CnMenu extends LitElement {
           type="button" 
           class="text icon" 
           aria-haspopup="true" 
-          aria-expanded="${this.expanded ? 'true' : 'false'}" 
+          aria-expanded="${this.expanded}" 
           @click="${this._toggleMenu}"
+          ?disabled=${this.disabled}
         >
           <cn-icon small noun=${icon}></cn-icon>
         </button>
-        <div class="cn-menu-content ${this.expanded === 'true' ? 'show' : ''}" role="menuitem"
+        <div class="cn-menu-content ${this.expanded ? 'show' : ''}" role="menuitem"
           style="${menuPosition === 'left' ? 'right: var(--cn-grid);' : 'left: var(--cn-grid);'}"
         > 
           <slot></slot>
@@ -129,13 +130,15 @@ export class CnMenu extends LitElement {
   }
 
   private _toggleMenu(e: Event) {
+    if (this.disabled) {
+      return
+    }
     e.stopPropagation() // Prevent the click event from bubbling up
-    const expanded = this.expanded === 'true' ? 'false' : 'true' // Toggle between 'true' and 'false'
-    this.expanded = expanded
-    logDebug('dispatching menu-toggled', expanded)
+    this.expanded = !this.expanded
+    logDebug('dispatching menu-toggled', this.expanded)
     this.dispatchEvent(
       new CustomEvent('menu-toggled', {
-        detail: { expanded },
+        detail: { expanded: this.expanded },
         bubbles: true,
         composed: true,
       }),
@@ -150,7 +153,7 @@ export class CnMenu extends LitElement {
       ?.querySelector('.cn-menu-content')
       ?.contains(target)
     if (
-      this.expanded === 'true' &&
+      this.expanded &&
       !this.contains(target) &&
       !isClickInsideMenu &&
       !(this === target)

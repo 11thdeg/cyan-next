@@ -1,40 +1,67 @@
-cn-menu ul {
+main :where(cn-menu) ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
-cn-menu ul + ul {
+:where(cn-menu) ul + ul {
   margin-top: -1px;
   border-top: 1px solid var(--color-border);
 }
 
-cn-menu ul li {
+:where(cn-menu) li::before {
+  display: none;
+}
+main :where(cn-menu) ul > li {
+  margin: 0;
+  padding: 0 var(--cn-grid);
+}
+:where(cn-menu) ul > li > a,
+:where(cn-menu) ul > li > button {
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--cn-grid);
+  align-items: center;
+  height: calc(var(--cn-grid) * 5);
+}
+cn-menu ul li:hover {
+  background: color-mix(in hsl, var(--color-link), transparent 90%);
+  outline: none;
+}
+/*
+:where(cn-menu) ul li {
   margin: 0;
   display: block;
   padding: 0;
   background: none;
+  height: calc(var(--cn-grid) * 5);
+  line-height: calc(var(--cn-grid) * 5);
+  position: relative;
 }
-cn-menu ul li::before {
-  content: "";
-  display: none;
-}
-cn-menu ul li button,
-cn-menu ul li a {
-  display: block;
+
+:where(cn-menu) ul li button,
+:where(cn-menu) ul li a {
   text-decoration: none;
   color: var(--color-text);
   padding: var(--cn-grid);
-  height: calc(var(--cn-grid) * 5);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: flex-start;
   gap: var(--cn-grid);
   background: none;
   border-radius: 0;
   width: 100%;
+  height: 100%;
   margin: 0;
+  
 }
 cn-menu ul li button:hover,
-cn-menu ul li a:hover {
+cn-menu ul li a:hover,
+cn-menu ul li button:focus-visible,
+cn-menu ul li a:focus-visible {
   background: color-mix(in hsl, var(--color-link), transparent 90%);
-}
+  outline: none;
+}*/
